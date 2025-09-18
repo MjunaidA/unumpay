@@ -1,0 +1,12 @@
+{
+  "welcome": "Bienvenue",
+  "welcomeTopBarTitle":"Tableau de bord",
+  "welcome_desc": "Bon retour! Voici ce qui se passe avec votre plateforme de médiation de paiement.",
+  "appName":"Unumpay",
+  "tagline": "Médiation de paiement",
+  "error":"Erreur",
+  "transactionTopBarTitle":"Transactions",
+  "transaction_desc":"Surveillez et gérez toutes les transactions de paiement.",
+  "FirstNavTitle":"Tableau de bord",
+  "SecondNavTitle":"Transactions"
+}

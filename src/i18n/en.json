@@ -1,0 +1,12 @@
+{
+  "welcome": "Welcome",
+  "welcomeTopBarTitle":"dashboard",
+  "welcome_desc": "Welcome back! Here's what's happening with your payment mediation platform.",
+  "appName":"Unumpay",
+  "tagline": "Payment Mediation",
+  "error":"error",
+  "transactionTopBarTitle":"Transactions",
+  "transaction_desc":"Monitor and manage all payment transactions.",
+  "FirstNavTitle":"Dashboard",
+  "SecondNavTitle":"Transactions"
+}

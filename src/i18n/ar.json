@@ -1,0 +1,12 @@
+{
+  "welcome": "مرحبا",
+  "welcomeTopBarTitle": "لوحة القيادة",
+  "welcome_desc": ".مرحبًا بعودتك! إليك ما يحدث مع منصة تسوية المدفوعات الخاصة بك",
+  "appName":"يونم باي",
+  "tagline": "وساطة الدفع",
+  "error": "خطأ",
+  "transactionTopBarTitle":"المعاملات",
+  "transaction_desc":".راقب وأدر جميع معاملات الدفع",
+  "FirstNavTitle":"لوحة التحكم",
+  "SecondNavTitle":"المعاملات"
+}

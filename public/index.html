@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>Unumpay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-i18n@8"></script>
+    <!-- <script src="https://unpkg.com/@shopify/app-bridge@3.7.1/umd/index.js"></script>
+    <script src="https://unpkg.com/@shopify/app-bridge-utils@3.5.1/umd/index.js"></script> -->
+    <meta name="shopify-api-key" content="7392885691d1e1a3d740097f7d9b59bc" />
+    <!-- <script src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script> -->
+    <!-- <script src="https://cdn.heymantle.com/mantle_apptrack.js?appToken=34312b4e9b3980cf289dd9c6951071e3"></script> -->
+    <!-- <script>
+        var AppBridge = window['app-bridge'];
+        var customSession = window['app-bridge-utils']
+        function getUrlVariables() {
+            var custom_variables = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                custom_variables[key] = value;
+            });
+            return custom_variables;
+        }
+        const custom_variables = getUrlVariables()
+        const config = {
+            apiKey: custom_variables.SHOPIFY_APP_API_KEY,
+            host: custom_variables.host
+        };
+        // debugger;
+        const app = AppBridge?.createApp(config);
+        const sessionToken = customSession.getSessionToken(app);
+        console.log("Session Token")
+        console.log(sessionToken)
+        // debugger;
+    </script> -->
+  <style>
+     body,h1,h2,h3,h4,h5,h6,p,span,button{
+        font-family: "Inter", sans-serif;
+      }
+  </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

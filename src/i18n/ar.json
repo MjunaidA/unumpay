@@ -1,5 +1,4 @@
 {
-  "welcome": "مرحبا",
   "welcomeTopBarTitle": "لوحة القيادة",
   "welcome_desc": ".مرحبًا بعودتك! إليك ما يحدث مع منصة تسوية المدفوعات الخاصة بك",
   "appName":"يونم باي",
@@ -7,6 +6,23 @@
   "error": "خطأ",
   "transactionTopBarTitle":"المعاملات",
   "transaction_desc":".راقب وأدر جميع معاملات الدفع",
+  "advancePaymentTopBarTitle":"الدفع المقدم",
+  "advancePayment_desc":".مراقبة وإدارة جميع الدفعات المقدمة",
+  "ReconciliationReportTopBarTitle":"تقرير التسوية",
+  "ReconciliationReport_desc":".قم بمراقبة وإدارة تقارير التسوية الخاصة بك",
+  "PaymentServiceProvidersTopBarTitle":"مزودو خدمات الدفع",
+  "PaymentServiceProviders_desc":".قم بإعداد وإدارة بوابات الدفع الخاصة بك",
+  "SettingsTopBarTitle": "إعدادات التسوية",
+  "Settings_desc": "قم بتكوين وإدارة بوابات الدفع الخاصة بك",
   "FirstNavTitle":"لوحة التحكم",
-  "SecondNavTitle":"المعاملات"
+  "SecondNavTitle":"المعاملات",
+  "ThirdNavTitle":"الدفع المقدم",
+  "FourthNavTitle":"تقرير التسوية",
+  "FifthNavTitle":"مزودو خدمات الدفع",
+  "SixthNavTitle": "الإعدادات",
+  "welcomePageTitle":"يونم باي مرحبًا بك في",
+  "welcomePageCaption":"!أنت على بعد خطوة واحدة فقط",
+  "welcomePageDesc":".لبدء قبول المدفوعات، يرجى تكوين مزود خدمة الدفع (PSP) في الإعدادات باستخدام الحساب الذي لديك بالفعل. سيكمل ذلك التكامل ويمكّن الدفع بالبطاقات في متجرك",
+  "welcomePageButtonTitle":"اذهب إلى إعدادات التكوين"
+
 }

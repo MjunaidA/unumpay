@@ -1,5 +1,4 @@
 {
-  "welcome": "Bienvenue",
   "welcomeTopBarTitle":"Tableau de bord",
   "welcome_desc": "Bon retour! Voici ce qui se passe avec votre plateforme de médiation de paiement.",
   "appName":"Unumpay",
@@ -7,6 +6,23 @@
   "error":"Erreur",
   "transactionTopBarTitle":"Transactions",
   "transaction_desc":"Surveillez et gérez toutes les transactions de paiement.",
+  "advancePaymentTopBarTitle":"Paiement anticipé",
+  "advancePayment_desc":"Surveillez et gérez tous les paiements anticipés.",
+  "ReconciliationReportTopBarTitle":"Rapport de rapprochement",
+  "ReconciliationReport_desc":"Surveillez et gérez vos rapports de rapprochement.",
+  "PaymentServiceProvidersTopBarTitle": "Fournisseurs de services de paiement",
+  "PaymentServiceProviders_desc": "Configurez et gérez vos passerelles de paiement",
+  "SettingsTopBarTitle": "Paramètres de rapprochement",
+  "Settings_desc": "Configurer et gérer vos passerelles de paiement",
   "FirstNavTitle":"Tableau de bord",
-  "SecondNavTitle":"Transactions"
+  "SecondNavTitle":"Transactions",
+  "ThirdNavTitle":"Paiement anticipé",
+  "FourthNavTitle":"Rapport de rapprochement",
+  "FifthNavTitle":"Fournisseurs de services de paiement",
+  "SixthNavTitle": "Paramètres",
+  "welcomePageTitle":"Bienvenue sur UnumPay",
+  "welcomePageCaption":"Vous y êtes presque !",
+  "welcomePageDesc":"Pour commencer à accepter les paiements, veuillez configurer votre fournisseur de services de paiement (PSP) dans les Paramètres en utilisant le compte que vous possédez déjà. Cela complétera l'intégration et activera les paiements par carte sur votre boutique.",
+  "welcomePageButtonTitle":"Aller aux paramètres de configuration"
+
 }

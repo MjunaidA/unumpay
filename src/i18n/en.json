@@ -1,5 +1,4 @@
 {
-  "welcome": "Welcome",
   "welcomeTopBarTitle":"dashboard",
   "welcome_desc": "Welcome back! Here's what's happening with your payment mediation platform.",
   "appName":"Unumpay",
@@ -7,6 +6,22 @@
   "error":"error",
   "transactionTopBarTitle":"Transactions",
   "transaction_desc":"Monitor and manage all payment transactions.",
+  "advancePaymentTopBarTitle":"Advance Payment",
+  "advancePayment_desc":"Monitor and manage all advance payment.",
+  "ReconciliationReportTopBarTitle":"Reconciliation Report",
+  "ReconciliationReport_desc":"Monitor and manage your reconciliation reports.",
+  "PaymentServiceProvidersTopBarTitle":"Payment Service Providers",
+  "PaymentServiceProviders_desc":"Configure and manage your payment gateways",
+  "SettingsTopBarTitle":"Reconciliation Settings",
+  "Settings_desc":"Configure and manage your payment gateways",
   "FirstNavTitle":"Dashboard",
-  "SecondNavTitle":"Transactions"
+  "SecondNavTitle":"Transactions",
+  "ThirdNavTitle":"Advance Payment",
+  "FourthNavTitle":"Reconciliation Report",
+  "FifthNavTitle":"Payment Service Providers",
+  "SixthNavTitle":"Settings",
+  "welcomePageTitle":"Welcome To UnumPay",
+  "welcomePageCaption":"You're almost there!",
+  "welcomePageDesc":"To start accepting payments, please configure your payment service provider (PSP) in Settings using the account you already have. This will complete the integration and enable card payments on your store.",
+  "welcomePageButtonTitle":"Go To Configuration Setting"
 }

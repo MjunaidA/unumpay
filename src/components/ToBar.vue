@@ -1,13 +1,9 @@
 <template>
-  <div class="top-bar py-3 px-6 bg-white d-flex justify-space-between align-center"
-  :class="{ 'flex-row-reverse': isRtl }"
-  >
+  <div class="top-bar py-3 px-6 bg-white d-flex justify-space-between align-center">
     <div>
       <h1 class="h1 capatilize fontWeight600 fontSize16"
-      :class="{ 'text-right': isRtl, 'text-left': !isRtl }"
       >{{ title }}</h1>
       <p class="desc mb-0 fontSize12"
-      :class="{ 'text-right': isRtl, 'text-left': !isRtl }"
       >{{ description }}</p>
     </div>
     <div>

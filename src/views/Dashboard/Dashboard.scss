@@ -1,0 +1,41 @@
+.dashboard-container {
+  .warning-desc {
+    color: #5e4200;
+  }
+  .rtl-rotate {
+    transform: rotate(180deg);
+  }
+  .stats-container .col {
+    border: 1px solid #b8babd;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  .col-wrapper{
+    border: 0.5px solid #E5E5E5;
+  }
+  .revenue-tooltip button{
+    width: fit-content!important;
+  }
+  .stats-row{
+    margin: unset;
+  }
+  .revenue-tooltip .mdi:before{
+    font-size: 18px;
+  }
+  .right-col{
+    line-height: 0;
+    width: 20px;
+    height: 20px;
+  }
+}
+.custom-tooltip {
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 8px !important;
+  border: 0.3px solid #e7e7e7;
+  max-width: 20% !important;
+}
+.rtl-rotate .v-snackbar__content{
+  text-align: right!important;
+}

@@ -10,7 +10,7 @@
          <Nav :isRtl="isRtl" />
 
       </v-navigation-drawer>
-      <v-main>
+      <v-main :style="{ direction: isRtl ? 'rtl' : 'ltr' }">
         <TopBar :title="pageTitle" :description="pageDesc" :languages="languages" :currentLang="currentLang"
           :changeLanguage="changeLanguage" :isRtl="isRtl" />
         <router-view />

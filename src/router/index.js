@@ -6,6 +6,8 @@ import AdvancePayments from "@/views/AdvancePayments/index.vue";
 import ReconciliationReport from "@/views/ReconciliationReport/index.vue";
 import PaymentServiceProviders from "@/views/PaymentServiceProviders/index.vue";
 import Settings from "@/views/Settings/index.vue";
+import Error from "@/views/Error/index.vue";
+import NotFound from "../views/NotFound.vue";
 
 const routes = [
   {
@@ -53,13 +55,31 @@ const routes = [
       descKey: "PaymentServiceProviders_desc",
     },
   },
-    {
+  {
     path: "/settings",
     name: "Settings",
     component: Settings,
     meta: {
       titleKey: "SettingsTopBarTitle",
       descKey: "Settings_desc",
+    },
+  },
+  {
+    path: "/error",
+    name: "Error",
+    component: Error,
+    meta: {
+      titleKey: "ErrorTopBarTitle",
+      descKey: "Error_desc",
+    },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
+    meta: {
+      titleKey: "NotFoundTitle",
+      descKey: "NotFound_desc",
     },
   },
 ];

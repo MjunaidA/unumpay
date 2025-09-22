@@ -14,6 +14,10 @@
   "PaymentServiceProviders_desc":".قم بإعداد وإدارة بوابات الدفع الخاصة بك",
   "SettingsTopBarTitle": "إعدادات التسوية",
   "Settings_desc": "قم بتكوين وإدارة بوابات الدفع الخاصة بك",
+  "ErrorTopBarTitle":"خطأ",
+  "Error_desc":"!انتهت الجلسة، أعد فتح التطبيق",
+  "NotFoundTitle":"الصفحة غير موجودة",
+  "NotFound_desc":".الصفحة التي تبحث عنها غير موجودة",
   "FirstNavTitle":"لوحة التحكم",
   "SecondNavTitle":"المعاملات",
   "ThirdNavTitle":"الدفع المقدم",
@@ -23,6 +27,28 @@
   "welcomePageTitle":"يونم باي مرحبًا بك في",
   "welcomePageCaption":"!أنت على بعد خطوة واحدة فقط",
   "welcomePageDesc":".لبدء قبول المدفوعات، يرجى تكوين مزود خدمة الدفع (PSP) في الإعدادات باستخدام الحساب الذي لديك بالفعل. سيكمل ذلك التكامل ويمكّن الدفع بالبطاقات في متجرك",
-  "welcomePageButtonTitle":"اذهب إلى إعدادات التكوين"
+  "welcomePageButtonTitle":"اذهب إلى إعدادات التكوين",
+  "errorPageTitle":"!انتهت الجلسة، أعد فتح التطبيق",
+  "errorPageCaption":"!عذرًا",
+  "errorPageDesc":"!ليس لديك إذن للوصول إلى المستند أو البرنامج الذي طلبته",
+  "notFoundPageTitle":"٤٠٤ - الصفحة غير موجودة",
+  "contact_detail_warning_desc": "يرجى تقديم معلومات الاتصال بصاحب القرار في الإعدادات. نستخدم هذه المعلومات للتواصل معك بشأن التحديثات المهمة أو مشكلات الدفع أو لأغراض التحقق.",
+  "stats_data_loaded":"تم تحميل البيانات بنجاح",
+  "stats_api_error":"حدث خطأ ما",
+  "total_revenue_heaing":"إجمالي الإيرادات",
+  "total_revenue_tooltip_desc":"يشمل إجمالي الإيرادات جميع المعاملات الناجحة",
+  "transactions_heaing":"المعاملات",
+  "transactions_tooltip_desc":".إجمالي المعاملات التي تمت محاولتها مقابل المعاملات التي اكتملت بنجاح",
+  "so_far_in": "حتى الآن في",
+  "successful_ransactions":"المعاملات الناجحة",
+  "success_rate_tooltip_desc": "معدل النجاح يعتمد على نسبة المعاملات الناجحة إلى إجمالي المحاولات.",
+  "success_rate_heaing": "معدل النجاح",
+  "last_month_success_rate": "معدل النجاح للشهر الماضي",
+  "in_progress_tooltip_desc": "المعاملات الجارية حالياً ولم تكتمل بعد.",
+  "in_progress_heading": "المعاملات قيد التنفيذ",
+  "amount_of_transactions": "عدد المعاملات"
+
+
+
 
 }

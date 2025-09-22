@@ -8,7 +8,7 @@
       <h1 class="mb-3 fontSize40 fontWeight700">{{ $t('welcomePageTitle') }}</h1>
       <span class="fontSize18 fontWeight700">{{ $t('welcomePageCaption') }}</span>
       <p class="fontSize18 fontWeight400">{{ $t('welcomePageDesc') }}</p>
-      <router-link to="/settings" exact-active-class="isActivated">
+      <router-link to="/payment-service-providers" exact-active-class="isActivated">
         <button class="border-radius fontSize14 mt-4 px-4 py-2 rounded get-started-btn">{{ $t('welcomePageButtonTitle') }}</button>
       </router-link>
     </div>

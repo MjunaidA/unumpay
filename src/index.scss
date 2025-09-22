@@ -89,6 +89,10 @@ img {
   font-size: 40px!important;
 }
 
+.fontSize24 {
+  font-size: 24px!important;
+}
+
 .fontSize16 {
   font-size: 16px!important;
 }
@@ -154,4 +158,27 @@ body *::-webkit-scrollbar {
 }
 .bgWhite{
   background: #fff;
+}
+.pageWidth{
+  width: 97%!important;
+  max-width: 97%!important;
+  margin: 0 auto;
+}
+.v-snackbar__wrapper{
+  box-shadow: none!important;
+}
+.LightgreyColor{
+  color: #888888;
+}
+.greyColor{
+  color: #616161;
+}
+.v-locale--is-ltr {
+  direction: inherit !important;
+}
+.green{
+  color: #16A349;
+}
+.yellow{
+  color: #FFAD00;
 }

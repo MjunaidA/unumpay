@@ -11,22 +11,40 @@
     padding: 1.5rem;
     border-radius: 10px;
   }
-  .col-wrapper{
-    border: 0.5px solid #E5E5E5;
+  .col-wrapper {
+    border: 1px solid #e5e5e5;
+    height: 100%;
   }
-  .revenue-tooltip button{
-    width: fit-content!important;
+  .revenue-tooltip button {
+    width: fit-content !important;
   }
-  .stats-row{
+  .stats-row {
     margin: unset;
+    row-gap: 12px;
+    column-gap: 12px;
   }
-  .revenue-tooltip .mdi:before{
+  .revenue-tooltip .mdi:before {
     font-size: 18px;
   }
-  .right-col{
+  .right-col {
     line-height: 0;
     width: 20px;
     height: 20px;
+  }
+  .v-field__outline__end,
+  .v-field__outline__start {
+    border-color: #e2e8f0;
+    opacity: 1;
+  }
+  .select-right {
+    .v-select__selection-text {
+      font-size: 13px;
+      font-weight: 500;
+      color: #000;
+    }
+    .mdi-chevron-down {
+      color: #4a4a4a;
+    }
   }
 }
 .custom-tooltip {
@@ -36,6 +54,33 @@
   border: 0.3px solid #e7e7e7;
   max-width: 20% !important;
 }
-.rtl-rotate .v-snackbar__content{
-  text-align: right!important;
+.rtl-rotate .v-snackbar__content {
+  text-align: right !important;
+}
+
+.cst-range .v-list-item-title {
+  font-size: 14px !important;
+  color: #000;
+  font-weight: 500;
+}
+#chartjs-tooltip {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(223, 223, 223);
+  padding: 8px 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  opacity: 0;
+  div{
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .tooltip-date{
+    margin-bottom: 10px;
+  }
+  .unumpay-tooltip{
+    color: #888888;
+    margin-top: 10px;
+  }
 }

@@ -26,7 +26,7 @@
       <div class="stats-container">
         <v-container class="pa-0 pageWidth">
           <v-row cols="12" md="4" class="stats-row">
-            <v-col class="pl-0 pt-0">
+            <v-col class="pa-0">
               <div class="col-wrapper bgWhite border-radius pa-4">
                 <div class="box-header d-flex align-center justify-space-between mb-2">
                   <div class="left-col d-flex align-center">
@@ -78,7 +78,7 @@
                 </div>
               </div>
             </v-col>
-            <v-col class="pl-0 pt-0">
+            <v-col class="pa-0">
               <div class="col-wrapper bgWhite border-radius pa-4">
                 <div class="box-header d-flex align-center justify-space-between mb-2">
                   <div class="left-col d-flex align-center">
@@ -121,7 +121,7 @@
                 </div>
               </div>
             </v-col>
-            <v-col class="pl-0 pt-0">
+            <v-col class="pa-0">
               <div class="col-wrapper bgWhite border-radius pa-4">
                 <div class="box-header d-flex align-center justify-space-between mb-2">
                   <div class="left-col d-flex align-center">
@@ -135,7 +135,8 @@
                         </template>
                       </v-tooltip>
                     </div>
-                    <span class="heading LightgreyColor fontSize14 fontWeight600">{{ $t('success_rate_heading')}}</span>
+                    <span class="heading LightgreyColor fontSize14 fontWeight600">{{ $t('success_rate_heading')
+                    }}</span>
                   </div>
                   <div class="right-col">
                     <img :src="'https://cdn.shopify.com/s/files/1/0612/1662/0768/files/success-rate.svg?v=1752228738'"
@@ -154,13 +155,13 @@
                     width="120px" height="20px" />
                   <span v-else><span class="monthly-price green fontSize12 fontWeight500">{{
                     dashboard_stats.data.last_month_success_rate
-                  }}%</span><span class="fontSize12 greyColor fontWeight500" :class="isRtl ? 'pr-1' : 'pl-1'">{{
+                      }}%</span><span class="fontSize12 greyColor fontWeight500" :class="isRtl ? 'pr-1' : 'pl-1'">{{
                         $t('last_month_success_rate')
                       }}</span></span>
                 </div>
               </div>
             </v-col>
-            <v-col class="pl-0 pt-0">
+            <v-col class="pa-0">
               <div class="col-wrapper bgWhite border-radius pa-4">
                 <div class="box-header d-flex align-center justify-space-between mb-2">
                   <div class="left-col d-flex align-center">
@@ -174,7 +175,7 @@
                         </template>
                       </v-tooltip>
                     </div>
-                    <span class="heading LightgreyColor fontSize14 fontWeight600">{{ $t('in_progress_heading')}}</span>
+                    <span class="heading LightgreyColor fontSize14 fontWeight600">{{ $t('in_progress_heading') }}</span>
                   </div>
                   <div class="right-col">
                     <img :src="'https://cdn.shopify.com/s/files/1/0612/1662/0768/files/progress.svg?v=1752228795'"
@@ -189,16 +190,37 @@
                 <v-skeleton-loader v-if="stats_loading || !dashboard_stats.data" type="text" class="inline-skeleton"
                   width="120px" height="30px" />
                 <div class="monthly-transaction" v-else>
-                  <span class="monthly-price yellow fontSize12 fontWeight500"><span>{{ dashboard_stats.data.currency_symbol }}</span>{{
-                    dashboard_stats.data.pending_transaction_amount }}</span><span class="fontSize12 greyColor fontWeight500" :class="isRtl ? 'pr-1' : 'pl-1'">
+                  <span class="monthly-price yellow fontSize12 fontWeight500"><span>{{
+                    dashboard_stats.data.currency_symbol
+                      }}</span>{{
+                        dashboard_stats.data.pending_transaction_amount }}</span><span
+                    class="fontSize12 greyColor fontWeight500" :class="isRtl ? 'pr-1' : 'pl-1'">
                     {{
-                        $t('amount_of_transactions')
-                      }}</span>
+                      $t('amount_of_transactions')
+                    }}</span>
                 </div>
               </div>
             </v-col>
           </v-row>
         </v-container>
+      </div>
+      <div class="graph-container border pa-4 pageWidth bgWhite border-radius mt-4">
+        <div class="graph-headings-container pl-4 mb-4 d-flex align-center justify-space-between flex-wrap">
+          <div class="heading-left">
+            <h2 class="fontWeight600 fontSize18 mb-1 fontSize18 fontWeight600">{{ $t('payment_trend_title') }}</h2>
+            <p class="p-dashboard fontSize12 fontWeight500">{{ $t('payment_trend_desc') }}</p>
+          </div>
+          <div class="select-right">
+            <v-select v-model="selectedRange" :items="[
+              { value: '6m', text: $t('6months'), props: { class: 'cst-range' } },
+              { value: '1y', text: $t('1year'), props: { class: 'cst-range' } }
+            ]" placeholder="Duration" class="custom-select" variant="outlined" density="compact" item-title="text"
+               item-value="value" hide-details append-icon=""
+              :append-inner-icon="menuOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'" v-model:menu="menuOpen"
+              @update:model-value="updateChartData" />
+          </div>
+        </div>
+        <LineChart :chart-data="datacollection" :chart-options="chartOptions" :key="shop_currency" />
       </div>
     </div>
     <div class="snackbar">

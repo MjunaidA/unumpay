@@ -7,6 +7,10 @@ img {
   border-radius: 8px !important;
 }
 
+.border{
+  border: 1px solid #E4E7EB;
+}
+
 .nav-drawer .v-avatar img {
   border-radius: 8px !important;
 }
@@ -91,6 +95,10 @@ img {
 
 .fontSize24 {
   font-size: 24px!important;
+}
+
+.fontSize18 {
+  font-size: 18px!important;
 }
 
 .fontSize16 {
@@ -181,4 +189,7 @@ body *::-webkit-scrollbar {
 }
 .yellow{
   color: #FFAD00;
+}
+.v-select__menu-icon{
+  display: none!important;
 }

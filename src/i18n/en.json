@@ -46,5 +46,28 @@
   "last_month_success_rate":"Last month success rate",
   "in_progress_tooltip_desc":"Transactions currently in progress and not yet completed.",
   "in_progress_heading":"In Progress Transactions",
-  "amount_of_transactions":"Amount of transactions"
+  "amount_of_transactions":"Amount of transactions",
+  "payment_trend_title":"Payment Trends",
+  "payment_trend_desc":"Revenue and transaction volume over time",
+  "6months":"6 Month",
+  "1year":"1 year",
+  "chart": {
+    "revenue": "Revenue",
+    "transactions": "Transactions",
+    "unumpay_fee": "Unumpay Fee"
+  },
+   "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  }
 }

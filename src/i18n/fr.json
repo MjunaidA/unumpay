@@ -35,19 +35,39 @@
   "contact_detail_warning_desc": "Veuillez fournir les coordonnées du décideur dans les paramètres. Nous utilisons ces informations pour vous contacter concernant des mises à jour importantes, des problèmes de paiement ou des besoins de vérification.",
   "stats_data_loaded":"Données chargées avec succès",
   "stats_api_error":"Quelque chose s'est mal passé",
-  "total_revenue_heaing":"Revenu total",
+  "total_revenue_heading":"Revenu total",
   "total_revenue_tooltip_desc":"Le revenu total inclut toutes les transactions réussies",
-  "transactions_heaing":"Transactions",
+  "transactions_heading":"Transactions",
   "transactions_tooltip_desc":"Nombre total de transactions tentées par rapport à celles réussies.",
   "so_far_in": "jusqu’à présent en",
   "successful_ransactions":"Transactions réussies",
   "success_rate_tooltip_desc": "Le taux de réussite est basé sur le rapport entre les transactions réussies et le nombre total de tentatives.",
-  "success_rate_heaing": "Taux de réussite",
+  "success_rate_heading": "Taux de réussite",
   "last_month_success_rate": "Taux de réussite du mois dernier",
   "in_progress_tooltip_desc": "Transactions en cours et non encore terminées.",
   "in_progress_heading": "Transactions en cours",
-  "amount_of_transactions": "Nombre de transactions"
-
-
-
+  "amount_of_transactions": "Nombre de transactions",
+  "payment_trend_title":"Tendances de paiement",
+  "payment_trend_desc":"Revenus et volume des transactions au fil du temps",
+  "6months":"6 mois",
+  "1year":"1 an",
+   "chart": {
+    "revenue": "Revenu",
+    "transactions": "Transactions",
+    "unumpay_fee": "Frais Unumpay"
+  },
+   "months": {
+    "january": "Janvier",
+    "february": "Février",
+    "march": "Mars",
+    "april": "Avril",
+    "may": "Mai",
+    "june": "Juin",
+    "july": "Juillet",
+    "august": "Août",
+    "september": "Septembre",
+    "october": "Octobre",
+    "november": "Novembre",
+    "december": "Décembre"
+  }
 } 

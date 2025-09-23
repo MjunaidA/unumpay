@@ -17,7 +17,7 @@
 
     <v-divider></v-divider>
 
-    <v-list density="compact" nav>
+    <v-list density="compact" nav class="mt-4">
         <!-- Dashboard link -->
 
         <v-list-item class="mb-2" :to="{ path: '/dashboard' }"  value="Dashboard" link >

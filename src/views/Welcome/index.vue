@@ -9,7 +9,8 @@
       <span class="fontSize18 fontWeight700">{{ $t('welcomePageCaption') }}</span>
       <p class="fontSize18 fontWeight400">{{ $t('welcomePageDesc') }}</p>
       <router-link to="/payment-service-providers" exact-active-class="isActivated">
-        <button class="border-radius fontSize14 mt-4 px-4 py-2 rounded get-started-btn">{{ $t('welcomePageButtonTitle') }}</button>
+        <button class="border-radius fontSize14 mt-4 px-4 py-2 rounded get-started-btn">{{ $t('welcomePageButtonTitle')
+        }}</button>
       </router-link>
     </div>
   </div>
@@ -18,13 +19,11 @@
 
 <style scoped>
 .welcome-container {
-  min-height: 85vh;
   width: 98%;
   margin: 1.5rem auto;
 }
 
 .welcome-img-container {
-  width: 30rem;
   display: inline-flex;
 }
 
@@ -43,9 +42,34 @@
   p {
     color: #666666;
   }
-  .get-started-btn{
+
+  .get-started-btn {
     background: #374151;
     color: white;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .welcome-wrapper {
+    width: 100%;
+  }
+
+  .welcome-container {
+    min-height: 100vh;
+  }
+
+  .welcome-img-container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .welcome-img-container {
+    width: 30rem;
+  }
+
+  .welcome-container {
+    min-height: 85vh;
   }
 }
 </style>

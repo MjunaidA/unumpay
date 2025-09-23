@@ -35,20 +35,39 @@
   "contact_detail_warning_desc": "يرجى تقديم معلومات الاتصال بصاحب القرار في الإعدادات. نستخدم هذه المعلومات للتواصل معك بشأن التحديثات المهمة أو مشكلات الدفع أو لأغراض التحقق.",
   "stats_data_loaded":"تم تحميل البيانات بنجاح",
   "stats_api_error":"حدث خطأ ما",
-  "total_revenue_heaing":"إجمالي الإيرادات",
+  "total_revenue_heading":"إجمالي الإيرادات",
   "total_revenue_tooltip_desc":"يشمل إجمالي الإيرادات جميع المعاملات الناجحة",
-  "transactions_heaing":"المعاملات",
+  "transactions_heading":"المعاملات",
   "transactions_tooltip_desc":".إجمالي المعاملات التي تمت محاولتها مقابل المعاملات التي اكتملت بنجاح",
   "so_far_in": "حتى الآن في",
   "successful_ransactions":"المعاملات الناجحة",
   "success_rate_tooltip_desc": "معدل النجاح يعتمد على نسبة المعاملات الناجحة إلى إجمالي المحاولات.",
-  "success_rate_heaing": "معدل النجاح",
+  "success_rate_heading": "معدل النجاح",
   "last_month_success_rate": "معدل النجاح للشهر الماضي",
   "in_progress_tooltip_desc": "المعاملات الجارية حالياً ولم تكتمل بعد.",
   "in_progress_heading": "المعاملات قيد التنفيذ",
-  "amount_of_transactions": "عدد المعاملات"
-
-
-
-
+  "amount_of_transactions": "عدد المعاملات",
+  "payment_trend_title":"اتجاهات الدفع",
+  "payment_trend_desc":"الإيرادات وحجم المعاملات بمرور الوقت",
+  "6months":"6 أشهر",
+  "1year":"1 سنة",
+   "chart": {
+    "revenue": "الإيرادات",
+    "transactions": "المعاملات",
+    "unumpay_fee": "يونم باي رسوم"
+  },
+  "months": {
+    "january": "يناير",
+    "february": "فبراير",
+    "march": "مارس",
+    "april": "أبريل",
+    "may": "مايو",
+    "june": "يونيو",
+    "july": "يوليو",
+    "august": "أغسطس",
+    "september": "سبتمبر",
+    "october": "أكتوبر",
+    "november": "نوفمبر",
+    "december": "ديسمبر"
+  }
 }

@@ -19,12 +19,18 @@ export default {
         labels: [],
         datasets: [],
       },
+      recentTransactions: [],
+      paymentProviders: [],
+      recentTransactionLoading: true,
+      paymentProviderLoading: true,
     };
   },
   components: { LineChart },
   created() {
     this.getStatsApi();
     this.graphApi();
+    this.recentTransactionsFunc();
+    this.paymentProviderFunc();
   },
   methods: {
     selectOption(option) {
@@ -32,6 +38,23 @@ export default {
       this.menu = false;
       this.updateChartData();
     },
+    translateTimeAgo(text) {
+      return text
+        .replace("years", this.$t("time.years"))
+        .replace("year", this.$t("time.year"))
+        .replace("months", this.$t("time.months"))
+        .replace("month", this.$t("time.month"))
+        .replace("days", this.$t("time.days"))
+        .replace("day", this.$t("time.day"))
+        .replace("hours", this.$t("time.hours"))
+        .replace("hour", this.$t("time.hour"))
+        .replace("minutes", this.$t("time.minutes"))
+        .replace("minute", this.$t("time.minute"))
+        .replace("seconds", this.$t("time.seconds"))
+        .replace("second", this.$t("time.second"))
+        .replace("ago", this.$t("time.ago"));
+    },
+
     getTranslatedMonth(rawMonth) {
       if (!rawMonth) return "";
       const [month, year] = rawMonth.split("-");
@@ -131,6 +154,82 @@ export default {
             this.snackbar = true;
             this.snackbar_status = "red";
             this.snackbar_text = error.response.data.detail;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            } else {
+              this.snackbar_text = "stats_api_error";
+            }
+          }
+        );
+    },
+    recentTransactionsFunc() {
+      this.recentTransactionLoading = true;
+      this.$Axios
+        .get(
+          this.$backendURL +
+            "/payment_app/dashboard_recent_transactions?shop=" +
+            this.$shop,
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.recentTransactions = response.data.recent_transactions;
+            this.recentTransactionLoading = false;
+            this.snackbar = true;
+            this.snackbar_text = "stats_data_loaded";
+            this.snackbar_status = "green";
+          },
+          (error) => {
+            this.snackbar = true;
+            this.snackbar_status = "red";
+            this.snackbar_text = error.response.data.detail;
+            this.recentTransactionLoading = false;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            } else {
+              this.snackbar_text = "stats_api_error";
+            }
+          }
+        );
+    },
+    paymentProviderFunc() {
+      this.paymentProviderLoading = true;
+      this.$Axios
+        .get(
+          this.$backendURL +
+            "/payment_app/dashboard_service_provider?shop=" +
+            this.$shop,
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.paymentProviders = response.data.payment_provider_data;
+            this.paymentProviderLoading = false;
+            this.snackbar = true;
+            this.snackbar_text = "stats_data_loaded";
+            this.snackbar_status = "green";
+          },
+          (error) => {
+            this.snackbar = true;
+            this.snackbar_status = "red";
+            this.snackbar_text = error.response.data.detail;
+            this.paymentProviderLoading = false;
             if (
               error.response.data.detail ==
               "Session expired, Reopen the application!"
@@ -317,7 +416,6 @@ export default {
               font: {
                 size: 14,
               },
-              
             },
             grid: {
               color: "#ebeaea",

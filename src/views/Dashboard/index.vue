@@ -19,9 +19,6 @@
             </router-link>
           </div>
         </template>
-        <div class="mt-4" v-if="stats_loading">
-          <v-skeleton-loader class="pageWidth pa-2" type="text" color="#fff1e3" />
-        </div>
       </div>
       <div class="stats-container">
         <v-container class="pa-0 pageWidth">
@@ -155,7 +152,7 @@
                     width="120px" height="20px" />
                   <span v-else><span class="monthly-price green fontSize12 fontWeight500">{{
                     dashboard_stats.data.last_month_success_rate
-                      }}%</span><span class="fontSize12 greyColor fontWeight500" :class="isRtl ? 'pr-1' : 'pl-1'">{{
+                  }}%</span><span class="fontSize12 greyColor fontWeight500" :class="isRtl ? 'pr-1' : 'pl-1'">{{
                         $t('last_month_success_rate')
                       }}</span></span>
                 </div>
@@ -192,7 +189,7 @@
                 <div class="monthly-transaction" v-else>
                   <span class="monthly-price yellow fontSize12 fontWeight500"><span>{{
                     dashboard_stats.data.currency_symbol
-                      }}</span>{{
+                  }}</span>{{
                         dashboard_stats.data.pending_transaction_amount }}</span><span
                     class="fontSize12 greyColor fontWeight500" :class="isRtl ? 'pr-1' : 'pl-1'">
                     {{
@@ -205,7 +202,7 @@
         </v-container>
       </div>
       <div class="graph-container border pa-4 pageWidth bgWhite border-radius mt-4">
-        <div class="graph-headings-container pl-4 mb-4 d-flex align-center justify-space-between flex-wrap">
+        <div class="graph-headings-container mb-4 d-flex align-center justify-space-between flex-wrap">
           <div class="heading-left">
             <h2 class="fontWeight600 fontSize18 mb-1 fontSize18 fontWeight600">{{ $t('payment_trend_title') }}</h2>
             <p class="p-dashboard fontSize12 fontWeight500">{{ $t('payment_trend_desc') }}</p>
@@ -215,12 +212,122 @@
               { value: '6m', text: $t('6months'), props: { class: 'cst-range' } },
               { value: '1y', text: $t('1year'), props: { class: 'cst-range' } }
             ]" placeholder="Duration" class="custom-select" variant="outlined" density="compact" item-title="text"
-               item-value="value" hide-details append-icon=""
+              item-value="value" hide-details append-icon=""
               :append-inner-icon="menuOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'" v-model:menu="menuOpen"
               @update:model-value="updateChartData" />
           </div>
         </div>
         <LineChart :chart-data="datacollection" :chart-options="chartOptions" :key="shop_currency" />
+      </div>
+      <div class="transaction-container mt-4 pageWidth d-flex">
+        <div class="recent-transaction border border-radius">
+          <div class="recent-transaction-wrapper">
+            <h2 class="fontSize18 fontWeight600">{{ $t('recent_transactions.title') }}</h2>
+            <p class="fontSize12 fontWeight500 mb-4">{{ $t('recent_transactions.desc') }}</p>
+            <v-list v-if="recentTransactionLoading">
+              <v-list-item v-for="n in 4" :key="n" class="dashboard-list">
+                <div>
+                  <v-skeleton-loader type="text" width="100%" height="20px" />
+                  <v-skeleton-loader type="text" width="80%" height="16px" class="mt-2" />
+                </div>
+              </v-list-item>
+            </v-list>
+            <v-row v-else-if="recentTransactions.length > 0">
+              <v-col cols="12" v-for="item in recentTransactions" :key="item.value"
+                class="dashboard-list border border-radius pa-4 mb-4">
+                <div class="transaction-detail d-flex justify-space-between fisrt-row align-center"
+                  :class="isRtl ? 'flex-row-reverse' : ''">
+                  <div class="fontWeight600 fontSize14 capatilize">{{ item.customer_name === " " ? '--' :
+                    item.customer_name
+                  }}</div>
+                  <div class="total-amount fontFamily" :class="isRtl ? 'left' : 'right'"><span>{{ item.currency_symbol }}</span> {{ item.amount
+                  }}</div>
+                </div>
+                <div class="transaction-detail d-flex justify-space-between align-center flex-wrap">
+                  <div class="d-flex align-center gap08">
+                    <div class="tra-id">{{ item.payment_session_id }}</div>
+                    <v-chip size="small" class="pay-pro">
+                      {{ item.payment_provider === "Unknown" ? '-' :item.payment_provider }}
+                    </v-chip>
+                  </div>
+                  <div class="d-flex align-center gap08">
+                    <v-chip class="fontWeight500" :class="{
+                      'status-success': item.status === 'Success',
+                      'status-pending': item.status === 'Pending',
+                      'status-failed': item.status === 'Failed'
+                    }" size="small">
+                      {{ $t(item.status) }}
+                    </v-chip>
+                    <div class="time fontFamily"> {{ translateTimeAgo(item.time_ago) }}</div>
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+            <p v-else class="no-record-txt fontWeight400 fontSize13 center">No record found</p>
+          </div>
+        </div>
+        <div class="payment-provider border border-radius">
+          <div class="payemt-provider-wrapper">
+            <div class="provider-header d-flex justify-space-between align-center">
+              <div class="provider-heading">
+                <h2 class="fontSize18 fontWeight600">{{ $t('payment_providers.title') }}</h2>
+                <p class="fontSize12 fontWeight500 mb-4">{{ $t('payment_providers.desc') }}</p>
+              </div>
+              <router-link class="manage-btn fontSize13 border border-radius fontWeight500 align-center d-flex" :to="{ path: '/payment-service-providers' }">
+                  <img :class="isRtl ? 'ml-2' : 'mr-2'" src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Settings.svg?v=1758200343" alt="Settings"/><span>{{ $t('payment_providers.button') }}</span>
+              </router-link>
+
+            </div>
+            <v-list v-if="paymentProviderLoading">
+              <v-list-item v-for="n in 4" :key="n" class="dashboard-list">
+                <div>
+                  <v-skeleton-loader type="text" width="100%" height="20px" />
+                  <v-skeleton-loader type="text" width="80%" height="16px" class="mt-2" />
+                </div>
+              </v-list-item>
+            </v-list>
+            <v-row v-else-if="paymentProviders.length > 0">
+              <v-col v-for="item in paymentProviders" :key="item.value" class="dashboard-list pa-0">
+                  <div class="d-flex justify-space-between align-center border border-radius pa-4 mb-4">
+                    <div class="provider-detail d-flex align-center">
+                      <div class="provider-image" :class="isRtl ? 'ml-4' : 'mr-4' ">
+                        <img :src="item.logo_url" alt="payment provider icon"
+                          />
+                      </div>
+                      <div class="provider-detail">
+                        <h4 class="provider-name d-flex align-center fontWeight600 fontSize14 capatilize">
+                          <span :class="isRtl ? 'ml-2' : 'mr-2' ">{{ item.payment_provider }}</span>
+                          <img :src="item.is_active
+                            ? 'https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Done_Check.svg?v=1754483259'
+                            : 'https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Group.svg?v=1754483619'"
+                            alt="payment provider icon" :style="{ width: '20px' }" />
+
+                        </h4>
+                        <p class="transaction-detail fontFamily">{{ item.no_of_trx }} {{ $t('payment_providers.transactions') }}</p>
+                      </div>
+                    </div>
+                    <div class="transaction-detail">
+                      <div class="transaction-amt fontFamily" :class="isRtl ? 'left' : 'right'"><span>{{ item.currency_symbol }}</span> {{
+                        item.amount }}
+                      </div>
+                      <div class="charges-detail d-flex align-center">
+                        <div class="status provider-status">
+                           <v-chip size="small" class="fontWeight500" :class="item.is_active ? 'status-success' : 'status-pending'">
+                          {{ item.is_active ? $t('payment_providers.Active') : $t('payment_providers.Inactive') }}
+
+                        </v-chip>
+                        </div>
+                        <div class="provider-chrages" :class="isRtl ? 'mr-2' : 'ml-2'">
+                          {{ $t('payment_providers.unumpay-charges') }}: <span :class="isRtl ? 'percentageRight' : 'ml-2'"><span>{{ item.service_charges }}</span><span>%</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </v-col>
+            </v-row>
+            <p v-else class="no-record-txt fontWeight400 fontSize13 center">No record found</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="snackbar">

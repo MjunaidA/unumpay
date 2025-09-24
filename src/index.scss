@@ -7,8 +7,8 @@ img {
   border-radius: 8px !important;
 }
 
-.border{
-  border: 1px solid #E4E7EB;
+.border {
+  border: 1px solid #e4e7eb;
 }
 
 .nav-drawer .v-avatar img {
@@ -18,12 +18,12 @@ img {
 .nav-drawer {
   position: fixed !important;
   background: #f1f0f0 !important;
-  border: 1px solid #E5E5E5 !important;
+  border: 1px solid #e5e5e5 !important;
 }
 
 .drawer-close-btn {
   position: fixed !important;
-  box-shadow: 2px 2px 8px 0px #0000001A;
+  box-shadow: 2px 2px 8px 0px #0000001a;
   width: 28px !important;
   height: 28px !important;
   background: #fff !important;
@@ -32,8 +32,7 @@ img {
   border: 1px solid #d9d9d961;
   transition-duration: 0.3s !important;
   transition-property: left;
-  transition-timing-function:
-    cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rtl.nav-drawer {
@@ -74,47 +73,47 @@ img {
 }
 
 .fontWeight700 {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .fontWeight600 {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 .fontWeight500 {
-  font-weight: 500!important;
+  font-weight: 500 !important;
 }
 
 .fontWeight400 {
-  font-weight: 400!important;
+  font-weight: 400 !important;
 }
 
 .fontSize40 {
-  font-size: 40px!important;
+  font-size: 40px !important;
 }
 
 .fontSize24 {
-  font-size: 24px!important;
+  font-size: 24px !important;
 }
 
 .fontSize18 {
-  font-size: 18px!important;
+  font-size: 18px !important;
 }
 
 .fontSize16 {
-  font-size: 16px!important;
+  font-size: 16px !important;
 }
 
 .fontSize14 {
-  font-size: 14px!important;
+  font-size: 14px !important;
 }
 
 .fontSize13 {
-  font-size: 14px!important;
+  font-size: 14px !important;
 }
 
 .fontSize12 {
-  font-size: 12px!important;
+  font-size: 12px !important;
 }
 
 .capatilize {
@@ -126,70 +125,90 @@ body *::-webkit-scrollbar {
   width: 0px;
   border-radius: 0;
 }
-.nav-email{
-  position: absolute!important;
+.nav-email {
+  position: absolute !important;
   bottom: 0;
   width: 100%;
 }
-.color535D6D{
-   color: #535D6D!important;
+.color535D6D {
+  color: #535d6d !important;
 }
 .nav-drawer {
-  .v-list-item--active > .v-list-item__overlay{
-    background: #E9D5FF!important;
+  .v-list-item--active > .v-list-item__overlay {
+    background: #e9d5ff !important;
     opacity: 1;
     z-index: -1;
     border-radius: 8px;
   }
-  .v-list-item--active .v-list-item-title{
-    color: #7E22CD!important;
-    font-weight: 600!important;
+  .v-list-item--active .v-list-item-title {
+    color: #7e22cd !important;
+    font-weight: 600 !important;
   }
-  .v-list-item{
+  .v-list-item {
     align-items: center;
   }
-  .v-list-item--active:hover > .v-list-item__overlay{
+  .v-list-item--active:hover > .v-list-item__overlay {
     opacity: 1;
   }
-  .v-list-item--variant-text .v-list-item__overlay{
+  .v-list-item--variant-text .v-list-item__overlay {
     background: transparent;
   }
-  .v-list-item:hover > .v-list-item__overlay{
-    background: #dfc4fb!important;
+  .v-list-item:hover > .v-list-item__overlay {
+    background: #dfc4fb !important;
     opacity: 0.2;
     transition: opacity 0.2s ease-in-out;
   }
 }
-.nav-head{
-    padding-top: 8.9px!important;
-    padding-bottom: 8.9px!important;
+.nav-head {
+  padding-top: 8.9px !important;
+  padding-bottom: 8.9px !important;
 }
-.bgWhite{
+.bgWhite {
   background: #fff;
 }
-.pageWidth{
-  width: 97%!important;
-  max-width: 97%!important;
+.pageWidth {
+  width: 97% !important;
+  max-width: 97% !important;
   margin: 0 auto;
 }
-.v-snackbar__wrapper{
-  box-shadow: none!important;
+.v-snackbar__wrapper {
+  box-shadow: none !important;
 }
-.LightgreyColor{
+.LightgreyColor {
   color: #888888;
 }
-.greyColor{
+.greyColor {
   color: #616161;
 }
 .v-locale--is-ltr {
   direction: inherit !important;
 }
-.green{
-  color: #16A349;
+.green {
+  color: #16a349;
 }
-.yellow{
-  color: #FFAD00;
+.yellow {
+  color: #ffad00;
 }
-.v-select__menu-icon{
-  display: none!important;
+.v-select__menu-icon {
+  display: none !important;
+}
+.status-success {
+  background: #cdfee1 !important;
+  color: #0c5132 !important;
+}
+
+.status-pending {
+  background: #ffd6a4 !important;
+  color: #5e4200 !important;
+}
+
+.status-failed {
+  background: #fedad9 !important;
+  color: #8e1f0b !important;
+}
+a{
+  text-decoration: none;
+}
+.center{
+  text-align: center;
 }

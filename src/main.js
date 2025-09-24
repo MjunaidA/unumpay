@@ -34,9 +34,9 @@ app.config.globalProperties.$backendURL = "https://unumpay.alche.cloud";
 // app.config.globalProperties.$host = url_params.host;
 /////////////////////// Session Token Working ///////////////////////
 
-app.config.globalProperties.$API_TOKEN = "Token%2085234ca43a7edbfcc67ec5b182679328c72727b6";
+app.config.globalProperties.$API_TOKEN = "Token%209b4158aacb0545c9f6717c13a7f9570af39f36a5";
 app.config.globalProperties.$shop = "junaid-jamshed-new-testing.myshopify.com";
-app.config.globalProperties.$shopify_jwt_token = "Token%2085234ca43a7edbfcc67ec5b182679328c72727b6";
+app.config.globalProperties.$shopify_jwt_token = "Token%209b4158aacb0545c9f6717c13a7f9570af39f36a5";
 // app.config.globalProperties.$plan_name = "Bronze";
 // app.config.globalProperties.$plan_name = "Silver";
 // app.config.globalProperties.$plan_name = "Gold";
@@ -49,11 +49,11 @@ app.config.globalProperties.$plan_name = "Enterprise";
 const vuetify = createVuetify({
   components,
   directives,
-  locale: {
+  // locale: {
     rtl: {
       ar: true,
       fr: false
-    }
+    // }
   }
 });
 

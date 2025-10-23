@@ -99,6 +99,74 @@
     "minutes": "minutes",
     "second": "second",
     "seconds": "seconds"
-  }
+  },
+  "transactionPage":{
+     "filterBar":{
+       "search":"Search",
+       "doneBtn":"Done"
+     }
+  },
+  "payment_provider": {
+    "all":"all",
+    "checkout": "Checkout.com",
+    "apg": "Alfalah (APG)",
+    "baf": "Alfalah (MPGS)",
+    "ubl": "UBL",
+    "mcb": "MCB",
+    "bop": "BOP",
+    "paymob": "Paymob",
+    "meezan": "Meezan",
+    "abl": "ABL",
+    "hbl": "HBL",
+    "hbl_hosted": "HBL Hosted",
+    "hbl_unified_checkout": "HBL Unified Checkout",
+    "authorize.net": "Authorize.net",
+    "swich": "SWICH",
+    "blinq": "BLINQ",
+    "neem": "NEEM",
+    "paypro": "PayPro",
+    "payfast": "PayFast",
+    "pay2m": "PAY2M",
+    "nift": "NIFT E Pay",
+    "easypaisa": "EasyPaisa",
+    "jazzcash": "Jazz Cash",
+    "walee": "Walee",
+    "abhipay": "Abhipay",
+    "safepay": "Safepay",
+    "mypay": "MyPay",
+    "rapyd": "Rapyd",
+    "keenu": "Keenu",
+    "stripe": "Stripe",
+    "ngenius": "Network International",
+    "citybank": "City Bank",
+    "tbc": "TBC",
+    "moyasar": "MOYASAR",
+    "ccavenue": "CCAVENUE",
+    "paystack": "PAYSTACK",
+    "flutterwave": "FLUTTERWAVE",
+    "ccbill": "CCBILL",
+    "paytab": "PAYTAB",
+    "tabpay": "TAP Payments",
+    "assanpay":"Assan Pay"
+  },
+  "status":{
+    "all": "all",
+    "success": "success",
+    "pending": "pending",
+    "failure": "failure"
+  },
+  "download": {
+    "title": "Download",
+    "activities_csv": "Activities CSV",
+    "pending_report_csv": "Pending report CSV",
+    "card_report_csv": "Card report CSV",
+    "billing_report_csv": "Billing report CSV"
+ },
+ "transaction_stats":{
+    "successful": "Successful Transaction",
+    "in_progress": "In Progress Transaction",
+    "failed": "Failed Transaction"
+ }
+
 
 }

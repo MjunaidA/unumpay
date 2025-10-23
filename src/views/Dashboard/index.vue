@@ -225,43 +225,47 @@
             <h2 class="fontSize18 fontWeight600">{{ $t('recent_transactions.title') }}</h2>
             <p class="fontSize12 fontWeight500 mb-4">{{ $t('recent_transactions.desc') }}</p>
             <v-list v-if="recentTransactionLoading">
-              <v-list-item v-for="n in 4" :key="n" class="dashboard-list">
-                <div>
-                  <v-skeleton-loader type="text" width="100%" height="20px" />
-                  <v-skeleton-loader type="text" width="80%" height="16px" class="mt-2" />
-                </div>
+              <v-list-item v-for="n in 4" :key="n" class="dashboard-list mb-4">
+                <v-skeleton-loader type="card" class="w-100">
+                  <div class="d-flex flex-column w-100">
+                    <v-skeleton-loader type="card" width="100%" height="70" />
+                  </div>
+                </v-skeleton-loader>
               </v-list-item>
             </v-list>
             <v-row v-else-if="recentTransactions.length > 0">
-              <v-col cols="12" v-for="item in recentTransactions" :key="item.value"
-                class="dashboard-list border border-radius pa-4 mb-4">
-                <div class="transaction-detail d-flex justify-space-between fisrt-row align-center"
-                  :class="isRtl ? 'flex-row-reverse' : ''">
-                  <div class="fontWeight600 fontSize14 capatilize">{{ item.customer_name === " " ? '--' :
-                    item.customer_name
-                  }}</div>
-                  <div class="total-amount fontFamily" :class="isRtl ? 'left' : 'right'"><span>{{ item.currency_symbol }}</span> {{ item.amount
-                  }}</div>
-                </div>
-                <div class="transaction-detail d-flex justify-space-between align-center flex-wrap">
-                  <div class="d-flex align-center gap08">
-                    <div class="tra-id">{{ item.payment_session_id }}</div>
-                    <v-chip size="small" class="pay-pro">
-                      {{ item.payment_provider === "Unknown" ? '-' :item.payment_provider }}
-                    </v-chip>
+              <div class="w-100">
+                <v-col cols="12" v-for="item in recentTransactions" :key="item.value"
+                  class="dashboard-list border border-radius pa-4 mb-4">
+                  <div class="transaction-detail d-flex justify-space-between fisrt-row align-center"
+                    :class="isRtl ? 'flex-row-reverse' : ''">
+                    <div class="fontWeight600 fontSize14 capatilize">{{ item.customer_name === " " ? '--' :
+                      item.customer_name
+                    }}</div>
+                    <div class="total-amount fontFamily" :class="isRtl ? 'left' : 'right'"><span>{{ item.currency_symbol
+                    }}</span> {{ item.amount
+                        }}</div>
                   </div>
-                  <div class="d-flex align-center gap08">
-                    <v-chip class="fontWeight500" :class="{
-                      'status-success': item.status === 'Success',
-                      'status-pending': item.status === 'Pending',
-                      'status-failed': item.status === 'Failed'
-                    }" size="small">
-                      {{ $t(item.status) }}
-                    </v-chip>
-                    <div class="time fontFamily"> {{ translateTimeAgo(item.time_ago) }}</div>
+                  <div class="transaction-detail d-flex justify-space-between align-center flex-wrap">
+                    <div class="d-flex align-center gap08">
+                      <div class="tra-id">{{ item.payment_session_id }}</div>
+                      <v-chip size="small" class="pay-pro">
+                        {{ item.payment_provider === "Unknown" ? '-' : item.payment_provider }}
+                      </v-chip>
+                    </div>
+                    <div class="d-flex align-center gap08">
+                      <v-chip class="fontWeight500" :class="{
+                        'status-success': item.status === 'Success',
+                        'status-pending': item.status === 'Pending',
+                        'status-failed': item.status === 'Failed'
+                      }" size="small">
+                        {{ $t(item.status) }}
+                      </v-chip>
+                      <div class="time fontFamily"> {{ translateTimeAgo(item.time_ago) }}</div>
+                    </div>
                   </div>
-                </div>
-              </v-col>
+                </v-col>
+              </div>
             </v-row>
             <p v-else class="no-record-txt fontWeight400 fontSize13 center">No record found</p>
           </div>
@@ -273,57 +277,69 @@
                 <h2 class="fontSize18 fontWeight600">{{ $t('payment_providers.title') }}</h2>
                 <p class="fontSize12 fontWeight500 mb-4">{{ $t('payment_providers.desc') }}</p>
               </div>
-              <router-link class="manage-btn fontSize13 border border-radius fontWeight500 align-center d-flex" :to="{ path: '/payment-service-providers' }">
-                  <img :class="isRtl ? 'ml-2' : 'mr-2'" src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Settings.svg?v=1758200343" alt="Settings"/><span>{{ $t('payment_providers.button') }}</span>
+              <router-link class="manage-btn fontSize13 border border-radius fontWeight500 align-center d-flex"
+                :to="{ path: '/payment-service-providers' }">
+                <img :class="isRtl ? 'ml-2' : 'mr-2'"
+                  src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Settings.svg?v=1758200343"
+                  alt="Settings" /><span>{{ $t('payment_providers.button') }}</span>
               </router-link>
 
             </div>
             <v-list v-if="paymentProviderLoading">
-              <v-list-item v-for="n in 4" :key="n" class="dashboard-list">
-                <div>
-                  <v-skeleton-loader type="text" width="100%" height="20px" />
-                  <v-skeleton-loader type="text" width="80%" height="16px" class="mt-2" />
-                </div>
+              <v-list-item v-for="n in 4" :key="n" class="dashboard-list mb-4">
+                <v-skeleton-loader type="card" class="w-100">
+                  <div class="d-flex flex-column w-100">
+                    <v-skeleton-loader type="card" width="100%" height="70" />
+                  </div>
+                </v-skeleton-loader>
               </v-list-item>
             </v-list>
             <v-row v-else-if="paymentProviders.length > 0">
-              <v-col v-for="item in paymentProviders" :key="item.value" class="dashboard-list pa-0">
-                  <div class="d-flex justify-space-between align-center border border-radius pa-4 mb-4">
+              <div class="w-100">
+                <v-col cols="12" v-for="item in paymentProviders" :key="item.value" class="dashboard-list pa-0 mb-4">
+                  <div class="d-flex justify-space-between align-center border border-radius pa-4">
                     <div class="provider-detail d-flex align-center">
-                      <div class="provider-image" :class="isRtl ? 'ml-4' : 'mr-4' ">
-                        <img :src="item.logo_url" alt="payment provider icon"
-                          />
+                      <div class="provider-image" :class="isRtl ? 'ml-4' : 'mr-4'">
+                        <img :src="item.logo_url" alt="payment provider icon" />
                       </div>
                       <div class="provider-detail">
                         <h4 class="provider-name d-flex align-center fontWeight600 fontSize14 capatilize">
-                          <span :class="isRtl ? 'ml-2' : 'mr-2' ">{{ item.payment_provider }}</span>
+                          <span :class="isRtl ? 'ml-2' : 'mr-2'">{{ item.payment_provider }}</span>
                           <img :src="item.is_active
                             ? 'https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Done_Check.svg?v=1754483259'
                             : 'https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Group.svg?v=1754483619'"
                             alt="payment provider icon" :style="{ width: '20px' }" />
 
                         </h4>
-                        <p class="transaction-detail fontFamily">{{ item.no_of_trx }} {{ $t('payment_providers.transactions') }}</p>
+                        <p class="transaction-detail fontFamily">{{ item.no_of_trx }} {{
+                          $t('payment_providers.transactions')
+                        }}</p>
                       </div>
                     </div>
                     <div class="transaction-detail">
-                      <div class="transaction-amt fontFamily" :class="isRtl ? 'left' : 'right'"><span>{{ item.currency_symbol }}</span> {{
-                        item.amount }}
+                      <div class="transaction-amt fontFamily" :class="isRtl ? 'left' : 'right'"><span>{{
+                        item.currency_symbol
+                      }}</span> {{
+                            item.amount }}
                       </div>
                       <div class="charges-detail d-flex align-center">
                         <div class="status provider-status">
-                           <v-chip size="small" class="fontWeight500" :class="item.is_active ? 'status-success' : 'status-pending'">
-                          {{ item.is_active ? $t('payment_providers.Active') : $t('payment_providers.Inactive') }}
+                          <v-chip size="small" class="fontWeight500"
+                            :class="item.is_active ? 'status-success' : 'status-pending'">
+                            {{ item.is_active ? $t('payment_providers.Active') : $t('payment_providers.Inactive') }}
 
-                        </v-chip>
+                          </v-chip>
                         </div>
                         <div class="provider-chrages" :class="isRtl ? 'mr-2' : 'ml-2'">
-                          {{ $t('payment_providers.unumpay-charges') }}: <span :class="isRtl ? 'percentageRight' : 'ml-2'"><span>{{ item.service_charges }}</span><span>%</span></span>
+                          {{ $t('payment_providers.unumpay-charges') }}: <span
+                            :class="isRtl ? 'percentageRight' : 'ml-2'"><span>{{ item.service_charges
+                            }}</span><span>%</span></span>
                         </div>
                       </div>
                     </div>
                   </div>
-              </v-col>
+                </v-col>
+              </div>
             </v-row>
             <p v-else class="no-record-txt fontWeight400 fontSize13 center">No record found</p>
           </div>

@@ -99,5 +99,75 @@
     "minutes": "دقائق",
     "second": "ثانية",
     "seconds": "ثواني"
-  }
+  },
+  "transactionPage":{
+     "filterBar":{
+       "search":"بحث",
+       "doneBtn":"تم"
+     }
+  },
+  "payment_provider": {
+    "all":"الكل",
+    "checkout": "تشاك آوت",
+    "apg": "الفلاح (ايه پي جي)",
+    "baf": "الفلاح (إم بي جي إس)",
+    "ubl": "يو بي إل",
+    "mcb": "إم سي بي",
+    "bop": "بنك البنجاب",
+    "paymob": "باي موب",
+    "meezan": "ميزان",
+    "abl": "ايه بي ال",
+    "hbl": "إتش بي إل",
+    "hbl_hosted": "إتش بي إل مستضاف",
+    "hbl_unified_checkout": "إتش بي إل تسجيل خروج موحد",
+    "authorize.net": "أوثورايز.نت",
+    "swich": "سويتش",
+    "blinq": "بلينك",
+    "neem": "نيم",
+    "paypro": "باي برو",
+    "payfast": "باي فاست",
+    "pay2m": "باي 2 إم",
+    "nift": "نفت إي باي",
+    "easypaisa": "إيزي بيزا",
+    "jazzcash": "جاز كاش",
+    "walee": "والي",
+    "abhipay": "أبهي باي",
+    "safepay": "سيف باي",
+    "mypay": "ماي باي",
+    "rapyd": "رابيد",
+    "keenu": "كينو",
+    "stripe": "سترايب",
+    "ngenius": "إن جينيوس (نيتوورك إنترناشونال)",
+    "citybank": "سيتي بنك",
+    "tbc": "تي بي سي",
+    "moyasar": "موياسر",
+    "ccavenue": "سي سي أفينيو",
+    "paystack": "باي ستاك",
+    "flutterwave": "فلتر ويف",
+    "ccbill": "سي سي بيل",
+    "paytab": "باي تاب",
+    "tabpay": "تاب بايمنتس",
+    "assanpay":"اسان باي"
+ },
+ "status": {
+  "all": "الكل",
+  "success": "ناجح",
+  "pending": "قيد الانتظار",
+  "failure": "فشل"
+ },
+ "download": {
+    "title": "تحميل",
+    "activities_csv": "أنشطة CSV",
+    "pending_report_csv": "تقرير قيد الانتظار CSV",
+    "card_report_csv": "تقرير البطاقة CSV",
+    "billing_report_csv": "تقرير الفواتير CSV"
+},
+"transaction_stats": {
+  "successful": "المعاملة الناجحة",
+  "in_progress": "المعاملة قيد التنفيذ",
+  "failed": "المعاملة الفاشلة"
+}
+
+
+
 }

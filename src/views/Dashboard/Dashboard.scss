@@ -11,17 +11,8 @@
     padding: 1.5rem;
     border-radius: 10px;
   }
-  .col-wrapper {
-    border: 1px solid #e5e5e5;
-    height: 100%;
-  }
   .revenue-tooltip button {
     width: fit-content !important;
-  }
-  .stats-row {
-    margin: unset;
-    row-gap: 12px;
-    column-gap: 12px;
   }
   .revenue-tooltip .mdi:before {
     font-size: 18px;
@@ -30,6 +21,10 @@
     line-height: 0;
     width: 20px;
     height: 20px;
+  }
+  .stats-row {
+    row-gap: 12px!important;
+    column-gap: 12px!important;
   }
   .v-field__outline__end,
   .v-field__outline__start {

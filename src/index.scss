@@ -169,7 +169,7 @@ body *::-webkit-scrollbar {
 .pageWidth {
   width: 97% !important;
   max-width: 97% !important;
-  margin: 0 auto;
+  margin: 0 auto!important;
 }
 .v-snackbar__wrapper {
   box-shadow: none !important;
@@ -211,4 +211,14 @@ a{
 }
 .center{
   text-align: center;
+}
+.cursorPointer{
+  cursor: pointer;
+}
+.col-wrapper {
+  border: 1px solid #e5e5e5;
+  height: 100%;
+}
+.stats-row {
+  margin: unset!important;
 }

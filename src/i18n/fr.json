@@ -79,11 +79,11 @@
   "payment_providers": {
     "title": "Fournisseurs de paiement",
     "desc": "Prestataires de services de paiement configurés.",
-    "button":"Gérer",
-    "transactions":"transactions",
-    "unumpay-charges":"Frais Unumpay",
-    "Active":"Actif",
-    "Inactive":"Inactif"
+    "button": "Gérer",
+    "transactions": "transactions",
+    "unumpay-charges": "Frais Unumpay",
+    "Active": "Actif",
+    "Inactive": "Inactif"
   },
   "time": {
     "ago": "il y a",
@@ -100,14 +100,14 @@
     "second": "seconde",
     "seconds": "secondes"
   },
-  "transactionPage":{
-     "filterBar":{
-       "search":"Rechercher",
-       "doneBtn":"Terminé"
-     }
+  "transactionPage": {
+    "filterBar": {
+      "search": "Rechercher",
+      "doneBtn": "Terminé"
+    }
   },
   "payment_provider": {
-    "all":"Tout",
+    "all": "Tout",
     "checkout": "Checkout.com",
     "apg": "Alfalah (APG)",
     "baf": "Alfalah (MPGS)",
@@ -147,28 +147,81 @@
     "ccbill": "CCBILL",
     "paytab": "PAYTAB",
     "tabpay": "TAP Paiements",
-    "assanpay":"Assan Pai"
- },
- "status": {
-  "all": "Tous",
-  "success": "Succès",
-  "pending": "En attente",
-  "failure": "Échec"
- },
- "download": {
-  "title": "Télécharger",
-  "activities_csv": "Activités CSV",
-  "pending_report_csv": "Rapport en attente CSV",
-  "card_report_csv": "Rapport de carte CSV",
-  "billing_report_csv": "Rapport de facturation CSV"
-},
-"transaction_stats": {
-  "successful": "Transaction réussie",
-  "in_progress": "Transaction en cours",
-  "failed": "Transaction échouée"
-}
-
-
-
-
+    "assanpay": "Assan Pai",
+    "null": "-"
+  },
+  "status": {
+    "all": "Tous",
+    "success": "Succès",
+    "pending": "En attente",
+    "failed": "Échec"
+  },
+  "download": {
+    "title": "Télécharger",
+    "activities_csv": "Activités CSV",
+    "pending_report_csv": "Rapport en attente CSV",
+    "card_report_csv": "Rapport de carte CSV",
+    "billing_report_csv": "Rapport de facturation CSV"
+  },
+  "transaction_stats": {
+    "successful": "Transaction réussie",
+    "in_progress": "Transaction en cours",
+    "failed": "Transaction échouée"
+  },
+  "transaction_snackbar": {
+    "invalid_date": "Plage de dates invalide",
+    "data_loaded": "Données chargées avec succès",
+    "transaction_activity_report": "Rapport des activités de transaction téléchargé avec succès",
+    "transaction_pending _report": "Rapport des transactions en attente téléchargé avec succès",
+    "transaction_card_report": "Rapport des transactions par carte téléchargé avec succès",
+    "transaction_billing _report": "Rapport de facturation des transactions téléchargé avec succès"
+  },
+  "transaction_table": {
+    "title": "Transactions",
+    "charges": "Frais Unumpay",
+    "headers": {
+      "transaction_id": "ID de transaction",
+      "name": "Nom",
+      "amount": "Montant",
+      "payment_provider": "Fournisseur de paiement",
+      "payment_session_id": "ID de session de paiement",
+      "status": "Statut",
+      "transaction_datetime": "Date et heure de la transaction",
+      "action": "Action"
+    },
+    "items_per_page": "Articles par page",
+    "of": "sur"
+  },
+  "transaction_popup": {
+    "title": "Détails de la transaction",
+    "transaction_id": "Identifiant de transaction",
+    "response_code": "Code de réponse",
+    "payment_session_id": "Identifiant de session de paiement",
+    "payment_provider": "Fournisseur de paiement",
+    "transaction_date_time": "Date et heure de la transaction",
+    "response_detail": "Détail de la réponse"
+  },
+  "$vuetify": {
+    "open": "Ouvrir",
+    "close": "Fermer",
+    "loading": "Chargement...",
+    "noDataText": "Aucun enregistrement trouvé",
+    "dataFooter": {
+      "itemsPerPageText": "Articles par page :",
+      "pageText": "{0}-{1} sur {2}",
+      "itemsPerPageAll": "Tout",
+      "firstPage": "Première page",
+      "lastPage": "Dernière page",
+      "nextPage": "Page suivante",
+      "prevPage": "Page précédente"
+    },
+    "pagination": {
+      "ariaLabel": {
+        "root": "Navigation de pagination",
+        "next": "Page suivante",
+        "previous": "Page précédente",
+        "page": "Aller à la page {0}"
+      }
+    }
+  }
 }

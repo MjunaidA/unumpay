@@ -79,11 +79,11 @@
   "payment_providers": {
     "title": "مزودو الدفع",
     "desc": ".مزودو خدمات الدفع المُكوَّنون",
-    "button":"إدارة",
-    "transactions":"المعاملات",
-    "unumpay-charges":"يونم باي رسوم",
-    "Active":"نشط",
-    "Inactive":"غير نشط"
+    "button": "إدارة",
+    "transactions": "المعاملات",
+    "unumpay-charges": "يونم باي رسوم",
+    "Active": "نشط",
+    "Inactive": "غير نشط"
   },
   "time": {
     "ago": "منذ",
@@ -100,14 +100,14 @@
     "second": "ثانية",
     "seconds": "ثواني"
   },
-  "transactionPage":{
-     "filterBar":{
-       "search":"بحث",
-       "doneBtn":"تم"
-     }
+  "transactionPage": {
+    "filterBar": {
+      "search": "بحث",
+      "doneBtn": "تم"
+    }
   },
   "payment_provider": {
-    "all":"الكل",
+    "all": "الكل",
     "checkout": "تشاك آوت",
     "apg": "الفلاح (ايه پي جي)",
     "baf": "الفلاح (إم بي جي إس)",
@@ -147,27 +147,81 @@
     "ccbill": "سي سي بيل",
     "paytab": "باي تاب",
     "tabpay": "تاب بايمنتس",
-    "assanpay":"اسان باي"
- },
- "status": {
-  "all": "الكل",
-  "success": "ناجح",
-  "pending": "قيد الانتظار",
-  "failure": "فشل"
- },
- "download": {
+    "assanpay": "اسان باي",
+    "null": "-"
+  },
+  "status": {
+    "all": "الكل",
+    "success": "ناجح",
+    "pending": "قيد الانتظار",
+    "failed": "فشل"
+  },
+  "download": {
     "title": "تحميل",
     "activities_csv": "أنشطة CSV",
     "pending_report_csv": "تقرير قيد الانتظار CSV",
     "card_report_csv": "تقرير البطاقة CSV",
     "billing_report_csv": "تقرير الفواتير CSV"
-},
-"transaction_stats": {
-  "successful": "المعاملة الناجحة",
-  "in_progress": "المعاملة قيد التنفيذ",
-  "failed": "المعاملة الفاشلة"
-}
-
-
-
+  },
+  "transaction_stats": {
+    "successful": "المعاملة الناجحة",
+    "in_progress": "المعاملة قيد التنفيذ",
+    "failed": "المعاملة الفاشلة"
+  },
+  "transaction_snackbar": {
+    "invalid_date": "نطاق تاريخ غير صالح",
+    "data_loaded": "تم تحميل البيانات بنجاح",
+    "transaction_activity_report": "تم تنزيل تقرير أنشطة المعاملات بنجاح",
+    "transaction_pending _report": "تم تنزيل تقرير المعاملات المعلقة بنجاح",
+    "transaction_card_report": "تم تنزيل تقرير بطاقات المعاملات بنجاح",
+    "transaction_billing _report": "تم تنزيل تقرير فواتير المعاملات بنجاح"
+  },
+  "transaction_table": {
+    "title": "المعاملات",
+    "charges": "يونم باي  رسوم",
+    "headers": {
+      "transaction_id": "معرّف المعاملة",
+      "name": "الاسم",
+      "amount": "المبلغ",
+      "payment_provider": "مزود الدفع",
+      "payment_session_id": "معرّف جلسة الدفع",
+      "status": "الحالة",
+      "transaction_datetime": "تاريخ ووقت المعاملة",
+      "action": "الإجراء"
+    },
+    "items_per_page": "عدد العناصر في الصفحة",
+    "of": "من"
+  },
+  "transaction_popup": {
+    "title": "تفاصيل المعاملة",
+    "transaction_id": "معرّف المعاملة",
+    "response_code": "رمز الاستجابة",
+    "payment_session_id": "معرّف جلسة الدفع",
+    "payment_provider": "مزود خدمة الدفع",
+    "transaction_date_time": "تاريخ ووقت المعاملة",
+    "response_detail": "تفاصيل الاستجابة"
+  },
+  "$vuetify": {
+    "open": "فتح",
+    "close": "إغلاق",
+    "loading": "جاري التحميل...",
+    "noDataText": "لا توجد سجلات",
+    "dataFooter": {
+      "itemsPerPageText": "عدد العناصر في الصفحة:",
+      "pageText": "{0}-{1} من {2}",
+      "itemsPerPageAll": "الكل",
+      "firstPage": "الصفحة الأولى",
+      "lastPage": "الصفحة الأخيرة",
+      "nextPage": "الصفحة التالية",
+      "prevPage": "الصفحة السابقة"
+    },
+    "pagination": {
+      "ariaLabel": {
+        "root": "التنقل بين الصفحات",
+        "next": "الصفحة التالية",
+        "previous": "الصفحة السابقة",
+        "page": "الانتقال إلى الصفحة {0}"
+      }
+    }
+  }
 }

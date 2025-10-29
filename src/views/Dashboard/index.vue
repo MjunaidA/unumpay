@@ -347,7 +347,7 @@
       </div>
     </div>
     <div class="snackbar">
-      <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar" :location="isRtl ? 'top left' : 'top right'"
+      <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar"  location="top right"
         :timeout="snackbar_timeout" :color="snackbar_status">
         {{ snackbar_text ? $t(snackbar_text) : snackbar_text }}
         <template #action="{ attrs }">

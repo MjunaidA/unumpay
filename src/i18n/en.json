@@ -147,13 +147,14 @@
     "ccbill": "CCBILL",
     "paytab": "PAYTAB",
     "tabpay": "TAP Payments",
-    "assanpay":"Assan Pay"
+    "assanpay":"Assan Pay",
+    "null":"-"
   },
   "status":{
     "all": "all",
     "success": "success",
     "pending": "pending",
-    "failure": "failure"
+    "failed": "failed"
   },
   "download": {
     "title": "Download",
@@ -166,7 +167,63 @@
     "successful": "Successful Transaction",
     "in_progress": "In Progress Transaction",
     "failed": "Failed Transaction"
- }
+ },
+ "transaction_snackbar":{
+    "invalid_date":"Invalid date range",
+    "data_loaded": "Data loaded successfully",
+    "transaction_activity_report":"Transaction activities report downloaded successfully",
+    "transaction_pending _report":"Transaction pending report downloaded successfully",
+    "transaction_card _report":"Transaction card report downloaded successfully",
+    "transaction_billing _report":"Transaction billing report downloaded successfully"
+ },
+ "transaction_table":{
+    "title":"Transactions",
+    "charges":"Unumpay Charges",
+    "headers": {
+      "transaction_id": "Transaction ID",
+      "name": "Name",
+      "amount": "Amount",
+      "payment_provider": "Payment Provider",
+      "payment_session_id": "Payment Session ID",
+      "status": "Status",
+      "transaction_datetime": "Transaction Date Time",
+      "action": "Action"
+    },
+    "items_per_page": "Items per page",
+    "of": "of"
+ },
+ "transaction_popup":{
+    "title":"Transactions Details",
+    "transaction_id":"Transaction ID",
+    "response_code":"Response Code",
+    "payment_session_id":"Payment Session ID",
+    "payment_provider":"Payment Provider",
+    "transaction_date_time":"Transaction Date Time",
+    "response_detail":"Response Detail"
+  },
+  "$vuetify": {
+    "open": "Open",
+    "close": "Close",
+    "loading": "Loading...",
+    "noDataText":"No record found",
+    "dataFooter": {
+      "itemsPerPageText": "Items per page:",
+      "pageText": "{0}-{1} of {2}",
+      "itemsPerPageAll":"All",
+      "firstPage": "First page",
+      "lastPage": "Last page",
+      "nextPage": "Next page",
+      "prevPage": "Previous page"
+    },
+     "pagination": {
+      "ariaLabel": {
+        "root": "Pagination Navigation",
+        "next": "Next page",
+        "previous": "Previous page",
+        "page": "Go to page {0}"
+      }
+    }
+  }
 
 
 }

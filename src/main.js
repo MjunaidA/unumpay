@@ -10,6 +10,8 @@ import router from "./router";
 import Axios from 'axios';
 import VCalendar from 'v-calendar';
 import 'v-calendar/style.css';
+import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n"
+import { useI18n } from "vue-i18n"
 // import { getShopifySessionToken } from "./utils/shopify";
 const app = createApp(App);
 
@@ -36,9 +38,9 @@ app.config.globalProperties.$backendURL = "https://unumpay.alche.cloud";
 // app.config.globalProperties.$host = url_params.host;
 /////////////////////// Session Token Working ///////////////////////
 
-app.config.globalProperties.$API_TOKEN = "Token%20456c296d1db2388c84dcd0189b96f34a26d28bc0";
+app.config.globalProperties.$API_TOKEN = "Token%20f371140966ceb328c7ebbbe872b1da4407b10c21";
 app.config.globalProperties.$shop = "junaid-jamshed-new-testing.myshopify.com";
-app.config.globalProperties.$shopify_jwt_token = "Token%20456c296d1db2388c84dcd0189b96f34a26d28bc0";
+app.config.globalProperties.$shopify_jwt_token = "Token%20f371140966ceb328c7ebbbe872b1da4407b10c21";
 // app.config.globalProperties.$plan_name = "Bronze";
 // app.config.globalProperties.$plan_name = "Silver";
 // app.config.globalProperties.$plan_name = "Gold";
@@ -48,14 +50,20 @@ app.config.globalProperties.$plan_name = "Enterprise";
 // app.config.globalProperties.$backendURL = "http://localhost:8000"
 // app.config.globalProperties.$backendURL = "https://alche-pg.ngrok.io"
 
+
 const vuetify = createVuetify({
   components,
   directives,
-    rtl: {
+    locale: {
+    adapter: createVueI18nAdapter({ i18n, useI18n }), 
+  },
+  rtl: {
       ar: true,
       fr: false
-  }
+  },
 });
+
+
 
 
 
@@ -104,8 +112,4 @@ if (url_params?.API_TOKEN?.includes("+") == true) {
 // }
 
 // main.js or main.ts
-window.addEventListener('error', function(e) {
-  if (e.message.includes("ResizeObserver loop")) {
-    e.stopImmediatePropagation();
-  }
-});
+

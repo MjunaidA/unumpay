@@ -1,0 +1,75 @@
+.demo-btn a {
+  gap: 5px;
+  color: #344054;
+  width: 100%;
+  justify-content: center;
+  img {
+    width: 25px;
+  }
+}
+.advance-pay-table {
+  .copy-btn {
+    cursor: pointer;
+    color: rgb(83, 89, 255);
+    box-shadow: none;
+    opacity: 1;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .v-chip__content{
+    text-transform: capitalize;
+  }
+  .options-btn{
+     opacity: 1;
+  }
+}
+
+.add-payment-dialog {
+  button,button:hover{
+    box-shadow: unset;
+    font-size: 13px;
+  }
+  h4 {
+    font-weight: 400;
+    font-size: 13px;
+    color: #666666;
+  }
+  .v-field{
+    border-radius: 8px;
+  }
+  input::placeholder,textarea::placeholder {
+    font-size: 13px;
+    color: #999999;
+    font-weight: 400;
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .filter-bar-container {
+    .advance-payment-search {
+      flex: 0 0 65%;
+      max-width: 100%;
+    }
+    .demo-btn {
+      max-width: 12%;
+    }
+    .advance-payment-btn {
+      max-width: 23%;
+    }
+  }
+}
+@media screen and (min-width: 1201px) {
+  .filter-bar-container {
+    .advance-payment-search {
+      flex: 0 0 70%;
+      max-width: 70%;
+    }
+    .demo-btn {
+      max-width: 10%;
+    }
+    .advance-payment-btn {
+      max-width: 20%;
+    }
+  }
+}

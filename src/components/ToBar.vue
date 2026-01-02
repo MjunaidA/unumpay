@@ -22,9 +22,9 @@
               <div class="flag-img-container">
                 <img :src="lang.flag" alt="flag" />
               </div>
-              <v-list-item-title class="d-flex flex-column">
-                <strong class="lang-title fontWeight700 fontSize14">{{ lang.title }}</strong>
-                <label class="lang-label fontWeight600 fontSize14">{{ lang.label }}</label>
+              <v-list-item-title class="d-flex flex-column" >
+                <strong class="lang-title fontWeight700 fontSize14 cursorPointer">{{ lang.title }}</strong>
+                <label class="lang-label fontWeight600 fontSize14 cursorPointer">{{ lang.label }}</label>
               </v-list-item-title>
             </v-list-item>
           </v-list>

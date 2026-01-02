@@ -182,15 +182,15 @@ export default {
         .then(
           (response) => {
             this.recentTransactions = response.data.recent_transactions;
-            this.recentTransactionLoading = false;
             this.snackbar = true;
             this.snackbar_text = "stats_data_loaded";
             this.snackbar_status = "green";
+            this.recentTransactionLoading = false;
           },
           (error) => {
             this.snackbar = true;
             this.snackbar_status = "red";
-            this.snackbar_text = error.response.data.detail;
+            this.snackbar_text = error;
             this.recentTransactionLoading = false;
             if (
               error.response.data.detail ==

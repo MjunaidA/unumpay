@@ -1,4 +1,5 @@
 {
+  "Failed": "Échec",
   "welcomeTopBarTitle": "Tableau de bord",
   "welcome_desc": "Bon retour! Voici ce qui se passe avec votre plateforme de médiation de paiement.",
   "appName": "Unumpay",
@@ -148,6 +149,8 @@
     "paytab": "PAYTAB",
     "tabpay": "TAP Paiements",
     "assanpay": "Assan Pai",
+    "dialogpay": "Dialog Pay",
+    "directpay": "Direct Pay",
     "null": "-"
   },
   "status": {
@@ -201,6 +204,26 @@
     "transaction_date_time": "Date et heure de la transaction",
     "response_detail": "Détail de la réponse"
   },
+  "advance-payment_snackbar":{
+    "advance-payment-loaded":"Données de paiement anticipé chargées avec succès",
+    "link_copied_success":"Lien copié avec succès",
+     "failed_to_copy":"Échec de la copie du lien"
+  },
+  "advance-payment_table":{
+    "headers": {
+      "transaction_id": "ID de transaction",
+      "name": "Nom",
+      "amount": "Montant",
+      "payment_status": "Statut du paiement",
+      "payment_session": "ID de session de paiement",
+      "payment_link": "Lien de paiement",
+      "transaction_date_time": "Date et heure de la transaction",
+      "action": "Action"
+    },
+    "copy":"Copier",
+    "edit": "Modifier",
+    "generate_link": "Générer le lien"
+  },
   "$vuetify": {
     "open": "Ouvrir",
     "close": "Fermer",
@@ -222,6 +245,15 @@
         "previous": "Page précédente",
         "page": "Aller à la page {0}"
       }
+    }
+  },
+  "advance_payment": {
+    "filter": {
+      "button1": "démo",
+      "button2": "Paiement anticipé"
+    },
+    "table": {
+      "title": "Liste des paiements anticipés"
     }
   }
 }

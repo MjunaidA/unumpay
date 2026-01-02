@@ -350,11 +350,6 @@
       <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar"  location="top right"
         :timeout="snackbar_timeout" :color="snackbar_status">
         {{ snackbar_text ? $t(snackbar_text) : snackbar_text }}
-        <template #action="{ attrs }">
-          <v-btn color="#fff" text v-bind="attrs" @click="snackbar = false">
-            Close
-          </v-btn>
-        </template>
       </v-snackbar>
     </div>
   </div>

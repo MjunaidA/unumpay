@@ -1,4 +1,5 @@
 {
+  "Failed": "فشل",
   "welcomeTopBarTitle": "لوحة القيادة",
   "welcome_desc": ".مرحبًا بعودتك! إليك ما يحدث مع منصة تسوية المدفوعات الخاصة بك",
   "appName": "يونم باي",
@@ -148,6 +149,8 @@
     "paytab": "باي تاب",
     "tabpay": "تاب بايمنتس",
     "assanpay": "اسان باي",
+    "dialogpay": "ديالوج باي",
+    "directpay": "دايركت باي",
     "null": "-"
   },
   "status": {
@@ -201,6 +204,26 @@
     "transaction_date_time": "تاريخ ووقت المعاملة",
     "response_detail": "تفاصيل الاستجابة"
   },
+    "advance-payment_snackbar":{
+    "advance-payment-loaded":"تم تحميل بيانات الدفع المسبق بنجاح",
+    "link_copied_success":"تم نسخ الرابط بنجاح",
+    "failed_to_copy":"فشل في نسخ الرابط"
+  },
+    "advance-payment_table":{
+    "headers": {
+      "transaction_id": "معرّف المعاملة",
+      "name": "الاسم",
+      "amount": "المبلغ",
+      "payment_status": "حالة الدفع",
+      "payment_session": "جلسة الدفع",
+      "payment_link": "رابط الدفع",
+      "transaction_date_time": "تاريخ ووقت المعاملة",
+      "action": "الإجراء"
+    },
+    "copy":"نسخ",
+    "edit": "تعديل",
+    "generate_link": "إنشاء الرابط"
+  },
   "$vuetify": {
     "open": "فتح",
     "close": "إغلاق",
@@ -222,6 +245,15 @@
         "previous": "الصفحة السابقة",
         "page": "الانتقال إلى الصفحة {0}"
       }
+    }
+  },
+  "advance_payment": {
+    "filter": {
+      "button1": "تجريبي",
+      "button2": "دفعة مقدمة"
+    },
+    "table": {
+      "title": "قائمة الدفعات المقدمة"
     }
   }
 }

@@ -232,8 +232,39 @@ table {
     font-weight: 400;
     color: #303030;
   }
-  .v-data-table-header__content{
+  .v-data-table-header__content {
     font-size: 12px;
     font-weight: 500;
+  }
+}
+.cstm-filter-bar {
+  input,
+  .v-field__input {
+    min-height: 32px !important;
+    height: 32px !important;
+  }
+  label,
+  input,
+  .v-select__selection-text,
+  button,
+  .v-btn__content {
+    font-size: 14px;
+  }
+  .v-select__selection-text {
+    margin-top: -2px;
+  }
+  button {
+    text-transform: capitalize;
+    background: #16a349;
+    color: #fff;
+    width: 100%;
+  }
+}
+.filter-bar {
+  .v-field,
+  button {
+    border-radius: 8px;
+    min-height: 32px !important;
+    height: 32px !important;
   }
 }

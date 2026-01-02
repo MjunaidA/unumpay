@@ -31,8 +31,8 @@
                     </div>
                     <div class="customer-amt-detail">
                         <h4 class="fontSize16 fontWeight600"><span>{{ transaction.currency_symbol }}</span>{{ transaction.amount }}</h4>
-                        <div class="unumpay-charges fontSize10 fontWeight500 mt-1">
-                            {{ $t('payment_providers.unumpay-charges') }}: {{ currency }} {{ charges }}
+                        <div class="unumpay-charges fontSize10 fontWeight500 mt-1" v-if= "transaction.status == 'success'">
+                            {{ $t('payment_providers.unumpay-charges') }}: {{ currency }} {{ transaction.application_value }}
                         </div>
                     </div>
                 </div>

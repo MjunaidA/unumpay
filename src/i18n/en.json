@@ -1,4 +1,5 @@
 {
+  "Failed": "failed",
   "welcomeTopBarTitle": "dashboard",
   "welcome_desc": "Welcome back! Here's what's happening with your payment mediation platform.",
   "appName": "Unumpay",
@@ -148,6 +149,8 @@
     "paytab": "PAYTAB",
     "tabpay": "TAP Payments",
     "assanpay":"Assan Pay",
+    "dialogpay": "Dialog Pay",
+    "directpay": "Direct Pay",
     "null":"-"
   },
   "status":{
@@ -201,6 +204,26 @@
     "transaction_date_time":"Transaction Date Time",
     "response_detail":"Response Detail"
   },
+  "advance-payment_snackbar":{
+    "advance-payment-loaded":"Advance payment data loaded successfully",
+    "link_copied_success":"Link copied successfully",
+    "failed_to_copy":"Failed to copy link"
+  },
+   "advance-payment_table":{
+    "headers": {
+      "transaction_id": "Transaction ID",
+      "name": "Name",
+      "amount": "Amount",
+      "payment_status": "Payment Status",
+      "payment_session": "Payment Session",
+      "payment_link": "Payment Link",
+      "transaction_date_time": "Transaction Date Time",
+      "action": "Action"
+    },
+    "copy":"Copy",
+    "edit":"Edit",
+    "generate_link":"Generate Link"
+  },
   "$vuetify": {
     "open": "Open",
     "close": "Close",
@@ -223,6 +246,15 @@
         "page": "Go to page {0}"
       }
     }
+  },
+  "advance_payment":{
+     "filter":{
+        "button1":"demo",
+        "button2":"Advance Payment"
+     },
+     "table":{
+       "title":"Advance Payment List"
+     }
   }
 
 

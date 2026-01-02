@@ -1,6 +1,6 @@
 <template>
   <div class="filter-bar mt-4">
-    <v-row class="filter-bar-wrapper border pageWidth bgWhite border-radius pa-2">
+    <v-row class="filter-bar-wrapper cstm-filter-bar border pageWidth bgWhite border-radius pa-2">
       <v-col cols="12" sm="6" md="4" class="search pa-2 filter-col">
         <v-text-field height="37px" :label="$t('transactionPage.filterBar.search')" class="border-radius"
           variant="outlined" density="compact" v-model="search" hide-details>
@@ -221,11 +221,6 @@
     <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar" location="top right" :timeout="snackbar_timeout"
       :color="snackbar_status">
       {{ snackbar_text ? $t('transaction_snackbar.' + snackbar_text) : snackbar_text }}
-      <template #action="{ attrs }">
-        <v-btn color="#fff" text v-bind="attrs" @click="snackbar = false">
-          Close
-        </v-btn>
-      </template>
     </v-snackbar>
   </div>
   <!-- popup -->

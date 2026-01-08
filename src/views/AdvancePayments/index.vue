@@ -4,8 +4,8 @@
       class="payment-filter-wrapper align-center d-flex flex-wrap pageWidth bgWhite border-radius border mt-4 filter-bar">
       <v-col cols="12" class="advance-payment-search">
         <div class="advance-table-search">
-          <v-text-field height="37px" :label="$t('transactionPage.filterBar.search')" class="border-radius"
-            variant="outlined" density="compact" v-model="search" hide-details>
+          <v-text-field height="37px" :label="$t('$vuetify.search')" class="border-radius" variant="outlined"
+            density="compact" v-model="search" hide-details>
             <template v-slot:prepend-inner>
               <img src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Search.svg?v=1754892504" alt="Search"
                 style="width:20px; height:20px; cursor:pointer;" />
@@ -40,8 +40,16 @@
       <template v-if="loading_data">
         <v-skeleton-loader class="mb-4" type="table-row" v-for="n in 4" :key="n" width="100%" height="40px" />
       </template>
-      <v-data-table class="advance-pay-table" :headers="headers" :items="advance_payments" dense :search="search"
+      <v-data-table class="advance-pay-table" :headers="headers" :items="searchedAndFilteredTransactions" dense
         :items-per-page="15" v-else>
+
+        <template #no-data>
+          <div class="text-center py-6">
+            <span class="text-grey">
+              {{ $t('$vuetify.no_data_available') }}
+            </span>
+          </div>
+        </template>
 
         <template v-slot:[`item.payment_status`]="{ item }">
           <v-chip size="small" dark :class="{
@@ -53,9 +61,9 @@
           </v-chip>
         </template>
 
-          <template v-slot:[`item.amount`]="{ item }">
-            {{ item.currency_symbol + item.amount }}
-          </template>
+        <template v-slot:[`item.amount`]="{ item }">
+          {{ item.currency_symbol + item.amount }}
+        </template>
 
 
         <template v-slot:[`item.payment_link`]="{ item }">
@@ -102,18 +110,13 @@
     </v-snackbar>
   </div>
   <!-- popup -->
-		<div class="add-payment-dialog">
-		<AddPayment
-      :advance_payment_item="advance_payment_item"
-      :loading_data="loading_data"
-      :currency_list="currency_list"
-      :country_list="country_list"
-      v-model:dialog="dialog"
-      @submit="postAdvancePayment"
-    />
+  <div class="add-payment-dialog">
+    <AddPayment :advance_payment_item="advance_payment_item" :loading_data="loading_data" :currency_list="currency_list"
+      :country_list="country_list" :translatedCountryList="translatedCountryList" v-model:dialog="dialog" :isRtl="isRtl"
+      @submit="postAdvancePayment" />
 
 
-		</div>
+  </div>
 </template>
 
 

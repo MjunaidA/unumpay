@@ -22,12 +22,23 @@
   .options-btn{
      opacity: 1;
   }
+  table {
+    td,.v-chip__content {
+      font-size: 11px;
+      font-weight: 400;
+      color: #303030;
+  }
+  }
+  .v-data-table-footer__items-per-page *, .v-data-table-footer__info *{
+   font-size: 12px !important;
+  }
 }
 
 .add-payment-dialog {
   button,button:hover{
     box-shadow: unset;
     font-size: 13px;
+    text-transform: capitalize;
   }
   h4 {
     font-weight: 400;

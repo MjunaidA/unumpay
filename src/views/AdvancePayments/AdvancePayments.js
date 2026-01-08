@@ -16,6 +16,7 @@ export default {
       advance_payment_item: {},
       dialog: false,
       country_list: [],
+      store_currency: "",
       currency_list: [
         {
           currency_code: "PKR",
@@ -52,13 +53,14 @@ export default {
         postal_code: "",
         description: "",
         amount: 0.0,
-        currency: "PKR",
+        currency: "",
       },
     };
   },
   created() {
     this.loadAdvancePayment();
     this.initializeCountries();
+    this.fetchStoreCurrency();
   },
   computed: {
     headers() {
@@ -107,21 +109,24 @@ export default {
         const localizedProvider = item.payment_source
           ? this.$t(`payment_provider.${item.payment_source}`).toLowerCase()
           : "";
-        const localizedStatus = item.status
-          ? this.$t(`status.${item.status}`).toLowerCase()
+        const localizedStatus = item.payment_status
+          ? this.$t(`status.${item.payment_status}`).toLowerCase()
           : "";
         const currencySymbol = item.currency_symbol || "";
         const amountStr = item.amount != null ? item.amount.toString() : "";
+        const formattedDate = this.formatDate(item.created_at).toLowerCase();
 
         const combinedText = [
-          item.order_reference,
-          item.customer_name,
+          item.id,
+          item.customer_firstname,
           item.currency_symbol,
           item.payment_session_id,
-          item.transaction_datetime,
+          formattedDate,
+          item.created_at,
           item.amount,
           item.payment_source,
-          item.status,
+          item.payment_status,
+          item.payment_link,
           `${currencySymbol}${amountStr}`,
           `${currencySymbol} ${amountStr}`,
           localizedProvider,
@@ -135,7 +140,14 @@ export default {
 
         return matchesSearch;
       });
-    }
+    },
+    translatedCountryList() {
+    return this.country_list.map(country => ({
+      code: country.code,
+      name: this.$t(`countries.${country.code}`) || country.name
+    }))
+  }
+    
   },
   methods: {
     initializeCountries() {
@@ -433,6 +445,24 @@ export default {
           (this.snackbar_text = "failed_to_copy"), (this.snackbar = true);
         });
     },
+
+     // Get Store Currency
+    fetchStoreCurrency() {
+      this.$Axios.get(this.$backendURL + "/payment_app/store_currency?shop=" + this.$shop, {
+        headers: {
+          'Authorization': "Bearer " + this.$shopify_jwt_token,
+          'Custom-Authorization': this.$API_TOKEN.replace("%20", " "),
+        },
+      }).then(
+        (response) => {
+          this.store_currency = response.data.store_currency;
+        },(error) => {
+          this.snackbar = true;
+          this.snackbar_status = "red"
+          this.snackbar_text = error.response.data.detail;
+        }
+      );
+    },
     // format date
     formatDate(dateString) {
       if (!dateString) return "";
@@ -533,77 +563,77 @@ export default {
       })
     },
        // Save & Update Advance Payment
-    postAdvancePayment() {
+    postAdvancePayment(paymentItem) {
       this.loading_data = true;
 
       let is_valid = true
       let validation_description = ""
 
-      if (this.advance_payment_item.customer_firstname == '') {
+      if (paymentItem.customer_firstname == '' || !/^[A-Za-z\s]+$/.test(paymentItem.customer_firstname)) {
         is_valid = false
-        validation_description = "First Name is Missing"
+        validation_description = "first_name_validation"
       }
       
-      if (this.advance_payment_item.customer_lastname == '') {
+      if (paymentItem.customer_lastname == '' || !/^[A-Za-z\s]+$/.test(paymentItem.customer_lastname)) {
         is_valid = false
-        validation_description = "Last Name is Missing"
+        validation_description = "last_name_validation"
       }
 
-      if (this.advance_payment_item.customer_email == '') {
+      if (paymentItem.customer_email == '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(paymentItem.customer_email)) {
         is_valid = false
-        validation_description = "Email is Missing"
+        validation_description = "email_validation"
       }
 
-      if (this.advance_payment_item.customer_phone == '') {
+      if (paymentItem.customer_phone == '' || !/^[0-9]{10,15}$/.test(paymentItem.customer_phone)) {
         is_valid = false
-        validation_description = "Phone is Missing"
+        validation_description = "phone_validation"
       }
 
-      if (this.advance_payment_item.customer_address == '') {
+      if (paymentItem.customer_address == '' || !/^[A-Za-z0-9\s.,'-]+$/.test(paymentItem.customer_address)) {
         is_valid = false
-        validation_description = "Address is Missing"
+        validation_description = "address_validation"
       }
 
-      if (this.advance_payment_item.country_code == '') {
+      if (paymentItem.country_code == '') {
         is_valid = false
-        validation_description = "Country is Missing"
+        validation_description = "country_validation"
       }
 
-      if (this.advance_payment_item.customer_city == '') {
+      if (paymentItem.customer_city == '' || !/^[A-Za-z\s]+$/.test(paymentItem.customer_city)) {
         is_valid = false
-        validation_description = "City is Missing"
+        validation_description = "city_validation"
       }
 
-      if (this.advance_payment_item.postal_code == '') {
+      if (paymentItem.postal_code == '') {
         is_valid = false
-        validation_description = "Postal Code is Missing"
+        validation_description = "zip_code_validation"
       }
 
-      if (this.advance_payment_item.description == '') {
+      if (paymentItem.description == '' || !/^[A-Za-z0-9\s.,!?'"()-]+$/.test(paymentItem.description)) {
         is_valid = false
-        validation_description = "Description is Missing"
+        validation_description = "description_validation"
       }
 
-      if (this.advance_payment_item.amount <= 0.0) {
+      if (paymentItem.amount <= 0.0) {
         is_valid = false
-        validation_description = "Amount will be greator than 0"
+        validation_description = "amount_validation"
       }
 
       if (is_valid == true) {
-        if (this.advance_payment_item.id == null) {
+        if (paymentItem.id == null) {
           this.$Axios.post(this.$backendURL + "/payment_app/advance_payments_app?shop=" + this.$shop, {
             shop: this.$shop,
-            customer_firstname: this.advance_payment_item.customer_firstname,
-            customer_lastname: this.advance_payment_item.customer_lastname,
-            customer_email: this.advance_payment_item.customer_email,
-            customer_phone: this.advance_payment_item.customer_phone,
-            customer_address: this.advance_payment_item.customer_address,
-            country_code: this.advance_payment_item.country_code,
-            customer_city: this.advance_payment_item.customer_city,
-            postal_code: this.advance_payment_item.postal_code,
-            description: this.advance_payment_item.description,
-            amount: this.advance_payment_item.amount,
-            currency: this.advance_payment_item.currency,
+            customer_firstname: paymentItem.customer_firstname,
+            customer_lastname: paymentItem.customer_lastname,
+            customer_email: paymentItem.customer_email,
+            customer_phone: paymentItem.customer_phone,
+            customer_address: paymentItem.customer_address,
+            country_code: paymentItem.country_code,
+            customer_city: paymentItem.customer_city,
+            postal_code: paymentItem.postal_code,
+            description: paymentItem.description,
+            amount: paymentItem.amount,
+            currency: paymentItem.currency,
           }, {
             headers: {
               'Authorization': "Bearer " + this.$shopify_jwt_token,
@@ -613,7 +643,7 @@ export default {
             console.log(response);
             this.loading_data = false;
             this.snackbar = true;
-            this.snackbar_text = "Adavce Paymnent Entry Saved";
+            this.snackbar_text = "advance_payment_added";
             this.snackbar_status = "green"
             this.closeDialog()
             this.loadAdvancePayment()
@@ -629,20 +659,20 @@ export default {
             console.clear()
           });
         } else {
-          this.$Axios.put(this.$backendURL + "/payment_app/advance_payments_app?shop=" + this.$shop + "&id=" + this.advance_payment_item.id, {
-            id: this.advance_payment_item.id,
+          this.$Axios.put(this.$backendURL + "/payment_app/advance_payments_app?shop=" + this.$shop + "&id=" + paymentItem.id, {
+            id: paymentItem.id,
             shop: this.$shop,
-            customer_firstname: this.advance_payment_item.customer_firstname,
-            customer_lastname: this.advance_payment_item.customer_lastname,
-            customer_email: this.advance_payment_item.customer_email,
-            customer_phone: this.advance_payment_item.customer_phone,
-            customer_address: this.advance_payment_item.customer_address,
-            country_code: this.advance_payment_item.country_code,
-            customer_city: this.advance_payment_item.customer_city,
-            postal_code: this.advance_payment_item.postal_code,
-            description: this.advance_payment_item.description,
-            amount: this.advance_payment_item.amount,
-            currency: this.advance_payment_item.currency,
+            customer_firstname: paymentItem.customer_firstname,
+            customer_lastname: paymentItem.customer_lastname,
+            customer_email: paymentItem.customer_email,
+            customer_phone: paymentItem.customer_phone,
+            customer_address: paymentItem.customer_address,
+            country_code: paymentItem.country_code,
+            customer_city: paymentItem.customer_city,
+            postal_code: paymentItem.postal_code,
+            description: paymentItem.description,
+            amount: paymentItem.amount,
+            currency: paymentItem.currency,
           }, {
             headers: {
               'Authorization': "Bearer " + this.$shopify_jwt_token,
@@ -652,7 +682,7 @@ export default {
             console.log(response);
             this.snackbar = true;
             this.loading_data = false;
-            this.snackbar_text = "Adavce Paymnent Entry Saved";
+            this.snackbar_text = "advance_payment_updated";
             this.snackbar_status = "green"
             this.closeDialog()
             this.loadAdvancePayment()
@@ -673,11 +703,8 @@ export default {
         this.snackbar = true;
         this.loading_data = false;
         this.snackbar_text = validation_description;
+        this.snackbar_status = "red"
       }
-    },
-
-    downloadVideo() {
-      window.open("https://drive.google.com/file/d/1zkwiRRTLMZGgMpBkOTa2r7ex-89JmixT/view?usp=sharing")
     },
   },
   watch: {

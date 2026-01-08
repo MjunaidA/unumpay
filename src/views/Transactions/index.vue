@@ -2,8 +2,8 @@
   <div class="filter-bar mt-4">
     <v-row class="filter-bar-wrapper cstm-filter-bar border pageWidth bgWhite border-radius pa-2">
       <v-col cols="12" sm="6" md="4" class="search pa-2 filter-col">
-        <v-text-field height="37px" :label="$t('transactionPage.filterBar.search')" class="border-radius"
-          variant="outlined" density="compact" v-model="search" hide-details>
+        <v-text-field height="37px" :label="$t('$vuetify.search')" class="border-radius" variant="outlined"
+          density="compact" v-model="search" hide-details>
           <template v-slot:prepend-inner>
             <img src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Search.svg?v=1754892504" alt="Search"
               style="width:20px; height:20px; cursor:pointer;" />
@@ -14,8 +14,8 @@
       <v-col cols="12" sm="6" md="3" class="date pa-2 filter-col">
         <v-menu v-model="menu" :close-on-content-click="false" offset-y transition="scale-transition" max-width="350">
           <template #activator="{ props }">
-            <v-text-field density="compact" v-bind="props" placeholder="Select Date Range" v-model="rangeText" readonly
-              hide-details="auto" variant="outlined">
+            <v-text-field density="compact" v-bind="props" :placeholder="$t('$vuetify.date_range_placeholder')"
+              v-model="rangeText" readonly hide-details="auto" variant="outlined">
               <template #prepend-inner>
                 <img
                   src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Calendar_Schedule_c5140360-d30c-4cf5-8ce7-22e166040901.svg?v=1760610746"
@@ -29,7 +29,7 @@
             <template #footer>
               <div class="flex justify-end p-2 pb-4" :class="isRtl ? 'pr-4' : 'pl-4'">
                 <v-btn class="calandar-save-btn" size="small" color="#2563eb" @click="applyDateRange()">
-                  {{ $t('transactionPage.filterBar.doneBtn') }}
+                  {{ $t('$vuetify.doneBtn') }}
                 </v-btn>
               </div>
             </template>
@@ -182,6 +182,13 @@
       </template>
       <v-data-table :headers="headers" :items="searchedAndFilteredTransactions" density="compact" :items-per-page="15"
         v-else>
+        <template #no-data>
+          <div class="text-center py-6">
+            <span class="text-grey">
+              {{ $t('$vuetify.no_data_available') }}
+            </span>
+          </div>
+        </template>
         <template v-slot:[`item.status`]="{ item }">
           <v-chip size="small" dark :class="{
             'status-success': item.status === 'success',
@@ -227,7 +234,7 @@
   <div class="trans-popup">
     <TransactionsDetails v-if="selectedTransaction != null" v-model:isOpen="popupOpen"
       :charges="transactionsStats.unumpay_charges" :currency="transactionsStats.currency"
-      :transaction="selectedTransaction" :isRtl="isRtl"/>
+      :transaction="selectedTransaction" :isRtl="isRtl" />
 
 
   </div>

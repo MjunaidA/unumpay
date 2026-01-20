@@ -82,9 +82,7 @@
     "desc": ".مزودو خدمات الدفع المُكوَّنون",
     "button": "إدارة",
     "transactions": "المعاملات",
-    "unumpay-charges": "يونم باي رسوم",
-    "Active": "نشط",
-    "Inactive": "غير نشط"
+    "unumpay-charges": "يونم باي رسوم"
   },
   "time": {
     "ago": "منذ",
@@ -104,8 +102,11 @@
   "payment_provider": {
     "all": "الكل",
     "checkout": "تشاك آوت",
+    "checkout_com": "تشاك آوت",
     "apg": "الفلاح (ايه پي جي)",
+    "alfalah_apg": "الفلاح (ايه پي جي)",
     "baf": "الفلاح (إم بي جي إس)",
+    "alfalah_mpgs": "الفلاح (إم بي جي إس)",
     "ubl": "يو بي إل",
     "mcb": "إم سي بي",
     "bop": "بنك البنجاب",
@@ -116,6 +117,10 @@
     "hbl_hosted": "إتش بي إل مستضاف",
     "hbl_unified_checkout": "إتش بي إل تسجيل خروج موحد",
     "authorize.net": "أوثورايز.نت",
+    "authorize_net": "أوثورايز.نت",
+    "authorize": {
+      "net":"أوثورايز.نت"
+    },
     "swich": "سويتش",
     "blinq": "بلينك",
     "neem": "نيم",
@@ -123,8 +128,10 @@
     "payfast": "باي فاست",
     "pay2m": "باي 2 إم",
     "nift": "نفت إي باي",
+    "nift_e_pay": "نفت إي باي",
     "easypaisa": "إيزي بيزا",
     "jazzcash": "جاز كاش",
+    "jazz_cash": "جاز كاش",
     "walee": "والي",
     "abhipay": "أبهي باي",
     "safepay": "سيف باي",
@@ -133,7 +140,9 @@
     "keenu": "كينو",
     "stripe": "سترايب",
     "ngenius": "إن جينيوس (نيتوورك إنترناشونال)",
+    "network_international": "إن جينيوس (نيتوورك إنترناشونال)",
     "citybank": "سيتي بنك",
+    "city_bank":"سيتي بنك",
     "tbc": "تي بي سي",
     "moyasar": "موياسر",
     "ccavenue": "سي سي أفينيو",
@@ -142,16 +151,25 @@
     "ccbill": "سي سي بيل",
     "paytab": "باي تاب",
     "tabpay": "تاب بايمنتس",
+    "tap_payments": "تاب بايمنتس",
     "assanpay": "اسان باي",
+    "assan_pay":"اسان باي",
     "dialogpay": "ديالوج باي",
     "directpay": "دايركت باي",
+    "direct_pay": "دايركت باي",
+    "payzen":"بايزن",
+    "zerocash": "زيرو كاش",
+    "zero_cash":"زيرو كاش",
     "null": "-"
   },
   "status": {
     "all": "الكل",
     "success": "ناجح",
     "pending": "قيد الانتظار",
-    "failed": "فشل"
+    "failed": "فشل",
+    "active":"نشط",
+    "inactive":"غير نشط",
+    "configure":"تكوين"
   },
   "download": {
     "title": "تحميل",
@@ -253,9 +271,7 @@
       "address": "العنوان",
       "address_placeholder": "أدخل العنوان",
       "description": "الوصف",
-      "description_placeholder": "اكتب شيئاً...",
-      "close": "إغلاق",
-      "save": "حفظ"
+      "description_placeholder": "اكتب شيئاً..."
     }
   },
    "reconciliationReportPage": {
@@ -280,15 +296,81 @@
     "file_error":"حدث خطأ أثناء تنزيل ملف CSV. يرجى المحاولة مرة أخرى.",
      "report_downloaded":"تم تنزيل تقرير التسوية بنجاح"
    },
+  "payment-providers_page": {
+    "country_filter_label": "البلد",
+    "status_filter_label": "الحالة",
+    "payment_provider_filter_label": "مزود الدفع",
+    "buttons":{
+      "overview": "نظرة عامة",
+      "configuration": "التكوين"
+    },
+    "text":{
+      "transactions":"المعاملات",
+      "volume":"الحجم",
+      "success_rate":"معدل النجاح",
+      "unumpay_charges":"يونم باي رسوم",
+      "configure":"تكوين",
+      "select_provider": "يرجى اختيار مزود خدمة الدفع"
+    },
+    "form":{ 
+      "client_name":"اسم العميل",
+      "client_name_required":"اسم العميل مطلوب",
+      "merchant_id":"معرّف التاجر",
+      "merchant_id_required":"معرّف التاجر مطلوب",
+      "merchant_secret":"سر التاجر",
+      "merchant_secret_required":"سر التاجر مطلوب",
+      "user_name":"اسم المستخدم",
+      "user_name_required":"اسم المستخدم مطلوب",
+      "api_version":"إصدار API",
+      "api_password":"كلمة مرور API",
+      "api_password_required":"كلمة مرور API مطلوبة",
+      "channel_id":"معرّف القناة",
+      "channel_id_required":"معرّف القناة مطلوب",
+      "hide_for_special_countries":"إخفاء للدول الخاصة (رموز الدول مفصولة بفواصل)",
+      "hide_for_special_countries_required":"إخفاء للدول الخاصة مطلوب",
+      "currency_conversion":"تحويل العملة",
+      "switch_currency":"تبديل العملة",
+      "switch_merchant_store_currency":"تبديل عملة متجر التاجر",
+      "switch_merchant_account_currency":"تبديل عملة حساب التاجر",
+      "switch_conversion_rate":"تبديل سعر التحويل",
+      "switch_conversion_rate_required":"سعر التحويل مطلوب",
+      "multiple_currency_text":"التعامل بعملات متعددة",
+      "multiple_currency":"عملات متعددة",
+      "other_currency_merchant_id": "معرّف التاجر للعملة الأخرى",
+      "other_currency_api_username": "اسم مستخدم API للعملة الأخرى",
+      "other_currency_api_password": "كلمة مرور API للعملة الأخرى",
+      "merchant_store_currency":"عملة متجر التاجر",
+      "merchant_account_currency":"عملة حساب التاجر",
+      "conversion_rate":"سعر التحويل",
+      "conversion_rate_required":"سعر التحويل مطلوب",
+      "payment_provider_status":"حالة مزود الدفع",
+      "message":"رسالة",
+      "message_placeholder":"سيتم عرض الرسالة في اختيار المزود",
+      "client_description":"وصف العميل",
+      "form_validation":"يرجى ملء جميع الحقول المطلوبة"
+    }
+  },
+  "payment-providers_snackbar": {
+    "provider_data_loaded": "تم تحميل بيانات مزود الدفع بنجاح",
+    "alfalah_mpgs_settings_saved": "تم حفظ إعدادات الفلاح (إم بي جي إس) بنجاح",
+    "abhipay_settings_saved": "تم حفظ إعدادات أبهي باي بنجاح"
+  },
   "$vuetify": {
     "open": "فتح",
     "close": "إغلاق",
     "doneBtn": "تم",
     "search": "بحث",
+    "active": "نشط",
+    "save": "حفظ",
+    "inactive": "غير نشط",
     "date_range_placeholder": "اختر نطاق التاريخ",
     "no_data_available": "لا توجد بيانات متاحة",
     "loading": "جاري التحميل...",
+    "only_english_allowed": "يسمح فقط بالأحرف الإنجليزية",
     "noDataText": "لا توجد سجلات",
+    "input": {
+      "appendAction": "إضافة إجراء"
+    },
     "dataFooter": {
       "itemsPerPageText": "عدد العناصر في الصفحة:",
       "pageText": "{0}-{1} من {2}",
@@ -317,6 +399,7 @@
     }
   },
   "countries": {
+    "All":"الكل",
     "AF": "أفغانستان",
     "AX": "جزر أولاند",
     "AL": "ألبانيا",
@@ -559,6 +642,9 @@
     "EH": "الصحراء الغربية",
     "YE": "اليمن",
     "ZM": "زامبيا",
-    "ZW": "زيمبابوي"
+    "ZW": "زيمبابوي",
+    "Global": "عالمي",
+    "EQ": "مصر",
+    "all": "الكل"
   }
 }

@@ -124,13 +124,13 @@
                         <v-col cols="6" :class="isRtl ? 'pl-2' : 'pr-2'">
                             <v-btn block depressed @click="closeDialog"
                                 style="background: #fff;border: 1px solid #c4c2c2;border-radius: 8px;">
-                                {{ $t('advance-payment_table.add_payment_popup.close') }}
+                                {{ $t('$vuetify.close') }}
                             </v-btn>
                         </v-col>
                         <v-col cols="6" class="pl-2" :class="isRtl ? 'pr-2' : 'pl-2'">
                             <v-btn block color="primary" depressed @click="submitPayment"
                                 style="background-color: #16A349!important;border: 1px solid #c4c2c2;border-radius: 8px;color:#fff!important">
-                                {{ $t('advance-payment_table.add_payment_popup.save') }}
+                                {{ $t('$vuetify.save') }}
                             </v-btn>
                         </v-col>
                     </v-row>

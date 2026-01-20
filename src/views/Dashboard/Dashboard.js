@@ -64,7 +64,7 @@ export default {
       const is6Months = this.selectedRange === "6m";
       const length = is6Months ? 6 : 12;
 
-      const sliced = this.monthlyChartData.slice(0, length);
+       const sliced = this.monthlyChartData.slice(-length);
 
       this.datacollection = {
         labels: sliced.map((item) => this.getTranslatedMonth(item.month)),

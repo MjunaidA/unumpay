@@ -82,9 +82,7 @@
     "desc": "Prestataires de services de paiement configurés.",
     "button": "Gérer",
     "transactions": "transactions",
-    "unumpay-charges": "Frais Unumpay",
-    "Active": "Actif",
-    "Inactive": "Inactif"
+    "unumpay-charges": "Frais Unumpay"
   },
   "time": {
     "ago": "il y a",
@@ -104,8 +102,11 @@
   "payment_provider": {
     "all": "Tout",
     "checkout": "Checkout.com",
+    "checkout_com": "Checkout.com",
     "apg": "Alfalah (APG)",
+    "alfalah_apg": "Alfalah (APG)",
     "baf": "Alfalah (MPGS)",
+    "alfalah_mpgs": "Alfalah (MPGS)",
     "ubl": "UBL",
     "mcb": "MCB",
     "bop": "Banque du Pendjab",
@@ -116,6 +117,10 @@
     "hbl_hosted": "HBL Hébergé",
     "hbl_unified_checkout": "HBL Paiement Unifié",
     "authorize.net": "Authorize.net",
+    "authorize_net": "Authorize.net",
+    "authorize": {
+      "net":"Authorize.net"
+    },
     "swich": "SWICH",
     "blinq": "BLINQ",
     "neem": "NEEM",
@@ -123,8 +128,10 @@
     "payfast": "PayFast",
     "pay2m": "PAY2M",
     "nift": "NIFT E Pay",
+    "nift_e_pay": "NIFT E Pay",
     "easypaisa": "EasyPaisa",
     "jazzcash": "Jazz Cash",
+    "jazz_cash": "Jazz Cash",
     "walee": "Walee",
     "abhipay": "Abhipay",
     "safepay": "Safepay",
@@ -133,7 +140,9 @@
     "keenu": "Keenu",
     "stripe": "Stripe",
     "ngenius": "Network International",
+    "network_international": "Network International",
     "citybank": "City Bank",
+    "city_bank":"City Bank",
     "tbc": "TBC",
     "moyasar": "MOYASAR",
     "ccavenue": "CCAVENUE",
@@ -142,16 +151,25 @@
     "ccbill": "CCBILL",
     "paytab": "PAYTAB",
     "tabpay": "TAP Paiements",
+    "tap_payments": "TAP Paiements",
     "assanpay": "Assan Pai",
+    "assan_pay":"Assan Pai",
     "dialogpay": "Dialog Pay",
     "directpay": "Direct Pay",
+    "direct_pay": "Direct Pay",
+    "payzen":"Payzen",
+    "zerocash": "Zerocash",
+    "zero_cash":"Zerocash",
     "null": "-"
   },
   "status": {
     "all": "Tous",
     "success": "Succès",
     "pending": "En attente",
-    "failed": "Échec"
+    "failed": "Échec",
+    "active":"Actif",
+    "inactive":"Inactif",
+    "configure":"Configurer"
   },
   "download": {
     "title": "Télécharger",
@@ -253,9 +271,7 @@
       "address": "Adresse",
       "address_placeholder": "Veuillez entrer l'adresse",
       "description": "Description",
-      "description_placeholder": "Écrivez quelque chose...",
-      "close": "Fermer",
-      "save": "Enregistrer"
+      "description_placeholder": "Écrivez quelque chose..."
     }
   },
    "reconciliationReportPage": {
@@ -280,15 +296,81 @@
     "file_error":"Échec du téléchargement du fichier. Veuillez réessayer.",
      "report_downloaded":"Rapport de rapprochement téléchargé avec succès"
    },
+  "payment-providers_page": {
+    "country_filter_label": "Pays",
+    "status_filter_label": "Statut",
+    "payment_provider_filter_label": "Fournisseur de paiement",
+    "buttons":{
+      "overview": "Aperçu",
+      "configuration": "Configuration"
+    },
+    "text":{
+      "transactions":"Transactions",
+      "volume":"Volume",
+      "success_rate":"Taux de réussite",
+      "unumpay_charges":"Frais Unumpay",
+      "configure":"Configurer",
+      "select_provider": "Veuillez sélectionner un fournisseur de services de paiement"
+    },
+    "form":{ 
+      "client_name":"Nom du client",
+      "client_name_required":"Le nom du client est requis",
+      "merchant_id":"ID du marchand",
+      "merchant_id_required":"L'ID du marchand est requis",
+      "merchant_secret":"Secret du marchand",
+      "merchant_secret_required":"Le secret du marchand est requis",
+      "user_name":"Nom d'utilisateur",
+      "user_name_required":"Le nom d'utilisateur est requis",
+      "channel_id":"ID de canal",
+      "channel_id_required":"L'ID de canal est requis",
+      "api_version":"Version API",
+      "api_password":"Mot de passe API",
+      "api_password_required":"Le mot de passe API est requis",
+      "hide_for_special_countries":"Masquer pour les pays spéciaux (codes pays séparés par des virgules)",
+      "hide_for_special_countries_required":"Masquer pour les pays spéciaux est requis",
+      "currency_conversion":"Conversion de devise",
+      "switch_currency":"Changer de devise",
+      "switch_merchant_store_currency":"Changer la devise du magasin du commerçant",
+      "switch_merchant_account_currency":"Changer la devise du compte du commerçant",
+      "switch_conversion_rate":"Changer le taux de conversion",
+      "switch_conversion_rate_required":"Le taux de conversion est requis",
+      "multiple_currency_text":"Gestion de plusieurs devises",
+      "multiple_currency":"Devises multiples",
+      "other_currency_merchant_id": "ID du marchand pour autre devise",
+      "other_currency_api_username": "Nom d'utilisateur API pour autre devise",
+      "other_currency_api_password": "Mot de passe API pour autre devise",
+      "merchant_store_currency":"Devise du magasin du commerçant",
+      "merchant_account_currency":"Devise du compte du commerçant",
+      "conversion_rate":"Taux de conversion",
+      "conversion_rate_required":"Le taux de conversion est requis",
+      "payment_provider_status":"Statut du fournisseur de paiement",
+      "message":"Message",
+      "message_placeholder":"Le message sera affiché lors de la sélection du fournisseur",
+      "client_description":"Description du client",
+      "form_validation":"Veuillez remplir tous les champs requis"
+    }
+  },
+  "payment-providers_snackbar": {
+    "provider_data_loaded": "Données des fournisseurs de paiement chargées avec succès",
+    "alfalah_mpgs_settings_saved": "Paramètres Alfalah (MPGS) enregistrés avec succès",
+    "abhipay_settings_saved": "Paramètres Abhipay enregistrés avec succès"
+  },
   "$vuetify": {
     "open": "Ouvrir",
     "close": "Fermer",
     "doneBtn": "Terminé",
     "search": "Rechercher",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "save": "Enregistrer",
     "date_range_placeholder": "Sélectionner la plage de dates",
     "no_data_available": "Aucune donnée disponible",
     "loading": "Chargement...",
+    "only_english_allowed": "Seuls les caractères anglais sont autorisés",
     "noDataText": "Aucun enregistrement trouvé",
+    "input": {
+      "appendAction": "Ajouter une action"
+    },
     "dataFooter": {
       "itemsPerPageText": "Articles par page:",
       "pageText": "{0}-{1} sur {2}",
@@ -317,6 +399,7 @@
     }
   },
   "countries": {
+    "All":"tout",
     "AF": "Afghanistan",
     "AX": "Åland Islands",
     "AL": "Albania",
@@ -380,7 +463,7 @@
     "DM": "Dominica",
     "DO": "Dominican Republic",
     "EC": "Ecuador",
-    "EG": "Egypt",
+    "EG": "Eqypt",
     "SV": "El Salvador",
     "GQ": "Equatorial Guinea",
     "ER": "Eritrea",
@@ -559,6 +642,9 @@
     "EH": "Western Sahara",
     "YE": "Yemen",
     "ZM": "Zambia",
-    "ZW": "Zimbabwe"
+    "ZW": "Zimbabwe",
+    "Global": "Global",
+    "EQ": "Égypte",
+    "all": "tout"
   }
 }

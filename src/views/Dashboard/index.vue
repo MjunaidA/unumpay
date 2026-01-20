@@ -250,7 +250,10 @@
                     <div class="d-flex align-center gap08">
                       <div class="tra-id">{{ item.payment_session_id }}</div>
                       <v-chip size="small" class="pay-pro">
-                        {{ item.payment_provider === "Unknown" ? '-' : item.payment_provider }}
+                        {{ item.payment_provider === 'Unknown'
+                          ? '-'
+                          : $t(`payment_provider.${item.payment_provider.toLowerCase().replace(/\s+/g, '_')}`)
+                        }}
                       </v-chip>
                     </div>
                     <div class="d-flex align-center gap08">
@@ -304,7 +307,12 @@
                       </div>
                       <div class="provider-detail">
                         <h4 class="provider-name d-flex align-center fontWeight600 fontSize14 capatilize">
-                          <span :class="isRtl ? 'ml-2' : 'mr-2'">{{ item.payment_provider }}</span>
+                          <span :class="isRtl ? 'ml-2' : 'mr-2'">
+                            {{ item.payment_provider === 'Unknown'
+                              ? '-'
+                              : $t(`payment_provider.${item.payment_provider.toLowerCase().replace(/\s+/g, '_')}`)
+                            }}
+                          </span>
                           <img :src="item.is_active
                             ? 'https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Done_Check.svg?v=1754483259'
                             : 'https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Group.svg?v=1754483619'"
@@ -326,7 +334,7 @@
                         <div class="status provider-status">
                           <v-chip size="small" class="fontWeight500"
                             :class="item.is_active ? 'status-success' : 'status-pending'">
-                            {{ item.is_active ? $t('payment_providers.Active') : $t('payment_providers.Inactive') }}
+                            {{ item.is_active ? $t('$vuetify.active') : $t('$vuetify.inactive') }}
 
                           </v-chip>
                         </div>
@@ -347,8 +355,8 @@
       </div>
     </div>
     <div class="snackbar">
-      <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar"  location="top right"
-        :timeout="snackbar_timeout" :color="snackbar_status">
+      <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar" location="top right" :timeout="snackbar_timeout"
+        :color="snackbar_status">
         {{ snackbar_text ? $t(snackbar_text) : snackbar_text }}
       </v-snackbar>
     </div>

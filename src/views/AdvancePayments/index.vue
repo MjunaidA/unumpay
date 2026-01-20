@@ -106,7 +106,12 @@
   <div class="snackbar">
     <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar" location="top right" :timeout="snackbar_timeout"
       :color="snackbar_status">
-      {{ snackbar_text ? $t('advance-payment_snackbar.' + snackbar_text) : snackbar_text }}
+        {{ snackbar_text
+      ? ($te('advance-payment_snackbar.' + snackbar_text)
+          ? $t('advance-payment_snackbar.' + snackbar_text)
+          : snackbar_text)
+      : '' 
+  }}
     </v-snackbar>
   </div>
   <!-- popup -->

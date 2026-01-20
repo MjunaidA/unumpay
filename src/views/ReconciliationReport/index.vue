@@ -11,7 +11,7 @@
     </div>
     <v-row
       class="reconciliation-filter-wrapper align-center d-flex flex-wrap pageWidth bgWhite border-radius border mt-4 filter-bar">
-      <v-col cols="12" class="search pa-2 filter-col">
+      <v-col cols="12" class="search pa-3 filter-col">
         <v-text-field height="37px" :label="$t('$vuetify.search')" class="border-radius" variant="outlined"
           density="compact" v-model="search" hide-details>
           <template v-slot:prepend-inner>
@@ -20,7 +20,7 @@
           </template>
         </v-text-field>
       </v-col>
-      <v-col cols="12" class="date pa-2 filter-col">
+      <v-col cols="12" class="date pa-3 filter-col">
         <v-menu v-model="menu" :close-on-content-click="false" offset-y transition="scale-transition" max-width="350">
           <template #activator="{ props }">
             <v-text-field density="compact" v-bind="props" :placeholder="$t('$vuetify.date_range_placeholder')"
@@ -45,7 +45,7 @@
           </VcDatePicker>
         </v-menu>
       </v-col>
-      <v-col cols="12" class="download-btn pa-2 filter-col">
+      <v-col cols="12" class="download-btn pa-3 filter-col">
         <v-menu offset-y>
           <template #activator="{ props }">
             <v-btn class="lowercase" block variant="outlined" density="compact" v-bind="props">
@@ -60,7 +60,7 @@
           </template>
           <v-list class="action-list custom-dropdown">
             <v-list-item class="cursorPointer" @click="downloadTransactions()">
-              <v-list-item-title >{{ $t('reconciliationReportPage.download_csv') }}</v-list-item-title>
+              <v-list-item-title>{{ $t('reconciliationReportPage.download_csv') }}</v-list-item-title>
             </v-list-item>
           </v-list>
 
@@ -79,14 +79,14 @@
               <v-skeleton-loader class="mb-4" type="table-row" v-for="n in 4" :key="n" width="100%" height="40px" />
             </template>
             <template v-else>
-              <v-card v-for="(item, index) in filteredTransactions" :key="index" class="mb-4 pa-4 custom-outlined-card" variant="outlined"
-                rounded="lg">
+              <v-card v-for="(item, index) in filteredTransactions" :key="index" class="mb-4 pa-4 custom-outlined-card"
+                variant="outlined" rounded="lg">
                 <div class="d-flex justify-space-between align-center mb-3">
                   <div class="order-no fontSize12 fontWeight600">
                     {{ $t('reconciliationReportPage.table.order_no') }}. {{ item.order_number }}
                   </div>
                   <div class="customer-name fontSize12 fontWeight600">{{ item.first_name }} <span>{{ item.last_name
-                      }}</span>
+                  }}</span>
                   </div>
                 </div>
 
@@ -94,44 +94,53 @@
 
                   <v-col cols="12" sm="4" md="2" class="px-2">
                     <div class="table-col">
-                      <span class="list-heading fontSize10 fontWeight400">{{ $t('reconciliationReportPage.table.transaction_id') }}</span>
+                      <span class="list-heading fontSize10 fontWeight400">{{
+                        $t('reconciliationReportPage.table.transaction_id') }}</span>
                       <div class="fontWeight500 fontSize12">{{ item.id }}</div>
                     </div>
                   </v-col>
 
                   <v-col cols="12" sm="4" md="2" class="px-2">
                     <div class="table-col">
-                      <span class="list-heading fontSize10 fontWeight400">{{ $t('reconciliationReportPage.table.email') }}:</span>
+                      <span class="list-heading fontSize10 fontWeight400">{{ $t('reconciliationReportPage.table.email')
+                        }}:</span>
                       <div class="fontWeight500 fontSize12">{{ item.email }}</div>
                     </div>
                   </v-col>
 
                   <v-col cols="12" sm="4" md="2" class="px-2">
                     <div class="table-col">
-                      <span class="list-heading fontSize10 fontWeight400">{{ $t('reconciliationReportPage.table.payment_session') }}:</span>
+                      <span class="list-heading fontSize10 fontWeight400">{{
+                        $t('reconciliationReportPage.table.payment_session') }}:</span>
                       <div class="fontWeight500 fontSize12">{{ item.payment_session }}</div>
                     </div>
                   </v-col>
 
                   <v-col cols="12" sm="4" md="2" class="px-2">
                     <div class="table-col">
-                      <span class="list-heading fontSize10 fontWeight400">{{ $t('reconciliationReportPage.table.payment_source') }}:</span>
-                      <div class="fontWeight500 fontSize12">{{ item.payment_source? $t(`payment_provider.${item.payment_source.toLowerCase()}`): '-'}}</div>
+                      <span class="list-heading fontSize10 fontWeight400">{{
+                        $t('reconciliationReportPage.table.payment_source') }}:</span>
+                      <div class="fontWeight500 fontSize12">{{ item.payment_source ?
+                        $t(`payment_provider.${item.payment_source.toLowerCase()}`): '-'}}</div>
                     </div>
                   </v-col>
 
                   <v-col cols="12" sm="4" md="2" class="px-2">
                     <div class="table-col">
-                      <span class="list-heading fontSize10 fontWeight400">{{ $t('reconciliationReportPage.table.amount') }}:</span>
-                      <div class="fontWeight500 fontSize12"><span>{{ item.currency_symbol }}</span>{{ item.transaction_amount }}
+                      <span class="list-heading fontSize10 fontWeight400">{{ $t('reconciliationReportPage.table.amount')
+                        }}:</span>
+                      <div class="fontWeight500 fontSize12"><span>{{ item.currency_symbol }}</span>{{
+                        item.transaction_amount }}
                       </div>
                     </div>
                   </v-col>
 
                   <v-col cols="12" sm="4" md="2" class="px-2">
                     <div class="table-col">
-                      <span class="list-heading fontSize10 fontWeight400">{{ $t('reconciliationReportPage.table.order_amount') }}:</span>
-                      <div class="fontWeight500 fontSize12"><span>{{ item.currency_symbol }}</span>{{ item.total_price }}
+                      <span class="list-heading fontSize10 fontWeight400">{{
+                        $t('reconciliationReportPage.table.order_amount') }}:</span>
+                      <div class="fontWeight500 fontSize12"><span>{{ item.currency_symbol }}</span>{{ item.total_price
+                        }}
                       </div>
                     </div>
                   </v-col>
@@ -150,7 +159,8 @@
 
                   <v-col class="d-flex align-center justify-end pa-0">
                     <div class="d-flex align-center cstm-style fontSize12 fontWeight400">
-                      <img :class="isRtl ? 'ml-2' : 'mr-2'" src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Group_6.svg?v=1755600626"
+                      <img :class="isRtl ? 'ml-2' : 'mr-2'"
+                        src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Group_6.svg?v=1755600626"
                         alt="Calendar" style="width:16px; height:16px;">
                       <span>{{ item.created_time }}</span>
                     </div>
@@ -159,7 +169,8 @@
                 </div>
               </v-card>
             </template>
-            <p v-if="transactions.length == 0 && !table_loading" class="empty-data  fontSize14 center">{{ $t('$vuetify.no_data_available') }}</p>
+            <p v-if="transactions.length == 0 && !table_loading" class="empty-data  fontSize14 center">{{
+              $t('$vuetify.no_data_available') }}</p>
           </div>
         </v-container>
       </div>
@@ -186,12 +197,12 @@
     </v-card-text>
     <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar" location="top right" :timeout="snackbar_timeout"
       :color="snackbar_status">
-      {{ snackbar_text ? $t('reconciliation_report_snackbar.' + snackbar_text) : snackbar_text }}
-      <template v-slot:action="{ attrs }">
-        <v-btn color="#fff" text v-bind="attrs" @click="snackbar = false">
-          Close
-        </v-btn>
-      </template>
+      {{ snackbar_text
+        ? ($te('reconciliation_report_snackbar.' + snackbar_text)
+          ? $t('reconciliation_report_snackbar.' + snackbar_text)
+          : snackbar_text)
+        : ''
+      }}
     </v-snackbar>
   </div>
 </template>

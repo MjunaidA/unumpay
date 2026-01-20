@@ -227,7 +227,12 @@
   <div class="snackbar">
     <v-snackbar :class="{ 'rtl-rotate': isRtl }" v-model="snackbar" location="top right" :timeout="snackbar_timeout"
       :color="snackbar_status">
-      {{ snackbar_text ? $t('transaction_snackbar.' + snackbar_text) : snackbar_text }}
+      {{ snackbar_text
+        ? ($te('transaction_snackbar.' + snackbar_text)
+          ? $t('transaction_snackbar.' + snackbar_text)
+          : snackbar_text)
+        : ''
+      }}
     </v-snackbar>
   </div>
   <!-- popup -->

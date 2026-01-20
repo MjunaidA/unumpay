@@ -82,9 +82,7 @@
     "desc": "Configured payment service providers.",
     "button": "Manage",
     "transactions": "transactions",
-    "unumpay-charges": "Unumpay Charges",
-    "Active": "Active",
-    "Inactive": "Inactive"
+    "unumpay-charges": "Unumpay Charges"
   },
   "time": {
     "ago": "ago",
@@ -104,8 +102,11 @@
   "payment_provider": {
     "all": "all",
     "checkout": "Checkout.com",
+    "checkout_com": "Checkout.com",
     "apg": "Alfalah (APG)",
+    "alfalah_apg": "Alfalah (APG)",
     "baf": "Alfalah (MPGS)",
+    "alfalah_mpgs": "Alfalah (MPGS)",
     "ubl": "UBL",
     "mcb": "MCB",
     "bop": "BOP",
@@ -116,6 +117,10 @@
     "hbl_hosted": "HBL Hosted",
     "hbl_unified_checkout": "HBL Unified Checkout",
     "authorize.net": "Authorize.net",
+    "authorize_net": "Authorize.net",
+    "authorize": {
+      "net":"Authorize.net"
+    },
     "swich": "SWICH",
     "blinq": "BLINQ",
     "neem": "NEEM",
@@ -123,8 +128,10 @@
     "payfast": "PayFast",
     "pay2m": "PAY2M",
     "nift": "NIFT E Pay",
+    "nift_e_pay": "NIFT E Pay",
     "easypaisa": "EasyPaisa",
     "jazzcash": "Jazz Cash",
+    "jazz_cash": "Jazz Cash",
     "walee": "Walee",
     "abhipay": "Abhipay",
     "safepay": "Safepay",
@@ -133,7 +140,9 @@
     "keenu": "Keenu",
     "stripe": "Stripe",
     "ngenius": "Network International",
+    "network_international": "Network International",
     "citybank": "City Bank",
+    "city_bank":"City Bank",
     "tbc": "TBC",
     "moyasar": "MOYASAR",
     "ccavenue": "CCAVENUE",
@@ -142,16 +151,25 @@
     "ccbill": "CCBILL",
     "paytab": "PAYTAB",
     "tabpay": "TAP Payments",
+    "tap_payments": "TAP Payments",
     "assanpay": "Assan Pay",
+    "assan_pay":"Assan Pay",
     "dialogpay": "Dialog Pay",
     "directpay": "Direct Pay",
+    "direct_pay": "Direct Pay",
+    "payzen":"Payzen",
+    "zerocash": "Zerocash",
+    "zero_cash":"Zerocash",
     "null": "-"
   },
   "status": {
     "all": "all",
     "success": "success",
     "pending": "pending",
-    "failed": "failed"
+    "failed": "failed",
+    "active":"active",
+    "inactive":"inactive",
+    "configure":"configure"
   },
   "download": {
     "title": "Download",
@@ -253,9 +271,7 @@
       "address": "Address",
       "address_placeholder": "Please enter address",
       "description": "Description",
-      "description_placeholder": "Write something...",
-      "close": "Close",
-      "save": "Save"
+      "description_placeholder": "Write something..."
     }
   },
   "reconciliationReportPage": {
@@ -280,15 +296,81 @@
     "file_error":"Can't Extract data of more than 7 days",
     "report_downloaded":"Reconciliation report downloaded successfully"
   },
+  "payment-providers_page": {
+    "country_filter_label": "Country",
+    "status_filter_label": "Status",
+    "payment_provider_filter_label": "Payment Provider",
+    "buttons":{
+      "overview": "Overview",
+      "configuration": "Configuration"
+    },
+    "text":{
+      "transactions":"Transactions",
+      "volume":"Volume",
+      "success_rate":"Success Rate",
+      "unumpay_charges":"Unumpay Charges",
+      "configure":"Configure",
+      "select_provider":"Please select a Payment Service Provider"
+    },
+    "form":{ 
+      "client_name":"Client Name",
+      "client_name_required":"Client Name is required",
+      "merchant_id":"Merchant ID",
+      "merchant_id_required":"Merchant ID is required",
+      "merchant_secret":"Merchant Secret",
+      "merchant_secret_required":"Merchant Secret is required",
+      "user_name":"User Name",
+      "user_name_required":"User Name is required",
+      "api_version":"API Version",
+      "api_password":"API Password",
+      "channel_id":"Channel ID",
+      "channel_id_required":"Channel ID is required",
+      "api_password_required":"API Password is required",
+      "hide_for_special_countries":"Hide For Special Countries (Countries Code Commas Seperated)",
+      "hide_for_special_countries_required":"Hide For Special Countries is required",
+      "currency_conversion":"Currency Conversion",
+      "switch_currency":"Switch Currency",
+      "switch_merchant_store_currency":"Switch Merchant Store Currency",
+      "switch_merchant_account_currency":"Switch Merchant Account Currency",
+      "switch_conversion_rate":"Switch Conversion Rate",
+      "switch_conversion_rate_required":"Conversion Rate is required",
+      "multiple_currency_text":"Multiple Currency Dealing",
+      "multiple_currency":"Multiple Currency",
+      "other_currency_merchant_id": "Other Currency Merchant ID",
+      "other_currency_api_username": "Other Currency API Username",
+      "other_currency_api_password": "Other Currency API Password",
+      "merchant_store_currency":"Merchant Store Currency",
+      "merchant_account_currency":"Merchant Account Currency",
+      "conversion_rate":"Conversion Rate",
+      "conversion_rate_required":"Conversion Rate is required",
+      "payment_provider_status":"Payment Provider Status",
+      "message":"Message",
+      "message_placeholder":"Message will be showing on Provider Selection",
+      "client_description":"Client Description",
+      "form_validation":"Please fill all required fields"
+    }
+  },
+  "payment-providers_snackbar": {
+    "provider_data_loaded": "Payment providers loaded successfully",
+    "alfalah_mpgs_settings_saved": "Alfalah (MPGS) settings saved successfully",
+    "abhipay_settings_saved": "Abhipay settings saved successfully"
+  },
   "$vuetify": {
     "open": "Open",
     "close": "Close",
     "doneBtn": "Done",
     "search": "Search",
+    "active": "Active",
+    "save": "Save",
+    "inactive": "Inactive",
     "date_range_placeholder": "Select date range",
     "no_data_available": "No record found",
     "loading": "Loading...",
+    "only_english_allowed":"Only English characters are allowed",
     "noDataText": "No record found",
+    "input": {
+      "appendAction": "Append action"
+    },
     "dataFooter": {
       "itemsPerPageText": "Items per page:",
       "pageText": "{0}-{1} of {2}",
@@ -317,6 +399,7 @@
     }
   },
   "countries": {
+    "All":"all",
     "AF": "Afghanistan",
     "AX": "Åland Islands",
     "AL": "Albania",
@@ -380,7 +463,7 @@
     "DM": "Dominica",
     "DO": "Dominican Republic",
     "EC": "Ecuador",
-    "EG": "Egypt",
+    "EG": "Eqypt",
     "SV": "El Salvador",
     "GQ": "Equatorial Guinea",
     "ER": "Eritrea",
@@ -559,6 +642,9 @@
     "EH": "Western Sahara",
     "YE": "Yemen",
     "ZM": "Zambia",
-    "ZW": "Zimbabwe"
+    "ZW": "Zimbabwe",
+    "Global": "Global",
+    "EQ": "Eqypt",
+    "all": "all"
   }
 }

@@ -60,7 +60,7 @@
                                     $t('payment-providers_page.form.hide_for_special_countries') }}</label>
 
                                 <v-select v-model="countrySelectedArray" :items="country_codes"
-                                    placeholder="Select Country Code" multiple chips
+                                    :placeholder="$t('payment-providers_page.form.select_country_code')" multiple chips
                                     :append-inner-icon="show_country ? 'mdi-chevron-up' : 'mdi-chevron-down'"
                                     @click:append-inner="show_country = !show_country" variant="outlined" hide-details
                                     dense density="compact" v-model:menu="show_country">
@@ -72,7 +72,7 @@
                                                 </v-icon>
                                             </v-list-item-action>
                                             <v-list-item-title>
-                                                {{ isAllSelected ? 'Deselect All' : 'Select All' }}
+                                                {{ isAllSelected ? $t('payment-providers_page.text.deselect_all') : $t('payment-providers_page.text.select_all') }}
                                             </v-list-item-title>
 
                                         </v-list-item>

@@ -184,7 +184,35 @@
               <div v-if="selectedProvider == 'apg'">
                 <AlfalahAPG :AlfalahAPGObj="provider" :AllProviderLoading="AllProviderLoading"
                   :currency_list="currency_list" :saveDataLoading="saveDataLoading" @show-snackbar="triggerSnackbar"
-                  :transaction_types_list="transaction_types_list" :saveApgSettings="saveApgSettings" />
+                  :transaction_types_list="transaction_types_list" :saveApgSettings="saveApgSettings" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'authorize.net'">
+              <div v-if="selectedProvider == 'authorize.net'">
+                <AuthorizeNet :AuthorizeNetObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :currency_list="currency_list" :saveDataLoading="saveDataLoading"
+                  :transaction_types_list="transaction_types_list" :country_codes="country_codes"
+                  :saveAuthorizeSettings="saveAuthorizeSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'blinq'">
+              <div v-if="selectedProvider == 'blinq'">
+                <Blinq :BlinqObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveBlinqSettings="saveBlinqSettings" :saveDataLoading="saveDataLoading"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'bop'">
+              <div v-if="selectedProvider == 'bop'">
+                <Bop :BOPObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveBopSettings="saveBopSettings" @show-snackbar="triggerSnackbar" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'ccavenue'">
+              <div v-if="selectedProvider == 'ccavenue'">
+                <Ccavenue :ccavenueObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveCCAvenueSettings="saveCCAvenueSettings"
+                  @show-snackbar="triggerSnackbar" />
               </div>
             </div>
           </div>

@@ -1,10 +1,14 @@
 import AlfalahMPGS from "@/components/AlfalahMPGS.vue";
 import AbhiPay from "@/components/AbhiPay.vue";
 import AlfalahAPG from "@/components/AlfalahAPG.vue";
+import AuthorizeNet from "../../components/AuthorizeNet.vue";
+import Blinq from "../../components/Blinq.vue";
+import Bop from "../../components/Bop.vue";
+import Ccavenue from "../../components/Ccavenue.vue";
 
 export default {
   name: "PaymentServiceProviders",
-  components: { AlfalahMPGS, AbhiPay, AlfalahAPG },
+  components: { AlfalahMPGS, AbhiPay, AlfalahAPG, AuthorizeNet, Blinq, Bop, Ccavenue },
   data() {
     return {
       search: "",
@@ -429,7 +433,7 @@ export default {
         )
         .then(
           (response) => {
-            this.snackbar_text = response.data.detail;
+            this.snackbar_text = "apg_settings_saved";
             this.redirect_domain = response.data.redirect_domain;
             this.saveDataLoading = false;
             this.snackbar_status = "success";
@@ -451,6 +455,219 @@ export default {
               this.$router.push("/error");
             }
           },
+        );
+    },
+
+       // Saving Authorize.net Settings
+    saveAuthorizeSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/authorize_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.authorize_client_name,
+            client_description: formData.authorize_client_description,
+            api_login_id: formData.authorize_api_login_id,
+            transaction_key: formData.authorize_transaction_key,
+            is_active: formData.authorize_is_active,
+            switch_currency: formData.authorize_switch_currency,
+            merchant_account_currency:
+              formData.authorize_merchant_account_currency,
+            conversion_rate: formData.authorize_conversion_rate,
+            hide_countries_list: formData.authorize_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "authorize_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving Blinq Settings
+    saveBlinqSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/blinq_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.blinq_client_name,
+            client_description: formData.blinq_client_description,
+            client_id: formData.blinq_client_id,
+            client_secret: formData.blinq_client_secret,
+            is_active: formData.blinq_is_active,
+            hide_countries_list: formData.blinq_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "blinq_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.saveDataLoading = false;
+            this.snackbar = true;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+       // Saving BOP Settings
+    saveBopSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/bop_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.bop_client_name,
+            merchant_id: formData.bop_merchant_id,
+            client_description: formData.bop_client_description,
+            api_username: formData.bop_api_username,
+            api_password: formData.bop_api_password,
+            is_active: formData.bop_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "bop_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving CCAvenue Settings
+    saveCCAvenueSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/ccavenue_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.ccavenue_client_name,
+            client_description: formData.ccavenue_client_description,
+            merchant_id: formData.ccavenue_merchant_id,
+            access_code: formData.ccavenue_access_code,
+            enc_key: formData.ccavenue_enc_key,
+            whitelist_phone_number: formData.ccavenue_whitelist_phone_number,
+            whitelist_email_address: formData.ccavenue_whitelist_email_address,
+            is_active: formData.ccavenue_is_active,
+            recurring_integration_id:
+              formData.ccavenue_recurring_integration_id,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "ccavenue_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
         );
     },
 

@@ -387,7 +387,29 @@
       "phone_number_required": "Le numéro de téléphone est requis",
       "email_address": "Adresse électronique",
       "email_address_required": "L'adresse électronique est requise",
-      "email_address_invalid": "L'adresse électronique est invalide"
+      "email_address_invalid": "L'adresse électronique est invalide",
+      "account_number":"Numéro de compte",
+      "account_number_required":"Le numéro de compte est requis",
+      "sub_account_number":"Numéro de compte secondaire",
+      "sub_account_number_required":"Le numéro de compte secondaire est requis",
+      "flexform_id":"ID FlexForm",
+      "flexform_id_required":"L'ID FlexForm est requis",
+      "saly_key":"Clé Saly",
+      "saly_key_required":"La clé Saly est requise",
+      "api_key":"Clé API",
+      "api_key_required":"La clé API est requise",
+      "processing_channel_id" :"ID du canal de traitement",
+      "processing_channel_id_required":"L'ID du canal de traitement est requis",
+      "username":" Nom d'utilisateur",
+      "username_required":" Le nom d'utilisateur est requis",
+      "password":"Mot de passe",
+      "password_required":" Le mot de passe est requis",
+      "certificate_file_name":"Nom du fichier de certificat",
+      "certificate_file_name_required":"Le nom du fichier de certificat est requis",
+      "key_file_name":"Nom du fichier de clé",
+      "key_file_name_required":"Le nom du fichier de clé est requis",
+      "hash_key":"Clé de hachage",
+      "hash_key_required":"La clé de hachage est requise"
     }
   },
   "payment-providers_snackbar": {
@@ -398,7 +420,11 @@
     "authorize_settings_saved": "Paramètres Authorize.net enregistrés avec succès",
     "blinq_settings_saved": "Paramètres BLINQ enregistrés avec succès",
     "bop_settings_saved": "Paramètres BOP enregistrés avec succès",
-    "ccavenue_settings_saved": "Paramètres CCAVENUE enregistrés avec succès"
+    "ccavenue_settings_saved": "Paramètres CCAVENUE enregistrés avec succès",
+    "ccbill_settings_saved": "Paramètres CCBILL enregistrés avec succès",
+    "checkout_com_settings_saved": "Paramètres Checkout.com enregistrés avec succès",
+    "city_bank_settings_saved": "Paramètres City Bank enregistrés avec succès",
+    "easy_paisa_settings_saved": "Paramètres Easy Paisa enregistrés avec succès"
   },
   "$vuetify": {
     "open": "Ouvrir",

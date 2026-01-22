@@ -5,10 +5,26 @@ import AuthorizeNet from "../../components/AuthorizeNet.vue";
 import Blinq from "../../components/Blinq.vue";
 import Bop from "../../components/Bop.vue";
 import Ccavenue from "../../components/Ccavenue.vue";
+import Ccbill from "../../components/Ccbill.vue";
+import CheckoutDotCom from "../../components/CheckoutDotCom.vue";
+import Citybank from "../../components/Citybank.vue";
+import EasyPaisa from "../../components/EasyPaisa.vue";
 
 export default {
   name: "PaymentServiceProviders",
-  components: { AlfalahMPGS, AbhiPay, AlfalahAPG, AuthorizeNet, Blinq, Bop, Ccavenue },
+  components: {
+    AlfalahMPGS,
+    AbhiPay,
+    AlfalahAPG,
+    AuthorizeNet,
+    Blinq,
+    Bop,
+    Ccavenue,
+    Ccbill,
+    CheckoutDotCom,
+    Citybank,
+    EasyPaisa
+  },
   data() {
     return {
       search: "",
@@ -458,7 +474,7 @@ export default {
         );
     },
 
-       // Saving Authorize.net Settings
+    // Saving Authorize.net Settings
     saveAuthorizeSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -485,7 +501,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -510,11 +526,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving Blinq Settings
+    // Saving Blinq Settings
     saveBlinqSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -536,7 +552,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -561,11 +577,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-       // Saving BOP Settings
+    // Saving BOP Settings
     saveBopSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -587,7 +603,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -612,11 +628,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving CCAvenue Settings
+    // Saving CCAvenue Settings
     saveCCAvenueSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -642,7 +658,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -661,6 +677,211 @@ export default {
             this.saveDataLoading = false;
             this.snackbar_text = error;
             this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+    // Saving CCBill Settings
+    saveCCBillSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/ccbill_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.ccbill_client_name,
+            client_description: formData.ccbill_client_description,
+            account_number: formData.ccbill_account_number,
+            sub_account_number: formData.ccbill_sub_account_number,
+            flexform_id: formData.ccbill_flexform_id,
+            salt_key: formData.ccbill_salt_key,
+            is_active: formData.ccbill_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          },
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "ccbill_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+    // Saving Checkout Settings
+    saveCheckoutSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/checkout_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.checkout_client_name,
+            client_description: formData.checkout_client_description,
+            api_key: formData.checkout_api_key,
+            processing_channel_id: formData.checkout_processing_channel_id,
+            is_active: formData.checkout_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          },
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "checkout_com_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+        // Saving CityBank Settings
+    saveCityBankSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/citybank_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.citybank_client_name,
+            client_description: formData.citybank_client_description,
+            merchant_id: formData.citybank_merchant_id,
+            city_bank_password: formData.citybank_password,
+            city_bank_username: formData.citybank_username,
+            certificate_file_name: formData.citybank_certificate_file_name,
+            key_file_name: formData.citybank_key_file_name,
+            is_active: formData.citybank_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "city_bank_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+    
+        // Saving EasyPaisa Settings
+    saveEasyPaisaSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/easypaisa_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.easy_paisa_client_name,
+            client_description: formData.easy_paisa_client_description,
+            store_id: formData.easy_paisa_store_id,
+            hash_key: formData.easy_paisa_hash_key,
+            is_active: formData.easy_paisa_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "easy_paisa_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_status = "red";
+            this.snackbar_text = error;
             if (
               error.response.data.detail ==
               "Session expired, Reopen the application!"

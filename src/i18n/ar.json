@@ -387,7 +387,29 @@
       "phone_number_required": "رقم الهاتف مطلوب",
       "email_address": "عنوان البريد الإلكتروني",
       "email_address_required": "عنوان البريد الإلكتروني مطلوب",
-      "email_address_invalid": "عنوان البريد الإلكتروني غير صالح"
+      "email_address_invalid": "عنوان البريد الإلكتروني غير صالح",
+      "account_number":"رقم الحساب",
+      "account_number_required":"رقم الحساب مطلوب",
+      "sub_account_number":"رقم الحساب الفرعي",
+      "sub_account_number_required":"رقم الحساب الفرعي مطلوب",
+      "flexform_id":"معرّف FlexForm",
+      "flexform_id_required":"معرّف FlexForm مطلوب",
+      "saly_key":"مفتاح Saly",
+      "saly_key_required":"مفتاح Saly مطلوب",
+      "api_key":"مفتاح API",
+      "api_key_required":"مفتاح API مطلوب",
+      "processing_channel_id" :"معرّف قناة المعالجة",
+      "processing_channel_id_required":"معرّف قناة المعالجة مطلوب",
+      "username":" اسم المستخدم",
+      "username_required":"اسم المستخدم مطلوب",
+      "password":"كلمة المرور",
+      "password_required":"كلمة المرور مطلوبة",
+      "certificate_file_name":"اسم ملف الشهادة",
+      "certificate_file_name_required":"اسم ملف الشهادة مطلوب",
+      "key_file_name":"اسم ملف المفتاح",
+      "key_file_name_required":"اسم ملف المفتاح مطلوب",
+      "hash_key":"مفتاح التجزئة",
+      "hash_key_required":"مفتاح التجزئة مطلوب"
     }
   },
   "payment-providers_snackbar": {
@@ -398,7 +420,11 @@
     "authorize_settings_saved": "تم حفظ إعدادات أوثورايز.نت بنجاح",
     "blinq_settings_saved": "تم حفظ إعدادات بلينك بنجاح",
     "bop_settings_saved": "تم حفظ إعدادات بنك البنجاب بنجاح",
-    "ccavenue_settings_saved": "تم حفظ إعدادات سي سي أفينيو بنجاح"
+    "ccavenue_settings_saved": "تم حفظ إعدادات سي سي أفينيو بنجاح",
+    "ccbill_settings_saved": "تم حفظ إعدادات سي سي بيل بنجاح",
+    "checkout_com_settings_saved": "تم حفظ إعدادات تشاك آوت بنجاح",
+    "city_bank_settings_saved": "تم حفظ إعدادات سيتي بنك بنجاح",
+    "easy_paisa_settings_saved": "تم حفظ إعدادات Easy Paisa بنجاح"
   },
   "$vuetify": {
     "open": "فتح",

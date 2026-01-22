@@ -387,7 +387,29 @@
       "phone_number_required": "Phone Number is required",
       "email_address": "Email Address",
       "email_address_required": "Email Address is required",
-      "email_address_invalid": "Email Address is invalid"
+      "email_address_invalid": "Email Address is invalid",
+      "account_number":"Account Number",
+      "account_number_required":"Account Number is required",
+      "sub_account_number":"Sub Account Number",
+      "sub_account_number_required":"Sub Account Number is required",
+      "flexform_id":"FlexForm ID",
+      "flexform_id_required":"FlexForm ID is required",
+      "saly_key":"Saly Key",
+      "saly_key_required":"Saly Key is required",
+      "api_key":"API Key",
+      "api_key_required":"API Key is required",
+      "processing_channel_id" :"Processing Channel ID",
+      "processing_channel_id_required" :"Processing Channel ID is required",
+      "username":" Username",
+      "username_required":" Username is required",
+      "password":" Password",
+      "password_required":" Password is required",
+      "certificate_file_name":" Certificate File Name",
+      "certificate_file_name_required":" Certificate File Name is required",
+      "key_file_name":" Key File Name",
+      "key_file_name_required":" Key File Name is required",
+      "hash_key":"Hash Key",
+      "hash_key_required":"Hash Key is required"
     }
   },
   "payment-providers_snackbar": {
@@ -398,7 +420,11 @@
     "authorize_settings_saved": "Authorize.net settings saved successfully",
     "blinq_settings_saved": "BLINQ settings saved successfully",
     "bop_settings_saved": "BOP settings saved successfully",
-    "ccavenue_settings_saved": "CCAVENUE settings saved successfully"
+    "ccavenue_settings_saved": "CCAVENUE settings saved successfully",
+    "ccbill_settings_saved": "CCBILL settings saved successfully",
+    "checkout_com_settings_saved": "Checkout.com settings saved successfully",
+    "city_bank_settings_saved": "City Bank settings saved successfully",
+    "easy_paisa_settings_saved": "Easy Paisa settings saved successfully"
   },
   "$vuetify": {
     "open": "Open",

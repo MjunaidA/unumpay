@@ -215,6 +215,34 @@
                   @show-snackbar="triggerSnackbar" />
               </div>
             </div>
+            <div v-if="provider.transaction_obj.provider_name === 'ccbill'">
+              <div v-if="selectedProvider == 'ccbill'">
+                <Ccbill :CcbillObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveCCBillSettings="saveCCBillSettings"
+                  @show-snackbar="triggerSnackbar" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'checkout'">
+              <div v-if="selectedProvider == 'checkout'">
+                <CheckoutDotCom :CheckoutObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveCheckoutSettings="saveCheckoutSettings"
+                  @show-snackbar="triggerSnackbar" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'citybank'">
+              <div v-if="selectedProvider == 'citybank'">
+                <Citybank :CitybankObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveCityBankSettings="saveCityBankSettings"
+                  @show-snackbar="triggerSnackbar" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'easypaisa'">
+              <div v-if="selectedProvider == 'easypaisa'">
+                <EasyPaisa :EasyPaisaObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveEasyPaisaSettings="saveEasyPaisaSettings"
+                  @show-snackbar="triggerSnackbar" />
+              </div>
+            </div>
           </div>
           <div v-if="selectedProvider == '' || selectedProvider == null" class="mt-4 empty-box border ml-0 mr-0">
             <div class="cstm-main empty-provider">

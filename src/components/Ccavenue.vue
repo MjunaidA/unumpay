@@ -98,6 +98,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "Ccavenue",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         ccavenueObj: {
             type: Object,
             required: true

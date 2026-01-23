@@ -192,6 +192,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "AlfalahAPG",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         AlfalahAPGObj: {
             type: Object,
             required: true

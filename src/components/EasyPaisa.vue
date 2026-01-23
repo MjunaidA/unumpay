@@ -72,6 +72,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "EasyPaisa",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         EasyPaisaObj: {
             type: Object,
             required: true

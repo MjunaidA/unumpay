@@ -9,6 +9,10 @@ import Ccbill from "../../components/Ccbill.vue";
 import CheckoutDotCom from "../../components/CheckoutDotCom.vue";
 import Citybank from "../../components/Citybank.vue";
 import EasyPaisa from "../../components/EasyPaisa.vue";
+import FlutterWave from "../../components/FlutterWave.vue";
+import HBL from "../../components/HBL.vue";
+import HblHosted from "../../components/HblHosted.vue";
+import HBLUnifiedCheckout from "../../components/HBLUnifiedCheckout.vue";
 
 export default {
   name: "PaymentServiceProviders",
@@ -23,7 +27,11 @@ export default {
     Ccbill,
     CheckoutDotCom,
     Citybank,
-    EasyPaisa
+    EasyPaisa,
+    FlutterWave,
+    HBL,
+    HblHosted,
+    HBLUnifiedCheckout
   },
   data() {
     return {
@@ -891,6 +899,239 @@ export default {
           }
         );
     },
+
+        // Saving Flutterwave Settings
+    saveFlutterwaveSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/flutterwave_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.flutterwave_client_name,
+            client_description: formData.flutterwave_client_description,
+            public_key: formData.flutterwave_public_key,
+            encryption_key: formData.flutterwave_encryption_key,
+            secret_key: formData.flutterwave_secret_key,
+            is_active: formData.flutterwave_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "flutterwave_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving HBL Settings
+    saveHBLSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.scroll();
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/hbl_configuration?shop=" +
+            this.$shop,
+          {
+            client_description: formData.hbl_client_description,
+            is_active: formData.hbl_is_active,
+            shop_name: formData.shop_name,
+            secret_key: formData.secret_key,
+            profile_id: formData.profile_id,
+            access_key: formData.access_key,
+            client_email: formData.hbl_client_email,
+            client_phone_number: formData.hbl_client_phone_number,
+            merchant_defined_data3: formData.merchant_defined_data3,
+            multi_currency: formData.hbl_multi_currency,
+            dual_currency: formData.hbl_dual_currency,
+            merchant_account_currency: formData.hbl_merchant_account_currency,
+            conversion_rate: formData.hbl_conversion_rate,
+            hide_countries_list: formData.hbl_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "hbl_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+    
+    // Saving HBL Hosted Checkout Settings
+    saveHBLHostedSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/hbl_hosted_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.hbl_hosted_client_name,
+            client_description: formData.hbl_hosted_client_description,
+            client_phone_number: formData.hbl_hosted_client_phone_number,
+            client_email: formData.hbl_hosted_client_email,
+            client_user_id: formData.hbl_hosted_client_user_id,
+            client_password: formData.hbl_hosted_client_password,
+            public_key: formData.hbl_hosted_public_key,
+            private_key: formData.hbl_hosted_private_key,
+            is_active: formData.hbl_hosted_is_active,
+            multi_currency: formData.hbl_hosted_multi_currency,
+            dual_currency: formData.hbl_hosted_dual_currency,
+            merchant_account_currency:
+              formData.hbl_hosted_merchant_account_currency,
+            conversion_rate: formData.hbl_hosted_conversion_rate,
+            hide_countries_list: formData.hbl_hosted_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "hbl_hosted_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+    
+    // Saving HBL Unified Checkout Settings
+    saveHBLUnifiedCheckoutSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/hbl_unified_checkout_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.hbl_unified_checkout_client_name,
+            client_description: formData.hbl_unified_checkout_client_description,
+            merchant_id: formData.hbl_unified_checkout_merchant_id,
+            key_id: formData.hbl_unified_checkout_key_id,
+            shared_secret: formData.hbl_unified_checkout_shared_secret,
+            allowed_card_networks: formData.hbl_unified_checkout_allowed_card_networks,
+            allowed_payment_types: formData.hbl_unified_checkout_allowed_payment_types,
+            is_active: formData.hbl_unified_checkout_is_active,
+            multi_currency: formData.hbl_unified_checkout_multi_currency,
+            dual_currency: formData.hbl_unified_checkout_dual_currency,
+            merchant_account_currency: formData.hbl_unified_checkout_merchant_account_currency,
+            conversion_rate: formData.hbl_unified_checkout_conversion_rate,
+            hide_countries_list: formData.hbl_unified_checkout_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "hbl_unified_checkout_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
 
     initializeCountries() {
       this.all_country_list_code = [

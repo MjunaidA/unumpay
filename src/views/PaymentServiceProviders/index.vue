@@ -205,42 +205,71 @@
             <div v-if="provider.transaction_obj.provider_name === 'bop'">
               <div v-if="selectedProvider == 'bop'">
                 <Bop :BOPObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
-                  :saveBopSettings="saveBopSettings" @show-snackbar="triggerSnackbar" />
+                  :saveBopSettings="saveBopSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
               </div>
             </div>
             <div v-if="provider.transaction_obj.provider_name === 'ccavenue'">
               <div v-if="selectedProvider == 'ccavenue'">
                 <Ccavenue :ccavenueObj="provider" :AllProviderLoading="AllProviderLoading"
                   :saveDataLoading="saveDataLoading" :saveCCAvenueSettings="saveCCAvenueSettings"
-                  @show-snackbar="triggerSnackbar" />
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
               </div>
             </div>
             <div v-if="provider.transaction_obj.provider_name === 'ccbill'">
               <div v-if="selectedProvider == 'ccbill'">
                 <Ccbill :CcbillObj="provider" :AllProviderLoading="AllProviderLoading"
                   :saveDataLoading="saveDataLoading" :saveCCBillSettings="saveCCBillSettings"
-                  @show-snackbar="triggerSnackbar" />
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
               </div>
             </div>
             <div v-if="provider.transaction_obj.provider_name === 'checkout'">
               <div v-if="selectedProvider == 'checkout'">
                 <CheckoutDotCom :CheckoutObj="provider" :AllProviderLoading="AllProviderLoading"
                   :saveDataLoading="saveDataLoading" :saveCheckoutSettings="saveCheckoutSettings"
-                  @show-snackbar="triggerSnackbar" />
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
               </div>
             </div>
             <div v-if="provider.transaction_obj.provider_name === 'citybank'">
               <div v-if="selectedProvider == 'citybank'">
                 <Citybank :CitybankObj="provider" :AllProviderLoading="AllProviderLoading"
                   :saveDataLoading="saveDataLoading" :saveCityBankSettings="saveCityBankSettings"
-                  @show-snackbar="triggerSnackbar" />
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
               </div>
             </div>
             <div v-if="provider.transaction_obj.provider_name === 'easypaisa'">
               <div v-if="selectedProvider == 'easypaisa'">
                 <EasyPaisa :EasyPaisaObj="provider" :AllProviderLoading="AllProviderLoading"
                   :saveDataLoading="saveDataLoading" :saveEasyPaisaSettings="saveEasyPaisaSettings"
-                  @show-snackbar="triggerSnackbar" />
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'flutterwave'">
+              <div v-if="selectedProvider == 'flutterwave'">
+                <FlutterWave :FlutterWaveObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveFlutterwaveSettings="saveFlutterwaveSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'hbl'">
+              <div v-if="selectedProvider == 'hbl'">
+                <HBL :HBLObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :currency_list="currency_list" :country_codes="country_codes" :saveHBLSettings="saveHBLSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'hbl_hosted'">
+              <div v-if="selectedProvider == 'hbl_hosted'">
+                <HblHosted :HblHostedObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :currency_list="currency_list" :country_codes="country_codes"
+                  :saveHBLHostedSettings="saveHBLHostedSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'hbl_unified_checkout'">
+              <div v-if="selectedProvider == 'hbl_unified_checkout'">
+                <HBLUnifiedCheckout :HBLUnifiedCheckoutObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :allowed_payment_types_list="allowed_payment_types_list"
+                  :allowed_card_networks_list="allowed_card_networks_list" :currency_list="currency_list"
+                  :saveHBLUnifiedCheckoutSettings="saveHBLUnifiedCheckoutSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@
                 <v-col cols="12" md="6" class="config-left-col config-col">
                     <div class="config-col-wrapper">
                         <div class="d-flex justify-space-between pb-4 config-heading-container">
-                           <h3 class="pro-heading">{{ $t(`payment_provider.${providerName}`) }}</h3>
+                            <h3 class="pro-heading">{{ $t(`payment_provider.${providerName}`) }}</h3>
                             <div class="cstm-logo"><v-img :src="logo"></v-img>
                             </div>
                         </div>
@@ -14,23 +14,31 @@
                                 <label class="mb-3 fontWeight400 fontSize13 mediumgreyColor">{{
                                     $t('payment-providers_page.form.client_name') }}</label>
                                 <v-text-field dense color="red darken-2" :placeholder="$t('payment-providers_page.form.client_name')"
-                                    v-model="formData.checkout_client_name" required variant="outlined" density="compact"
-                                    :rules="[v => !!v || $t('payment-providers_page.form.client_name_required'),
+                                    v-model="formData.flutterwave_client_name" required variant="outlined" density="compact"
+                                    :rules="[v => !!v ||  $t('payment-providers_page.form.client_name_required'),
                                         v => englishRule(v, $t)]"></v-text-field>
                             </div>
-                            <div class="api-key">
-                                <label class="mb-3 fontWeight400 fontSize13 mediumgreyColor">{{ $t('payment-providers_page.form.api_key') }}</label>
-                                <v-text-field dense color="red darken-2" :placeholder="$t('payment-providers_page.form.api_key')"
-                                    v-model="formData.checkout_api_key" required variant="outlined" density="compact"
-                                    :rules="[v => !!v || $t('payment-providers_page.form.api_key_required'),
+                            <div class="secret-key">
+                                <label class="mb-3 fontWeight400 fontSize13 mediumgreyColor">{{ $t('payment-providers_page.form.secret_key') }}</label>
+                                <v-text-field dense color="red darken-2" :placeholder="$t('payment-providers_page.form.secret_key')"
+                                    v-model="formData.flutterwave_secret_key" required variant="outlined" density="compact"
+                                    :rules="[v => !!v || $t('payment-providers_page.form.secret_key_required'),
                                         v => englishRule(v, $t)
                                     ]"></v-text-field>
                             </div>
-                            <div class="channel-id">
-                                <label class="mb-3 fontWeight400 fontSize13 mediumgreyColor">{{ $t('payment-providers_page.form.processing_channel_id') }}</label>
-                                <v-text-field dense color="red darken-2" :placeholder="$t('payment-providers_page.form.processing_channel_id')"
-                                    v-model="formData.checkout_processing_channel_id" required variant="outlined" density="compact"
-                                    :rules="[v => !!v || $t('payment-providers_page.form.processing_channel_id_required'),
+                            <div class="public-key">
+                                <label class="mb-3 fontWeight400 fontSize13 mediumgreyColor">{{ $t('payment-providers_page.form.public_key') }}</label>
+                                <v-text-field dense color="red darken-2" :placeholder="$t('payment-providers_page.form.public_key')"
+                                    v-model="formData.flutterwave_public_key" required variant="outlined" density="compact"
+                                    :rules="[v => !!v || $t('payment-providers_page.form.public_key_required'),
+                                        v => englishRule(v, $t)
+                                    ]"></v-text-field>
+                            </div>
+                            <div class="encryption-key">
+                                <label class="mb-3 fontWeight400 fontSize13 mediumgreyColor">{{ $t('payment-providers_page.form.encryption_key') }}</label>
+                                <v-text-field dense color="red darken-2" :placeholder="$t('payment-providers_page.form.encryption_key')"
+                                    v-model="formData.flutterwave_encryption_key" required variant="outlined" density="compact"
+                                    :rules="[v => !!v || $t('payment-providers_page.form.encryption_key_required'),
                                         v => englishRule(v, $t)
                                     ]"></v-text-field>
                             </div>
@@ -44,7 +52,7 @@
                             <h5>{{ $t('payment-providers_page.form.payment_provider_status') }}</h5>
                             <div class="d-flex justify-space-between align-center">
                                 <span class="active-text fontWeight500 fontSize12">{{ $t('$vuetify.active') }}</span>
-                                <v-switch v-model="formData.checkout_is_active" hide-details inset :true-value="true"
+                                <v-switch v-model="formData.flutterwave_is_active" hide-details inset :true-value="true"
                                     class="custom-switch mt-0" color="#000" :ripple="false" :false-value="false"></v-switch>
                             </div>
                         </div>
@@ -53,7 +61,7 @@
                             <div class="message-description">
                                 <label class="mb-3 fontWeight400 fontSize13 mediumgreyColor">{{ $t('payment-providers_page.form.client_description') }}</label>
                                 <v-textarea dense color="red darken-2" :placeholder="$t('payment-providers_page.form.client_description')"
-                                    v-model="formData.checkout_client_description" variant="outlined" density="compact" :rules="[v => englishRule(v, $t)]" />
+                                    v-model="formData.flutterwave_client_description" variant="outlined" density="compact" :rules="[v => englishRule(v, $t)]" />
                             </div>
                         </div>
                         <v-btn @click="SaveData()" class="save-provider">{{ $t('$vuetify.save') }}</v-btn>
@@ -69,17 +77,17 @@
 import { englishOnlyRule } from "@/utils/selectUtils.js";
 
 export default {
-    name: "CheckoutDotCom",
+    name: "FlutterWave",
     props: {
         isRtl: {
             type: Boolean,
             default: false
         },
-        CheckoutObj: {
+        FlutterWaveObj: {
             type: Object,
             required: true
         },
-        saveCheckoutSettings: Function,
+        saveFlutterwaveSettings: Function,
         saveDataLoading: {
             type: Boolean,
             default: true,
@@ -88,16 +96,17 @@ export default {
     data() {
         return {
             formData: {
-                checkout_client_name: this.CheckoutObj.credential.client_name,
-                checkout_client_description: this.CheckoutObj.credential.client_description,
-                checkout_api_key: this.CheckoutObj.credential.api_key,
-                checkout_processing_channel_id: this.CheckoutObj.credential.processing_channel_id,
-                checkout_is_active: this.CheckoutObj.credential.is_active,
+                flutterwave_client_name: this.FlutterWaveObj.credential.client_name,
+                flutterwave_client_description: this.FlutterWaveObj.credential.client_description,
+                flutterwave_secret_key: this.FlutterWaveObj.credential.secret_key,
+                flutterwave_public_key: this.FlutterWaveObj.credential.public_key,
+                flutterwave_encryption_key: this.FlutterWaveObj.credential.encryption_key,
+                flutterwave_is_active: this.FlutterWaveObj.credential.is_active,
             },
-            logo: this.CheckoutObj.logo_url,
-            displayName: this.CheckoutObj.transaction_obj.display_name,
+            logo: this.FlutterWaveObj.logo_url,
+            displayName: this.FlutterWaveObj.transaction_obj.display_name,
             isFormValid: false,
-            providerName: this.CheckoutObj.transaction_obj.provider_name,
+            providerName: this.FlutterWaveObj.transaction_obj.provider_name,
         };
     },
     computed: {
@@ -121,14 +130,13 @@ export default {
                 const finalData = {
                     ...this.formData,
                 };
-                this.saveCheckoutSettings(finalData);
+                this.saveFlutterwaveSettings(finalData);
             } else {
                 this.$emit("show-snackbar", {
                     text: this.$t('payment-providers_page.form.form_validation'),
                     status: "error"
                 });
             }
-
         }
     },
 };

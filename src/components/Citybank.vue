@@ -99,6 +99,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "CityBank",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         CitybankObj: {
             type: Object,
             required: true

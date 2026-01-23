@@ -75,6 +75,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "Blinq",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         BlinqObj: {
             type: Object,
             required: true

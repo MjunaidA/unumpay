@@ -136,6 +136,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "AuthorizeNet",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         AuthorizeNetObj: {
             type: Object,
             required: true

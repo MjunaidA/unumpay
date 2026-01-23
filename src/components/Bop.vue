@@ -83,6 +83,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "BOP",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         BOPObj: {
             type: Object,
             required: true

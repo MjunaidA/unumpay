@@ -126,6 +126,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "AbhiPay",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         AbhiPayObj: {
             type: Object,
             required: true

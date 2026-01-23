@@ -88,6 +88,10 @@ import { englishOnlyRule } from "@/utils/selectUtils.js";
 export default {
     name: "Ccbill",
     props: {
+        isRtl: {
+            type: Boolean,
+            default: false
+        },
         CcbillObj: {
             type: Object,
             required: true

@@ -314,6 +314,8 @@
       "return_url":" Return URL",
       "listner_url":" Listener URL",
       "response_url":" Response URL",
+      "response_abl":" Response URL (ABL)",
+      "response_assan_pay":" Response URL (Assan Pay)",
       "select_all":"Select All",
       "deselect_all":"Deselect All",
       "callback_return_url":" Callback/Return URL"
@@ -427,6 +429,7 @@
       "merchant_define_data3_required":"Merchant Define Data3 is required",
       "multi_currency":"Multi Currency",
       "dual_currency":"Dual Currency",
+      "dual_currency_required":"Dual Currency is required",
       "client_user_id":"Client User ID",
       "client_user_id_required":"Client User ID is required",
       "client_password":"Client Password",
@@ -440,7 +443,21 @@
       "payment_type":"Payment Type",
       "payment_type_required":"Payment Type is required",
       "card_network":"Card Network",
-      "card_network_required":"Card Network is required"
+      "card_network_required":"Card Network is required",
+      "x_api_key":"X API Key",
+      "x_api_key_required":"X API Key is required",
+      "client_secret":"Client Secret",
+      "client_secret_required":"Client Secret is required",
+      "database_name":"Database Name",
+      "database_name_required":"Database Name is required",
+      "payment_provider_id":"Payment Provider ID",
+      "payment_provider_id_required":"Payment Provider ID is required",
+      "payment_service_id":"Payment Service ID",
+      "payment_service_id_required":"Payment Service ID is required",
+      "client_secret_key":"Client Secret Key",
+      "client_secret_key_required":"Client Secret Key is required",
+      "integrity_salt":"Integrity Salt",
+      "integrity_salt_required":"Integrity Salt is required"
     }
   },
   "payment-providers_snackbar": {
@@ -459,7 +476,13 @@
     "flutterwave_settings_saved": "Flutterwave settings saved successfully",
     "hbl_settings_saved": "HBL settings saved successfully",
     "hbl_hosted_settings_saved": "HBL Hosted settings saved successfully",
-    "hbl_unified_checkout_settings_saved": "HBL Unified Checkout settings saved successfully"
+    "hbl_unified_checkout_settings_saved": "HBL Unified Checkout settings saved successfully",
+    "abl_settings_saved": "ABL settings saved successfully",
+    "assan_pay_settings_saved": "Assan Pay settings saved successfully",
+    "direct_pay_settings_saved": "Direct Pay settings saved successfully",
+    "dialog_pay_settings_saved": "Dialog Pay settings saved successfully",
+    "save_zerocash_settings_saved": "Zerocash settings saved successfully",
+    "jazz_cash_settings_saved": "Jazz Cash settings saved successfully"
   },
   "$vuetify": {
     "open": "Open",

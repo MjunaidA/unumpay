@@ -115,7 +115,7 @@
                         </div>
                         <div>
                             <v-col cols="12" sm="12">
-                                <p class="text-primary-color"> <b>{{ $t('payment-providers_page.text.response_url') }}:</b>
+                                <p class="text-primary-color res-url"> <b>{{ $t('payment-providers_page.text.response_url') }}:</b>
                                     <a target="_blank" href="https://unumpay.alche.cloud/payment_app/authorize_webhook/">https://unumpay.alche.cloud/payment_app/authorize_webhook/</a> </p>
                             </v-col>
                         </div>

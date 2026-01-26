@@ -115,6 +115,10 @@
     justify-content: space-between!important;
     border-bottom: 1px solid #d0d0d0!important;
   }
+  .res-url{
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .custom-switch {
@@ -175,6 +179,8 @@
     }
     .v-col-md-6 {
         flex: 0 0 100% ;
+        width: 100%;
+        max-width: 100%;
       }
   }
 }
@@ -184,6 +190,7 @@
     .v-row {
       .v-col-md-6 {
         flex: 0 0 calc(50% - 13px);
+        max-width: calc(50% - 13px);
       }
     }
   }

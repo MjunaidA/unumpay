@@ -170,10 +170,10 @@
                         </div>
                         <div>
                             <v-col cols="12" sm="12">
-                                <p class="text-primary-color"> <b>{{ $t('payment-providers_page.text.return_url') }}:</b>
-                                    <a target="_blank" href="https://unified-transaction-be.alchemative.net/payment_app/apg_request/ ">https://unified-transaction-be.alchemative.net/payment_app/apg_request/ </a></p>
-                                <p class="text-primary-color"> <b>{{ $t('payment-providers_page.text.listner_url') }}:</b>
-                                    <a target="_blank" href="https://unified-transaction-be.alchemative.net/payment_app/apg_response/">https://unified-transaction-be.alchemative.net/payment_app/apg_response/</a>
+                                <p class="text-primary-color res-url"> <b>{{ $t('payment-providers_page.text.return_url') }}:</b>
+                                    <a target="_blank" href="https://unumpay.alche.cloud/payment_app/apg_request/ ">https://unumpay.alche.cloud/payment_app/apg_request/ </a></p>
+                                <p class="text-primary-color res-url"> <b>{{ $t('payment-providers_page.text.listner_url') }}:</b>
+                                    <a target="_blank" href="https://unumpay.alche.cloud/payment_app/apg_response/">https://unumpay.alche.cloud/payment_app/apg_response/</a>
                                 </p>
                             </v-col>
                         </div>

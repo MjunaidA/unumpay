@@ -13,6 +13,12 @@ import FlutterWave from "../../components/FlutterWave.vue";
 import HBL from "../../components/HBL.vue";
 import HblHosted from "../../components/HblHosted.vue";
 import HBLUnifiedCheckout from "../../components/HBLUnifiedCheckout.vue";
+import ABL from "../../components/ABL.vue";
+import AssanPay from "../../components/AssanPay.vue";
+import DirectPay from "../../components/DirectPay.vue";
+import DialogPay from "../../components/DialogPay.vue";
+import ZeroCash from "../../components/ZeroCash.vue";
+import JazzCash from "../../components/JazzCash.vue";
 
 export default {
   name: "PaymentServiceProviders",
@@ -31,7 +37,13 @@ export default {
     FlutterWave,
     HBL,
     HblHosted,
-    HBLUnifiedCheckout
+    HBLUnifiedCheckout,
+    ABL,
+    AssanPay,
+    DirectPay,
+    DialogPay,
+    ZeroCash,
+    JazzCash
   },
   data() {
     return {
@@ -1131,6 +1143,341 @@ export default {
           }
         );
     },
+
+    
+    // Saving ABL Settings
+    saveABLSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.scroll();
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/abl_configuration?shop=" +
+            this.$shop,
+          {
+            client_description: formData.abl_client_description,
+            is_active: formData.abl_is_active,
+            shop_name: formData.shop_name,
+            secret_key: formData.abl_secret_key,
+            profile_id: formData.abl_profile_id,
+            access_key: formData.abl_access_key,
+            client_email: formData.abl_client_email,
+            client_phone_number: formData.abl_client_phone_number,
+            merchant_defined_data3: formData.merchant_defined_data3,
+            multi_currency: formData.abl_multi_currency,
+            dual_currency: formData.abl_dual_currency,
+            merchant_account_currency: formData.abl_merchant_account_currency,
+            conversion_rate: formData.abl_conversion_rate,
+            hide_countries_list: formData.abl_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "abl_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving AssanPay Settings
+    saveAssanPaySettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.scroll();
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/assanpay_configuration?shop=" +
+            this.$shop,
+          {
+            client_description: formData.aassanpay_client_description,
+            is_active: formData.aassanpay_is_active,
+            shop_name: formData.shop_name,
+            client_name: formData.aassanpay_client_name,
+            uuid: formData.aassanpay_uuid,
+            merchant_id: formData.aassanpay_merchant_id,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "assan_pay_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving DirectPay Settings
+    saveDirectPaySettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.scroll();
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/directpay_configuration?shop=" +
+            this.$shop,
+          {
+            client_description: formData.directpay_client_description,
+            is_active: formData.directpay_is_active,
+            shop_name: formData.shop_name,
+            client_name: formData.directpay_client_name,
+            client_secret: formData.directpay_client_secret,
+            client_id: formData.directpay_client_id,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "direct_pay_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving DialogPay Settings
+    saveDialogPaySettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.scroll();
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/dialogpay_configuration?shop=" +
+            this.$shop,
+          {
+            client_description: formData.dialogpay_client_description,
+            is_active: formData.dialogpay_is_active,
+            shop_name: formData.shop_name,
+            client_name: formData.dialogpay_client_name,
+            username: formData.dialogpay_username,
+            password: formData.dialogpay_password,
+            database_name: formData.dialogpay_database_name,
+            merchant_id: formData.dialogpay_merchant_id,
+            payment_provider_id: formData.dialogpay_payment_provider_id,
+            payment_service_id: formData.dialogpay_payment_service_id,
+            public_key: formData.dialogpay_public_key,
+            private_key: formData.dialogpay_private_key
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "dialog_pay_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+    
+    // Saving ZeroCash Settings
+    saveZeroCashSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.scroll();
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/zerocash_configuration?shop=" +
+            this.$shop,
+          {
+            client_description: formData.zerocash_client_description,
+            is_active: formData.zerocash_is_active,
+            shop_name: formData.shop_name,
+            client_name: formData.zerocash_client_name,
+            secret_key: formData.zerocash_client_secret_key,
+            client_id: formData.zerocash_client_id,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "save_zerocash_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error.response.data.detail;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+    
+    // Saving Jazz Cash Settings
+    saveJazzCashSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/jazzcash_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.jazzcash_client_name,
+            client_description: formData.jazzcash_client_description,
+            merchant_id: formData.jazzcash_merchant_id,
+            switch_currency: formData.jazzcash_switch_currency,
+            merchant_account_currency:
+              formData.jazzcash_merchant_account_currency,
+            conversion_rate: formData.jazzcash_conversion_rate,
+            merchant_password: formData.jazzcash_merchant_password,
+            integrity_salt: formData.jazzcash_integrity_salt,
+            is_active: formData.jazzcash_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "jazz_cash_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+
 
 
     initializeCountries() {

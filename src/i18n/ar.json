@@ -314,6 +314,8 @@
       "return_url":" رابط العودة",
       "listner_url":" رابط المستمع",
       "response_url":" رابط الاستجابة",
+      "response_abl":" رابط الاستجابة (ايه بي ال)",
+      "response_assan_pay":" رابط الاستجابة (Assan Pay)",
       "select_all":"تحديد الكل",
       "deselect_all":"إلغاء تحديد الكل",
       "callback_return_url":" رابط الاستدعاء/العودة"
@@ -427,6 +429,7 @@
       "merchant_define_data3_required":"بيانات تعريف التاجر 3 مطلوبة",
       "multi_currency":"متعدد العملات",
       "dual_currency":"عملة مزدوجة",
+      "dual_currency_required":"عملة مزدوجة مطلوبة",
       "client_user_id":"معرّف مستخدم العميل",
       "client_user_id_required":"معرّف مستخدم العميل مطلوب",
       "client_password":"كلمة مرور العميل",
@@ -440,7 +443,21 @@
       "payment_type":"نوع الدفع",
       "payment_type_required":"نوع الدفع مطلوب",
       "card_network":"شبكة البطاقة",
-      "card_network_required":"شبكة البطاقة مطلوبة"
+      "card_network_required":"شبكة البطاقة مطلوبة",
+      "x_api_key":"مفتاح X API",
+      "x_api_key_required":"مفتاح X API مطلوب",
+      "client_secret":"سر العميل",
+      "client_secret_required":"سر العميل مطلوب",
+      "database_name":"اسم قاعدة البيانات",
+      "database_name_required":"اسم قاعدة البيانات مطلوب",
+      "payment_provider_id":"معرّف مزود الدفع",
+      "payment_provider_id_required":"معرّف مزود الدفع مطلوب",
+      "payment_service_id":"معرّف خدمة الدفع",
+      "payment_service_id_required":"معرّف خدمة الدفع مطلوب",
+      "client_secret_key":"مفتاح سر العميل",
+      "client_secret_key_required":"مفتاح سر العميل مطلوب",
+      "integrity_salt":"تكامل الملح",
+      "integrity_salt_required":"تكامل الملح مطلوب"
     }
   },
   "payment-providers_snackbar": {
@@ -459,7 +476,13 @@
     "flutterwave_settings_saved": "تم حفظ إعدادات Flutterwave بنجاح",
     "hbl_settings_saved": "تم حفظ إعدادات HBL بنجاح",
     "hbl_hosted_settings_saved": "تم حفظ إعدادات HBL مستضاف بنجاح",
-    "hbl_unified_checkout_settings_saved": "تم حفظ إعدادات HBL تسجيل خروج موحد بنجاح"
+    "hbl_unified_checkout_settings_saved": "تم حفظ إعدادات HBL تسجيل خروج موحد بنجاح",
+    "abl_settings_saved": "تم حفظ إعدادات ABL بنجاح",
+    "assan_pay_settings_saved": "تم حفظ إعدادات Assan Pay بنجاح",
+    "direct_pay_settings_saved": "تم حفظ إعدادات Direct Pay بنجاح",
+    "dialog_pay_settings_saved": "تم حفظ إعدادات Dialog Pay بنجاح",
+    "save_zerocash_settings_saved": "تم حفظ إعدادات Zerocash بنجاح",
+    "jazz_cash_settings_saved": "تم حفظ إعدادات Jazz Cash بنجاح"
   },
   "$vuetify": {
     "open": "فتح",

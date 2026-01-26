@@ -269,7 +269,50 @@
                 <HBLUnifiedCheckout :HBLUnifiedCheckoutObj="provider" :AllProviderLoading="AllProviderLoading"
                   :saveDataLoading="saveDataLoading" :allowed_payment_types_list="allowed_payment_types_list"
                   :allowed_card_networks_list="allowed_card_networks_list" :currency_list="currency_list"
-                  :saveHBLUnifiedCheckoutSettings="saveHBLUnifiedCheckoutSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+                  :saveHBLUnifiedCheckoutSettings="saveHBLUnifiedCheckoutSettings" @show-snackbar="triggerSnackbar"
+                  :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'abl'">
+              <div v-if="selectedProvider == 'abl'">
+                <ABL :ABLObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :currency_list="currency_list" :country_codes="country_codes" :saveABLSettings="saveABLSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'assanpay'">
+              <div v-if="selectedProvider == 'assanpay'">
+                <AssanPay :AssanPayObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveAssanPaySettings="saveAssanPaySettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'directpay'">
+              <div v-if="selectedProvider == 'directpay'">
+                <DirectPay :DirectPayObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveDirectPaySettings="saveDirectPaySettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'dialogpay'">
+              <div v-if="selectedProvider == 'dialogpay'">
+                <DialogPay :DialogPayObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveDialogPaySettings="saveDialogPaySettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'zerocash'">
+              <div v-if="selectedProvider == 'zerocash'">
+                <ZeroCash :ZeroCashObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveZeroCashSettings="saveZeroCashSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'jazzcash'">
+              <div v-if="selectedProvider == 'jazzcash'">
+                <JazzCash :JazzCashObj="provider" :currency_list="currency_list"
+                  :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveJazzCashSettings="saveJazzCashSettings" @show-snackbar="triggerSnackbar" />
               </div>
             </div>
           </div>

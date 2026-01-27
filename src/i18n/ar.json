@@ -343,6 +343,8 @@
       "merchant_key1_required": "مفتاح التاجر 1 مطلوب",
       "merchant_key2": "مفتاح التاجر 2",
       "merchant_key2_required": "مفتاح التاجر 2 مطلوب",
+      "merchant_key": "مفتاح التاجر",
+      "merchant_key_required": "مفتاح التاجر مطلوب",
       "api_username": "اسم مستخدم API",
       "api_username_required": "اسم مستخدم API مطلوب",
       "api_version": "إصدار API",
@@ -457,7 +459,21 @@
       "client_secret_key":"مفتاح سر العميل",
       "client_secret_key_required":"مفتاح سر العميل مطلوب",
       "integrity_salt":"تكامل الملح",
-      "integrity_salt_required":"تكامل الملح مطلوب"
+      "integrity_salt_required":"تكامل الملح مطلوب",
+      "url_endpoint":"نقطة نهاية URL",
+      "url_endpoint_required":"نقطة نهاية URL مطلوبة",
+      "publishable_key":"مفتاح قابل للنشر",
+      "publishable_key_required":"مفتاح قابل للنشر مطلوب",
+      "partner_id":" معرّف الشريك",
+      "partner_id_required":"معرّف الشريك مطلوب",
+      "authorization_token":"رمز التفويض",
+      "authorization_token_required":"رمز التفويض مطلوب",
+      "outlet_reference":"مرجع المنفذ",
+      "outlet_reference_required":"مرجع المنفذ مطلوب",
+      "sub_merchant_id":"معرّف التاجر الفرعي",
+      "sub_merchant_id_required":"معرّف التاجر الفرعي مطلوب",
+      "merchant_version":"إصدار التاجر",
+      "merchant_version_required":"إصدار التاجر مطلوب"
     }
   },
   "payment-providers_snackbar": {
@@ -482,7 +498,15 @@
     "direct_pay_settings_saved": "تم حفظ إعدادات Direct Pay بنجاح",
     "dialog_pay_settings_saved": "تم حفظ إعدادات Dialog Pay بنجاح",
     "save_zerocash_settings_saved": "تم حفظ إعدادات Zerocash بنجاح",
-    "jazz_cash_settings_saved": "تم حفظ إعدادات Jazz Cash بنجاح"
+    "jazz_cash_settings_saved": "تم حفظ إعدادات Jazz Cash بنجاح",
+    "keenu_settings_saved": "تم حفظ إعدادات Keenu بنجاح",
+    "mcb_settings_saved": "تم حفظ إعدادات MCB بنجاح",
+    "meezan_settings_saved": "تم حفظ إعدادات Meezan بنجاح",
+    "moyasar_settings_saved": "تم حفظ إعدادات Moyasar بنجاح",
+    "mypay_settings_saved": "تم حفظ إعدادات MyPay بنجاح",
+    "neem_settings_saved": "تم حفظ إعدادات NEEM بنجاح",
+    "network_international_settings_saved": "تم حفظ إعدادات إن جينيوس (نيتوورك إنترناشونال) بنجاح",
+    "nift_settings_saved": "تم حفظ إعدادات NIFT بنجاح"
   },
   "$vuetify": {
     "open": "فتح",

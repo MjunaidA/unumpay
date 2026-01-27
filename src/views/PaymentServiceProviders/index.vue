@@ -312,7 +312,61 @@
               <div v-if="selectedProvider == 'jazzcash'">
                 <JazzCash :JazzCashObj="provider" :currency_list="currency_list"
                   :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
-                  :saveJazzCashSettings="saveJazzCashSettings" @show-snackbar="triggerSnackbar" />
+                  :saveJazzCashSettings="saveJazzCashSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'keenu'">
+              <div v-if="selectedProvider == 'keenu'">
+                <Keenu :KeenuObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveKeenuSettings="saveKeenuSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'mcb'">
+              <div v-if="selectedProvider == 'mcb'">
+                <MCB :MCBObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveMcbSettings="saveMcbSettings" :currency_list="currency_list" @show-snackbar="triggerSnackbar"
+                  :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'meezan'">
+              <div v-if="selectedProvider == 'meezan'">
+                <Meezan :MeezanObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveMeezanSettings="saveMeezanSettings"
+                  :currency_list="currency_list" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'moyasar'">
+              <div v-if="selectedProvider == 'moyasar'">
+                <Moyasar :MoyasarObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveMoyasarSettings="saveMoyasarSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'mypay'">
+              <div v-if="selectedProvider == 'mypay'">
+                <MyPay :MyPayObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveMyPaySettings="saveMyPaySettings" :country_codes="country_codes" @show-snackbar="triggerSnackbar"
+                  :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'neem'">
+              <div v-if="selectedProvider == 'neem'">
+                <Neem :NeemObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveNeemSettings="saveNeemSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'ngenius'">
+              <div v-if="selectedProvider == 'ngenius'">
+                <NetworkInternational :ngeniusObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading"
+                  :saveNetworkInternationalSettings="saveNetworkInternationalSettings" @show-snackbar="triggerSnackbar"
+                  :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'nift'">
+              <div v-if="selectedProvider == 'nift'">
+                <Nift :NiftObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveNiftSettings="saveNiftSettings" @show-snackbar="triggerSnackbar" />
               </div>
             </div>
           </div>

@@ -343,6 +343,8 @@
       "merchant_key1_required": "Merchant Key1 is required",
       "merchant_key2": "Merchant Key2",
       "merchant_key2_required": "Merchant Key2 is required",
+      "merchant_key": "Merchant Key",
+      "merchant_key_required": "Merchant Key is required",
       "api_username": "API Username",
       "api_username_required": "API Username is required",
       "api_version": "API Version",
@@ -457,7 +459,21 @@
       "client_secret_key":"Client Secret Key",
       "client_secret_key_required":"Client Secret Key is required",
       "integrity_salt":"Integrity Salt",
-      "integrity_salt_required":"Integrity Salt is required"
+      "integrity_salt_required":"Integrity Salt is required",
+      "url_endpoint":"Url Endpoint",
+      "url_endpoint_required":"Url Endpoint is required",
+      "publishable_key":"Publishable Key",
+      "publishable_key_required":"Publishable Key is required",
+      "partner_id":"Partner ID",
+      "partner_id_required":"Partner ID is required",
+      "authorization_token":"Authorization Token",
+      "authorization_token_required":"Authorization Token is required",
+      "outlet_reference":"Outlet Reference",
+      "outlet_reference_required":"Outlet Reference is required",
+      "sub_merchant_id":"Sub Merchant ID",
+      "sub_merchant_id_required":"Sub Merchant ID is required",
+      "merchant_version":"Merchant Version",
+      "merchant_version_required":"Merchant Version is required"
     }
   },
   "payment-providers_snackbar": {
@@ -482,7 +498,15 @@
     "direct_pay_settings_saved": "Direct Pay settings saved successfully",
     "dialog_pay_settings_saved": "Dialog Pay settings saved successfully",
     "save_zerocash_settings_saved": "Zerocash settings saved successfully",
-    "jazz_cash_settings_saved": "Jazz Cash settings saved successfully"
+    "jazz_cash_settings_saved": "Jazz Cash settings saved successfully",
+    "keenu_settings_saved": "Keenu settings saved successfully",
+    "mcb_settings_saved": "MCB settings saved successfully",
+    "meezan_settings_saved": "Meezan settings saved successfully",
+    "moyasar_settings_saved": "Moyasar settings saved successfully",
+    "mypay_settings_saved": "MyPay settings saved successfully",
+    "neem_settings_saved": "NEEM settings saved successfully",
+    "network_international_settings_saved": "Network International settings saved successfully",
+    "nift_settings_saved": "NIFT settings saved successfully"
   },
   "$vuetify": {
     "open": "Open",

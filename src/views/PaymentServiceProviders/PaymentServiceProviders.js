@@ -19,6 +19,14 @@ import DirectPay from "../../components/DirectPay.vue";
 import DialogPay from "../../components/DialogPay.vue";
 import ZeroCash from "../../components/ZeroCash.vue";
 import JazzCash from "../../components/JazzCash.vue";
+import Keenu from "../../components/Keenu.vue";
+import MCB from "../../components/MCB.vue";
+import Meezan from "../../components/Meezan.vue";
+import Moyasar from "../../components/Moyasar.vue";
+import MyPay from "../../components/MyPay.vue";
+import Neem from "../../components/Neem.vue";
+import NetworkInternational from "../../components/NetworkInternational.vue";
+import Nift from "../../components/Nift.vue";
 
 export default {
   name: "PaymentServiceProviders",
@@ -43,7 +51,15 @@ export default {
     DirectPay,
     DialogPay,
     ZeroCash,
-    JazzCash
+    JazzCash,
+    Keenu,
+    MCB,
+    Meezan,
+    Moyasar,
+    MyPay,
+    Neem,
+    NetworkInternational,
+    Nift
   },
   data() {
     return {
@@ -1477,7 +1493,424 @@ export default {
         );
     },
 
+        // Saving Keenu Settings
+    saveKeenuSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/keenu_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.keenu_client_name,
+            client_description: formData.keenu_client_description,
+            merchant_id: formData.keenu_merchant_id,
+            merchant_key: formData.keenu_merchant_key,
+            urlendpoint: formData.keenu_urlendpoint,
+            is_active: formData.keenu_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "keenu_settings_saved";
+            this.saveDataLoading = false;
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
 
+        // Saving MCB Settings
+    saveMcbSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/mcb_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.mcb_client_name,
+            merchant_id: formData.mcb_merchant_id,
+            client_description: formData.mcb_client_description,
+            api_username: formData.mcb_api_username,
+            api_password: formData.mcb_api_password,
+            is_active: formData.mcb_is_active,
+            switch_currency: formData.mcb_switch_currency,
+            switch_store_currency: formData.mcb_switch_store_currency,
+            switch_account_currency: formData.mcb_switch_account_currency,
+            switch_conversion_rate: formData.mcb_switch_conversion_rate,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "mcb_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.saveDataLoading = false;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving Meezan Settings
+    saveMeezanSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/meezan_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.meezan_client_name,
+            client_description: formData.meezan_client_description,
+            meezan_username: formData.meezan_username,
+            meezan_password: formData.meezan_password,
+            switch_currency: formData.meezan_switch_currency,
+            merchant_account_currency:
+              formData.meezan_merchant_account_currency,
+            conversion_rate: formData.meezan_conversion_rate,
+            is_active: formData.meezan_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "meezan_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+        // Saving Moyasar Settings
+    saveMoyasarSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/moyasar_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.moyasar_client_name,
+            client_description: formData.moyasar_client_description,
+            publishable_key: formData.moyasar_publishable_key,
+            secret_key: formData.moyasar_secret_key,
+            is_active: formData.moyasar_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "moyasar_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            this.snackbar_status = "red";
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+         // Saving MyPay Settings
+    saveMyPaySettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/mypay_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.mypay_client_name,
+            client_description: formData.mypay_client_description,
+            publishable_key: formData.mypay_publishable_key,
+            secret_key: formData.mypay_secret_key,
+            is_active: formData.mypay_is_active,
+            hide_countries_list: formData.mypay_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "mypay_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+        // Saving Neem Settings
+    saveNeemSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/neem_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.neem_client_name,
+            client_description: formData.neem_client_description,
+            partner_id: formData.neem_partner_id,
+            authorization_token: formData.neem_authorization_token,
+            is_active: formData.neem_is_active,
+            hide_countries_list: formData.neem_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "neem_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+        // Saving Network International Settings
+    saveNetworkInternationalSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/ngenius_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.ngenius_client_name,
+            client_description: formData.ngenius_client_description,
+            api_key: formData.ngenius_api_key,
+            outlet_reference: formData.ngenius_outlet_reference,
+            is_active: formData.ngenius_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "network_international_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+       // Saving Nift Settings
+    saveNiftSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/nift_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.nift_client_name,
+            client_description: formData.nift_client_description,
+            merchant_id: formData.nift_merchant_id,
+            sub_merchant_id: formData.nift_sub_merchant_id,
+            merchant_password: formData.nift_merchant_password,
+            merchant_version: formData.nift_merchant_version,
+            integrity_salt: formData.nift_integrity_salt,
+            is_active: formData.nift_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "nift_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
 
 
     initializeCountries() {

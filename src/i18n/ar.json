@@ -473,7 +473,22 @@
       "sub_merchant_id":"معرّف التاجر الفرعي",
       "sub_merchant_id_required":"معرّف التاجر الفرعي مطلوب",
       "merchant_version":"إصدار التاجر",
-      "merchant_version_required":"إصدار التاجر مطلوب"
+      "merchant_version_required":"إصدار التاجر مطلوب",
+      "secured_key":"مفتاح SECURED",
+      "secured_key_required":"مفتاح SECURED مطلوب",
+      "HMAC":"HMAC",
+      "HMAC_required":"HMAC مطلوب",
+      "integration_id":"معرّف التكامل",
+      "integration_id_required":"معرّف التكامل مطلوب",
+      "iframe_link":"رابط iFrame",
+      "iframe_link_required":"رابط iFrame مطلوب",
+      "recurring_integration_id":"معرّف التكامل المتكرر",
+      "recurring_integration_id_required":"معرّف التكامل المتكرر مطلوب",
+      "instalment_plan":"خطة التقسيط",
+      "instalment_plan_required":"خطة التقسيط مطلوبة",
+      "instalment":"التقسيط",
+      "no_of_installment":"عدد الأقساط",
+      "no_of_installment_required":"عدد الأقساط مطلوب"
     }
   },
   "payment-providers_snackbar": {
@@ -506,7 +521,14 @@
     "mypay_settings_saved": "تم حفظ إعدادات MyPay بنجاح",
     "neem_settings_saved": "تم حفظ إعدادات NEEM بنجاح",
     "network_international_settings_saved": "تم حفظ إعدادات إن جينيوس (نيتوورك إنترناشونال) بنجاح",
-    "nift_settings_saved": "تم حفظ إعدادات NIFT بنجاح"
+    "nift_settings_saved": "تم حفظ إعدادات NIFT بنجاح",
+    "pay2m_settings_saved": "تم حفظ إعدادات PAY2M بنجاح",
+    "payfast_settings_saved": "تم حفظ إعدادات PayFast بنجاح",
+    "paymob_settings_saved": "تم حفظ إعدادات Paymob بنجاح",
+    "paypro_settings_saved": "تم حفظ إعدادات PayPro بنجاح",
+    "paystack_settings_saved": "تم حفظ إعدادات PAYSTACK بنجاح",
+    "rapyd_settings_saved": "تم حفظ إعدادات Rapyd بنجاح",
+    "tabpay_settings_saved": "تم حفظ إعدادات TabPay بنجاح"
   },
   "$vuetify": {
     "open": "فتح",

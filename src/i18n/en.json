@@ -473,7 +473,22 @@
       "sub_merchant_id":"Sub Merchant ID",
       "sub_merchant_id_required":"Sub Merchant ID is required",
       "merchant_version":"Merchant Version",
-      "merchant_version_required":"Merchant Version is required"
+      "merchant_version_required":"Merchant Version is required",
+      "secured_key":"SECURED Key",
+      "secured_key_required":"SECURED Key is required",
+      "HMAC":"HMAC",
+      "HMAC_required":"HMAC is required",
+      "integration_id":"Integration ID",
+      "integration_id_required":"Integration ID is required",
+      "iframe_link":"iFrame Link",
+      "iframe_link_required":"iFrame Link is required",
+      "recurring_integration_id":"Recurring Integration ID",
+      "recurring_integration_id_required":"Recurring Integration ID is required",
+      "instalment_plan":"Instalment Plan",
+      "instalment_plan_required":"Instalment Plan is required",
+      "instalment":"instalment",
+      "no_of_installment":"No of Installment",
+      "no_of_installment_required":"No of Installment is required"
     }
   },
   "payment-providers_snackbar": {
@@ -506,7 +521,14 @@
     "mypay_settings_saved": "MyPay settings saved successfully",
     "neem_settings_saved": "NEEM settings saved successfully",
     "network_international_settings_saved": "Network International settings saved successfully",
-    "nift_settings_saved": "NIFT settings saved successfully"
+    "nift_settings_saved": "NIFT settings saved successfully",
+    "pay2m_settings_saved": "PAY2M settings saved successfully",
+    "payfast_settings_saved": "PayFast settings saved successfully",
+    "paymob_settings_saved": "Paymob settings saved successfully",
+    "paypro_settings_saved": "PayPro settings saved successfully",
+    "paystack_settings_saved": "PAYSTACK settings saved successfully",
+    "rapyd_settings_saved": "Rapyd settings saved successfully",
+    "tabpay_settings_saved": "TabPay Payments settings saved successfully"
   },
   "$vuetify": {
     "open": "Open",

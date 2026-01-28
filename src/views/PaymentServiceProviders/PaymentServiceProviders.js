@@ -27,6 +27,13 @@ import MyPay from "../../components/MyPay.vue";
 import Neem from "../../components/Neem.vue";
 import NetworkInternational from "../../components/NetworkInternational.vue";
 import Nift from "../../components/Nift.vue";
+import PAY2M from "../../components/PAY2M.vue";
+import PayFast from "../../components/PayFast.vue";
+import PayMob from "../../components/PayMob.vue";
+import PayPro from "../../components/PayPro.vue";
+import PayStack from "../../components/PayStack.vue";
+import Rapyd from "../../components/Rapyd.vue";
+import TabPay from "../../components/TabPay.vue";
 
 export default {
   name: "PaymentServiceProviders",
@@ -59,7 +66,14 @@ export default {
     MyPay,
     Neem,
     NetworkInternational,
-    Nift
+    Nift,
+    PAY2M,
+    PayFast,
+    PayMob,
+    PayPro,
+    PayStack,
+    Rapyd,
+    TabPay
   },
   data() {
     return {
@@ -1911,7 +1925,369 @@ export default {
           }
         );
     },
+       // Saving Pay2M Settings
+    savePay2MSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/pay2m_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.pay2m_client_name,
+            client_description: formData.pay2m_client_description,
+            merchant_id: formData.pay2m_merchant_id,
+            secret_key: formData.pay2m_merchant_password,
+            is_active: formData.pay2m_is_active,
+            hide_countries_list: formData.pay2m_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "pay2m_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
 
+        // Saving PayFast Settings
+    savePayFastSettings(formData) {
+      this.scroll();
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/payfast_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.payfast_client_name,
+            client_description: formData.payfast_client_description,
+            api_key: formData.payfast_merchant_id,
+            secret_key: formData.payfast_merchant_password,
+            is_active: formData.payfast_is_active,
+            switch_currency: formData.payfast_switch_currency,
+            merchant_store_currency: formData.payfast_merchant_store_currency,
+            merchant_account_currency:
+              formData.payfast_merchant_account_currency,
+            conversion_rate: formData.payfast_conversion_rate,
+            hide_countries_list: formData.payfast_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "payfast_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving Paymob Settings
+    savePaymobSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/paymob_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.paymob_client_name,
+            client_description: formData.paymob_client_description,
+            api_key: formData.paymob_api_key,
+            hmac_key: formData.paymob_hmac_key,
+            integration_id: formData.paymob_integration_id,
+            iframe_link: formData.paymob_iframe_link,
+            is_active: formData.paymob_is_active,
+            no_of_instalment: formData.paymob_no_of_instalment,
+            is_instalment: formData.paymob_is_instalment,
+            recurring_integration_id: formData.paymob_recurring_integration_id,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "paymob_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving PayPro Settings
+    savePayProSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/paypro_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.paypro_client_name,
+            client_description: formData.paypro_client_description,
+            merchant_id: formData.paypro_merchant_id,
+            merchant_password: formData.paypro_merchant_password,
+            is_active: formData.paypro_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "paypro_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+        // Saving Paystack Settings
+    savePaystackSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/paystack_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.paystack_client_name,
+            client_description: formData.paystack_client_description,
+            public_key: formData.paystack_public_key,
+            secret_key: formData.paystack_secret_key,
+            is_active: formData.paystack_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "paystack_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving Rapyd Settings
+    saveRapydSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/rapyd_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.rapyd_client_name,
+            client_description: formData.rapyd_client_description,
+            access_key: formData.rapyd_access_key,
+            secret_key: formData.rapyd_secret_key,
+            is_active: formData.rapyd_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "rapyd_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
+
+        // Saving TabPay Settings
+    saveTabPaySettings(formData) {
+      this.redirect_domain = "";
+      this.saveDataLoading = true;
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/tabpay_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.tabpay_client_name,
+            client_description: formData.tabpay_client_description,
+            secret_key: formData.tabpay_secret_key,
+            is_active: formData.tabpay_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "tabpay_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          }
+        );
+    },
 
     initializeCountries() {
       this.all_country_list_code = [

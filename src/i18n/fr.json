@@ -473,7 +473,22 @@
       "sub_merchant_id":"ID du sous-marchand",
       "sub_merchant_id_required":"L'ID du sous-marchand est requis",
       "merchant_version":"Version du marchand",
-      "merchant_version_required":"La version du marchand est requise"
+      "merchant_version_required":"La version du marchand est requise",
+      "secured_key":"Clé SECURED",
+      "secured_key_required":"La clé SECURED est requise",
+      "HMAC":"HMAC",
+      "HMAC_required":"HMAC est requis",
+      "integration_id":"ID d'intégration",
+      "integration_id_required":"L'ID d'intégration est requis",
+      "iframe_link":"Lien iFrame",
+      "iframe_link_required":"Le lien iFrame est requis",
+      "recurring_integration_id":"ID d'intégration récurrente",
+      "recurring_integration_id_required":"L'ID d'intégration récurrente est requis",
+      "instalment_plan":"Plan de versements",
+      "instalment_plan_required":"Le plan de versements est requis",
+      "instalment":"versement",
+      "no_of_installment":"Nombre de versements",
+      "no_of_installment_required":"Le nombre de versements est requis"
     }
   },
   "payment-providers_snackbar": {
@@ -506,7 +521,14 @@
     "mypay_settings_saved": "Paramètres MyPay enregistrés avec succès",
     "neem_settings_saved": "Paramètres NEEM enregistrés avec succès",
     "network_international_settings_saved": "Paramètres Network International enregistrés avec succès",
-    "nift_settings_saved": "Paramètres NIFT enregistrés avec succès"
+    "nift_settings_saved": "Paramètres NIFT enregistrés avec succès",
+    "pay2m_settings_saved": "Paramètres PAY2M enregistrés avec succès",
+    "payfast_settings_saved": "Paramètres PayFast enregistrés avec succès",
+    "paymob_settings_saved": "Paramètres Paymob enregistrés avec succès",
+    "paypro_settings_saved": "Paramètres PayPro enregistrés avec succès",
+    "paystack_settings_saved": "Paramètres PAYSTACK enregistrés avec succès",
+    "rapyd_settings_saved": "Paramètres Rapyd enregistrés avec succès",
+     "tabpay_settings_saved": "Paramètres TabPay enregistrés avec succès"
   },
   "$vuetify": {
     "open": "Ouvrir",

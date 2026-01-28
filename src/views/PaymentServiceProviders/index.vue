@@ -366,7 +366,57 @@
             <div v-if="provider.transaction_obj.provider_name === 'nift'">
               <div v-if="selectedProvider == 'nift'">
                 <Nift :NiftObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
-                  :saveNiftSettings="saveNiftSettings" @show-snackbar="triggerSnackbar" />
+                  :saveNiftSettings="saveNiftSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'pay2m'">
+              <div v-if="selectedProvider == 'pay2m'">
+                <PAY2M :PAY2MObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :savePay2MSettings="savePay2MSettings" :country_codes="country_codes" @show-snackbar="triggerSnackbar"
+                  :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'payfast'">
+              <div v-if="selectedProvider == 'payfast'">
+                <PayFast :PayFastObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :savePayFastSettings="savePayFastSettings"
+                  :currency_list="currency_list" :country_codes="country_codes" @show-snackbar="triggerSnackbar"
+                  :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'paymob'">
+              <div v-if="selectedProvider == 'paymob'">
+                <PayMob :PayMobObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :savePaymobSettings="savePaymobSettings"
+                  :currency_list="currency_list" :country_codes="country_codes" @show-snackbar="triggerSnackbar"
+                  :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'paypro'">
+              <div v-if="selectedProvider == 'paypro'">
+                <PayPro :PayProObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :savePayProSettings="savePayProSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'paystack'">
+              <div v-if="selectedProvider == 'paystack'">
+                <PayStack :PayStackObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :savePaystackSettings="savePaystackSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'rapyd'">
+              <div v-if="selectedProvider == 'rapyd'">
+                <Rapyd :RapydObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveRapydSettings="saveRapydSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'tabpay'">
+              <div v-if="selectedProvider == 'tabpay'">
+                <TabPay :TabPayObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :saveTabPaySettings="saveTabPaySettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
               </div>
             </div>
           </div>

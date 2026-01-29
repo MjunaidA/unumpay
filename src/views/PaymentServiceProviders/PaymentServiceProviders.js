@@ -34,6 +34,13 @@ import PayPro from "../../components/PayPro.vue";
 import PayStack from "../../components/PayStack.vue";
 import Rapyd from "../../components/Rapyd.vue";
 import TabPay from "../../components/TabPay.vue";
+import Paytab from "../../components/Paytab.vue";
+import TBC from "../../components/TBC.vue";
+import Swich from "../../components/Swich.vue";
+import Walee from "../../components/Walee.vue";
+import SafePay from "../../components/SafePay.vue";
+import Stripe from "../../components/Stripe.vue";
+import UBL from "../../components/UBL.vue";
 
 export default {
   name: "PaymentServiceProviders",
@@ -73,7 +80,14 @@ export default {
     PayPro,
     PayStack,
     Rapyd,
-    TabPay
+    TabPay,
+    Paytab,
+    TBC,
+    Swich,
+    Walee,
+    SafePay,
+    Stripe,
+    UBL,
   },
   data() {
     return {
@@ -839,7 +853,7 @@ export default {
         );
     },
 
-        // Saving CityBank Settings
+    // Saving CityBank Settings
     saveCityBankSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -863,7 +877,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -888,11 +902,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
-    
-        // Saving EasyPaisa Settings
+
+    // Saving EasyPaisa Settings
     saveEasyPaisaSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -913,7 +927,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -938,11 +952,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving Flutterwave Settings
+    // Saving Flutterwave Settings
     saveFlutterwaveSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -964,7 +978,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -989,11 +1003,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving HBL Settings
+    // Saving HBL Settings
     saveHBLSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -1024,7 +1038,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1049,11 +1063,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-    
     // Saving HBL Hosted Checkout Settings
     saveHBLHostedSettings(formData) {
       this.saveDataLoading = true;
@@ -1086,7 +1099,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1111,10 +1124,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
-    
+
     // Saving HBL Unified Checkout Settings
     saveHBLUnifiedCheckoutSettings(formData) {
       this.saveDataLoading = true;
@@ -1127,25 +1140,30 @@ export default {
             this.$shop,
           {
             client_name: formData.hbl_unified_checkout_client_name,
-            client_description: formData.hbl_unified_checkout_client_description,
+            client_description:
+              formData.hbl_unified_checkout_client_description,
             merchant_id: formData.hbl_unified_checkout_merchant_id,
             key_id: formData.hbl_unified_checkout_key_id,
             shared_secret: formData.hbl_unified_checkout_shared_secret,
-            allowed_card_networks: formData.hbl_unified_checkout_allowed_card_networks,
-            allowed_payment_types: formData.hbl_unified_checkout_allowed_payment_types,
+            allowed_card_networks:
+              formData.hbl_unified_checkout_allowed_card_networks,
+            allowed_payment_types:
+              formData.hbl_unified_checkout_allowed_payment_types,
             is_active: formData.hbl_unified_checkout_is_active,
             multi_currency: formData.hbl_unified_checkout_multi_currency,
             dual_currency: formData.hbl_unified_checkout_dual_currency,
-            merchant_account_currency: formData.hbl_unified_checkout_merchant_account_currency,
+            merchant_account_currency:
+              formData.hbl_unified_checkout_merchant_account_currency,
             conversion_rate: formData.hbl_unified_checkout_conversion_rate,
-            hide_countries_list: formData.hbl_unified_checkout_hide_countries_list,
+            hide_countries_list:
+              formData.hbl_unified_checkout_hide_countries_list,
           },
           {
             headers: {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1170,11 +1188,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-    
     // Saving ABL Settings
     saveABLSettings(formData) {
       this.saveDataLoading = true;
@@ -1206,7 +1223,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1231,11 +1248,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving AssanPay Settings
+    // Saving AssanPay Settings
     saveAssanPaySettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -1258,7 +1275,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1283,11 +1300,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving DirectPay Settings
+    // Saving DirectPay Settings
     saveDirectPaySettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -1310,7 +1327,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1335,11 +1352,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving DialogPay Settings
+    // Saving DialogPay Settings
     saveDialogPaySettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -1361,14 +1378,14 @@ export default {
             payment_provider_id: formData.dialogpay_payment_provider_id,
             payment_service_id: formData.dialogpay_payment_service_id,
             public_key: formData.dialogpay_public_key,
-            private_key: formData.dialogpay_private_key
+            private_key: formData.dialogpay_private_key,
           },
           {
             headers: {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1393,11 +1410,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-    
     // Saving ZeroCash Settings
     saveZeroCashSettings(formData) {
       this.saveDataLoading = true;
@@ -1421,7 +1437,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1446,11 +1462,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-    
     // Saving Jazz Cash Settings
     saveJazzCashSettings(formData) {
       this.saveDataLoading = true;
@@ -1478,7 +1493,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1503,11 +1518,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving Keenu Settings
+    // Saving Keenu Settings
     saveKeenuSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -1530,7 +1545,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1555,11 +1570,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving MCB Settings
+    // Saving MCB Settings
     saveMcbSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -1586,7 +1601,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1611,11 +1626,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving Meezan Settings
+    // Saving Meezan Settings
     saveMeezanSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -1641,7 +1656,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1666,10 +1681,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
-        // Saving Moyasar Settings
+    // Saving Moyasar Settings
     saveMoyasarSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -1690,7 +1705,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1715,11 +1730,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-         // Saving MyPay Settings
+    // Saving MyPay Settings
     saveMyPaySettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -1742,7 +1757,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1767,10 +1782,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
-        // Saving Neem Settings
+    // Saving Neem Settings
     saveNeemSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -1793,7 +1808,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1818,10 +1833,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
-        // Saving Network International Settings
+    // Saving Network International Settings
     saveNetworkInternationalSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -1843,7 +1858,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1868,11 +1883,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-       // Saving Nift Settings
+    // Saving Nift Settings
     saveNiftSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -1897,7 +1912,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1922,10 +1937,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
-       // Saving Pay2M Settings
+    // Saving Pay2M Settings
     savePay2MSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -1948,7 +1963,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -1973,11 +1988,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving PayFast Settings
+    // Saving PayFast Settings
     savePayFastSettings(formData) {
       this.scroll();
       this.saveDataLoading = true;
@@ -2005,7 +2020,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -2030,11 +2045,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving Paymob Settings
+    // Saving Paymob Settings
     savePaymobSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -2060,7 +2075,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -2085,11 +2100,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving PayPro Settings
+    // Saving PayPro Settings
     savePayProSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -2111,7 +2126,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -2136,10 +2151,10 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
-        // Saving Paystack Settings
+    // Saving Paystack Settings
     savePaystackSettings(formData) {
       this.saveDataLoading = true;
       this.redirect_domain = "";
@@ -2160,7 +2175,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -2185,11 +2200,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving Rapyd Settings
+    // Saving Rapyd Settings
     saveRapydSettings(formData) {
       this.saveDataLoading = true;
       this.scroll();
@@ -2211,7 +2226,7 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
@@ -2236,11 +2251,11 @@ export default {
             ) {
               this.$router.push("/error");
             }
-          }
+          },
         );
     },
 
-        // Saving TabPay Settings
+    // Saving TabPay Settings
     saveTabPaySettings(formData) {
       this.redirect_domain = "";
       this.saveDataLoading = true;
@@ -2260,11 +2275,384 @@ export default {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
             },
-          }
+          },
         )
         .then(
           (response) => {
             this.snackbar_text = "tabpay_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+    // Saving Paytab Settings
+    savePaytabSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/paytab_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.paytab_client_name,
+            client_description: formData.paytab_client_description,
+            profile_id: formData.paytab_profile_id,
+            server_key: formData.paytab_server_key,
+            client_key: formData.paytab_client_key,
+            is_active: formData.paytab_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          },
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "paytab_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+    // Saving TBC Settings
+    saveTBCSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/tbc_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.tbc_client_name,
+            client_description: formData.tbc_client_description,
+            app_key: formData.tbc_app_key,
+            web_client_id: formData.tbc_web_client_id,
+            web_client_secret: formData.tbc_web_client_secret,
+            is_active: formData.tbc_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          },
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "tbc_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+    // Saving Swich Settings
+    saveSwichSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/swich_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.swich_client_name,
+            client_description: formData.swich_client_description,
+            client_id: formData.swich_client_id,
+            secret_key: formData.swich_secret_key,
+            transaction_type: formData.swich_transaction_type,
+            is_active: formData.swich_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          },
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "swich_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+    // Saving Walee Settings
+    saveWaleeSettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/walee_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.walee_client_name,
+            client_description: formData.walee_client_description,
+            public_key: formData.walee_public_key,
+            private_key: formData.walee_private_key,
+            sid: formData.walee_sid,
+            msisdn: formData.walee_msisdn,
+            is_active: formData.walee_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          },
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "walee_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+    // Saving SafePay Settings
+    saveSafePaySettings(formData) {
+      this.saveDataLoading = true;
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/safepay_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.safepay_client_name,
+            client_description: formData.safepay_client_description,
+            sandbox_api_key: formData.safepay_sandbox_api_key,
+            sandbox_secret_key: formData.safepay_sandbox_secret_key,
+            api_key: formData.safepay_api_key,
+            secret_key: formData.safepay_secret_key,
+            is_active: formData.safepay_is_active,
+            hide_countries_list: formData.safepay_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          },
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "safepay_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+    saveStripeSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/stripe_configuration?shop=" +
+            this.$shop,
+          {
+            client_name: formData.stripe_client_name,
+            client_description: formData.stripe_client_description,
+            stripe_publishable_key: formData.stripe_stripe_publishable_key,
+            stripe_secret_key: formData.stripe_stripe_secret_key,
+            is_active: formData.stripe_is_active,
+            multi_currency: formData.stripe_multi_currency,
+            merchant_account_currency:
+              formData.stripe_merchant_account_currency,
+            conversion_rate: formData.stripe_conversion_rate,
+            hide_countries_list: formData.stripe_hide_countries_list,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          },
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "stripe_settings_saved";
+            this.redirect_domain = response.data.redirect_domain;
+            this.snackbar_status = "success";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            if (this.redirect_domain != "") {
+              window.open(this.redirect_domain);
+            }
+            this.getAllProviderData();
+          },
+          (error) => {
+            this.snackbar_status = "red";
+            this.snackbar = true;
+            this.saveDataLoading = false;
+            this.snackbar_text = error;
+            if (
+              error.response.data.detail ==
+              "Session expired, Reopen the application!"
+            ) {
+              this.$router.push("/error");
+            }
+          },
+        );
+    },
+
+        // Saving UBL Settings
+    saveUBLSettings(formData) {
+      this.saveDataLoading = true;
+      this.scroll();
+      this.redirect_domain = "";
+      this.$Axios
+        .post(
+          this.$backendURL +
+            "/payment_app/ubl_configuration?shop=" +
+            this.$shop,
+          {
+            user_name: formData.ubl_user_name,
+            password: formData.ubl_password,
+            customer_data: formData.ubl_customer_data,
+            client_name: formData.ubl_client_name,
+            certificate_path: formData.ubl_certificate_path,
+            switch_currency: formData.ubl_switch_currency,
+            merchant_account_currency: formData.ubl_merchant_account_currency,
+            conversion_rate: formData.ubl_conversion_rate,
+            is_terminal_id: formData.ubl_is_terminal_id,
+            terminal_name: formData.ubl_terminal_name,
+            store_name: formData.ubl_store_name,
+            is_active: formData.ubl_is_active,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + this.$shopify_jwt_token,
+              "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
+            },
+          }
+        )
+        .then(
+          (response) => {
+            this.snackbar_text = "ubl_settings_saved";
             this.redirect_domain = response.data.redirect_domain;
             this.snackbar_status = "success";
             this.snackbar = true;

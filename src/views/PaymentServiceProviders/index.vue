@@ -419,6 +419,52 @@
                   @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
               </div>
             </div>
+            <div v-if="provider.transaction_obj.provider_name === 'paytab'">
+              <div v-if="selectedProvider == 'paytab'">
+                <Paytab :PaytabObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :savePaytabSettings="savePaytabSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'tbc'">
+              <div v-if="selectedProvider == 'tbc'">
+                <TBC :TBCbObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveTBCSettings="saveTBCSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'swich'">
+              <div v-if="selectedProvider == 'swich'">
+                <Swich :SwichObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveSwichSettings="saveSwichSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'walee'">
+              <div v-if="selectedProvider == 'walee'">
+                <Walee :WaleeObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :saveWaleeSettings="saveWaleeSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'safepay'">
+              <div v-if="selectedProvider == 'safepay'">
+                <SafePay :SafePayObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :country_codes="country_codes"
+                  :saveSafePaySettings="saveSafePaySettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'stripe'">
+              <div v-if="selectedProvider == 'stripe'">
+                <Stripe :StripeObj="provider" :AllProviderLoading="AllProviderLoading"
+                  :saveDataLoading="saveDataLoading" :currency_list="currency_list" :country_codes="country_codes"
+                  :saveStripeSettings="saveStripeSettings" @show-snackbar="triggerSnackbar" :isRtl="isRtl" />
+              </div>
+            </div>
+            <div v-if="provider.transaction_obj.provider_name === 'ubl'">
+              <div v-if="selectedProvider == 'ubl'">
+                <UBL :UBLObj="provider" :AllProviderLoading="AllProviderLoading" :saveDataLoading="saveDataLoading"
+                  :currency_list="currency_list" :country_codes="country_codes" :saveUBLSettings="saveUBLSettings"
+                  @show-snackbar="triggerSnackbar" :isRtl="isRtl"  />
+              </div>
+            </div>
           </div>
           <div v-if="selectedProvider == '' || selectedProvider == null" class="mt-4 empty-box border ml-0 mr-0">
             <div class="cstm-main empty-provider">

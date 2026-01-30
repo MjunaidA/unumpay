@@ -1,0 +1,36 @@
+.tab-parent {
+  .v-col {
+    button {
+      width: 100%;
+      box-shadow: unset;
+    }
+    button.tab-active {
+      background: #000;
+      color: #fff;
+      border: 1px solid #000;
+    }
+    button.tab-inactive {
+      background: #ffffff;
+      color: #000;
+      border: 1px solid #e2e8f0;
+    }
+  }
+}
+.content-container {
+   label{
+    display: block;
+   }
+  .save-btn,.reconciliation-save {
+    color: #fff;
+    background-color: #16a349 !important;
+  }
+  .config-download-btn{
+    background-color: #f5f5f5;
+    box-shadow: unset;
+    border: 1px solid #535D6D;
+    color: #535D6D;
+  }
+  input::placeholder {
+    font-size: 14px!important;
+  }
+}

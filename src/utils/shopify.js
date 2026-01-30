@@ -1,4 +1,4 @@
-// src/utils/shopify.js
+
 import createApp from "@shopify/app-bridge";
 import { getSessionToken } from "@shopify/app-bridge-utils";
 

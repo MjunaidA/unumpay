@@ -514,7 +514,8 @@
       "terminal_name":"Terminal Name",
       "terminal_name_required":"Terminal Name is required",
       "store_name":"Store Name",
-      "store_name_required":"Store Name is required"
+      "store_name_required":"Store Name is required",
+      "access_token":"Access Token"
     }
   },
   "payment-providers_snackbar": {
@@ -562,6 +563,26 @@
     "safepay_settings_saved":"Safepay settings saved successfully",
     "stripe_settings_saved": "Stripe settings saved successfully",
     "ubl_settings_saved": "UBL settings saved successfully"
+  },
+  "setting_page":{
+      "text":{
+        "contact_detail":"Contact Detail",
+        "reconciliation_report_settings":"Reconciliation Report Settings",
+        "advanced_setting":"Advanced Settings",
+        "full_name":"Full Name",
+        "field_required":"This field is required",
+        "email_must_be_valid":"Email must be valid",
+        "job_title":"Job Title",
+        "email_address":"Email Address",
+        "contact_method":"Preferred Contact Method",
+        "download_guide":"Download Configuration Guide"
+      },
+      "snackbar":{
+        "contact_saved_successfully":"Contact details saved successfully",
+        "contact_data_loaded_successfully":"Contact details loaded successfully",
+        "reconciliation_data_loaded_successfully":"Reconciliation data loaded successfully",
+        "reconciliation_settings_saved_successfully":"Reconciliation settings saved successfully"
+      }
   },
   "$vuetify": {
     "open": "Open",

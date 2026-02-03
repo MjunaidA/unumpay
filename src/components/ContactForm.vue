@@ -1,7 +1,7 @@
 <template>
     <div class="contact-form-container">
         <div class="contact-form-wrapper">
-            <div class="contact-head d-flex justify-space-between align-center">
+            <div class="contact-head cstm-head pb-3 d-flex justify-space-between align-center">
                 <h1 class="cstm-heaing fontWeight600 fontSize20">{{ $t('setting_page.text.contact_detail') }}</h1>
                 <v-btn class="contact-save save-btn capatilize border-radius fontSize14 fontWeight500" @click="saveForm"
                     :disabled="contactLoading">{{ $t('$vuetify.save') }}</v-btn>

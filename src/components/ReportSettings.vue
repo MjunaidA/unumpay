@@ -1,12 +1,12 @@
 <template>
     <div class="reconciliation-form-container" v-if="recReportSettings != null && !recReportSettingsLoading">
         <div class="reconciliation-form-wrapper">
-            <div class="reconciliation-head d-flex justify-space-between align-center">
+            <div class="reconciliation-head cstm-head pb-3 d-flex justify-space-between align-center wrap">
                 <div>
                     <h1 class="cstm-heaing fontWeight600 fontSize20">{{
                         $t('setting_page.text.reconciliation_report_settings') }}</h1>
                 </div>
-                <div>
+                <div class="d-flex align-center reco-action-btns wrap">
                     <v-btn class="config-download-btn mr-3 capatilize border-radius fontSize14 fontWeight500"
                         @click="downloadGuide()" :class="isRtl ? 'ml-3' : 'mr-3'">
                         <img src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Group_fe8dbdc2-0dea-4ec7-aeda-d6079073b3f7.svg?v=1755688947"

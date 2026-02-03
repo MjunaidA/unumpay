@@ -11,6 +11,10 @@ img {
   display: inline-flex;
 }
 
+.wrap{
+  flex-wrap: wrap !important;
+}
+
 .row-reverse{
   flex-direction: row-reverse !important;
 }

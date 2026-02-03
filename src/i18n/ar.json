@@ -575,18 +575,53 @@
       "job_title":"المسمى الوظيفي",
       "email_address":"عنوان البريد الإلكتروني",
       "contact_method":"طريقة الاتصال المفضلة",
-      "download_guide":"تحميل دليل التكوين"
+      "download_guide":"تحميل دليل التكوين",
+      "advance_settings":"الإعدادات المتقدمة",
+      "msg":"عرض رسالة على شاشة الدفع",
+      "tool_tip_text":"أضف رسالة مخصصة سيرىها العملاء على شاشة الدفع بعد إتمام الشراء.",
+      "textarea_placeholder":"اكتب شيئًا.....",
+      "round_off_amount":"مبلغ التقريب",
+      "round_off_tooltip1": "إذا كنت تريد تقريب المبلغ في صفحة الدفع بالبطاقة.",
+      "round_off_tooltip2": "مثال: 1.50 سيصبح 1.00 و 1.51 سيصبح 2.00.",
+      "round_off_tooltip3":" اختيار طريقة التقريب التي تريد تطبيقها على كل طلب.",
+      "round_off_tooltip4":"تفرض نسبة مئوية من إجمالي الطلب. على سبيل المثال: 2.5٪ على 1,000 دولار = 1,025 دولار",
+      "round_off_tooltip5":"تضيف مبلغًا ثابتًا لكل طلب. على سبيل المثال: 50 دولارًا على 1,000 دولار = 1,050 دولار",
+      "extra_amount":"المبلغ الإضافي",
+      "charge_type":"نوع الرسوم",
+      "fixed_percentage":"النسبة الثابتة",
+      "charge_value_required":"قيمة الرسوم مطلوبة",
+      "fixed_amount":"المبلغ الثابت",
+      "percentage_fee":"رسوم النسبة المئوية",
+      "fixed_fee":"رسوم ثابتة",
+      "payment_provider_sorting":"ترتيب مزود الدفع",
+      "payment_provider_sorting_desc":"ترتيب مخصص لمزود خدمة الدفع",
+      "arrange_providers":"ترتيب المزودين",
+      "provider_sorting_list":"قائمة ترتيب المزودين",
+      "active_providers":"المزودين النشطين",
+      "select_providers_desc":"اختر مزود خدمة الدفع الذي ترغب في تنظيمه",
+      "organize_providers_desc":"حدد ترتيب العرض للعملاء",
+      "activate_provider_desc":" يرجى تفعيل مزود الخدمة الخاص بك من الإعدادات",
+      "add_provider_desc":"يرجى إضافة مزود الخدمة الخاص بك للمتابعة",
+      "position":"الموضع",
+      "hide_payment_provider":"إخفاء مزود الدفع",
+      "select_payment_service_provider":"اختر مزود خدمة الدفع",
+      "select_country_code":"اختر رمز الدولة"
     },
     "snackbar": {
       "contact_saved_successfully":"تم حفظ تفاصيل الاتصال بنجاح",
       "contact_data_loaded_successfully":"تم تحميل تفاصيل الاتصال بنجاح",
       "reconciliation_data_loaded_successfully":"تم تحميل بيانات التسوية بنجاح",
-      "reconciliation_settings_saved_successfully":"تم حفظ إعدادات التسوية بنجاح"
+      "reconciliation_settings_saved_successfully":"تم حفظ إعدادات التسوية بنجاح",
+      "advance_settings_loaded_successfully":"تم تحميل الإعدادات المتقدمة بنجاح",
+      "advance_settings_save_successfully":"تم حفظ الإعدادات المتقدمة بنجاح"
     }
   },
   "$vuetify": {
     "open": "فتح",
     "close": "إغلاق",
+    "cancel":" إلغاء",
+    "save_order":" حفظ الترتيب",
+    "clear_all":"مسح الكل",
     "doneBtn": "تم",
     "search": "بحث",
     "active": "نشط",
@@ -598,7 +633,8 @@
     "only_english_allowed": "يسمح فقط بالأحرف الإنجليزية",
     "noDataText": "لا توجد سجلات",
     "input": {
-      "appendAction": "إضافة إجراء"
+      "appendAction": "إضافة إجراء",
+      "clear":"مسح"
     },
     "dataFooter": {
       "itemsPerPageText": "عدد العناصر في الصفحة:",

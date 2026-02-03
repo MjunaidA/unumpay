@@ -575,18 +575,53 @@
         "job_title":"Job Title",
         "email_address":"Email Address",
         "contact_method":"Preferred Contact Method",
-        "download_guide":"Download Configuration Guide"
+        "download_guide":"Download Configuration Guide",
+        "advance_settings":"Advance Settings",
+        "msg":"Display Message on Payment Screen",
+        "tool_tip_text":"Add a custom message that customers will see on the payment screen after checkout.",
+        "textarea_placeholder":"Write Something.....",
+        "round_off_amount":"Round Off Amount",
+        "round_off_tooltip1":"If you want to round off amount on card page.",
+        "round_off_tooltip2":"Example: 1.50 will become 1.00 and 1.51 will become 2.00.",
+        "round_off_tooltip3":"If you want to round off amount on card page.",
+        "round_off_tooltip4":"Charges a percentage of the order total. E.g. 2.5% on $1,000 = $1,025 ",
+        "round_off_tooltip5":"Adds a set amount to every order.  E.g. $50 on $1,000 = $1,050",
+        "extra_amount":"Extra Amount",
+        "charge_type":"Charge Type",
+        "fixed_percentage":"Fixed Percentage",
+        "charge_value_required":"Charge Value is required",
+        "fixed_amount":"Fixed Amount",
+        "percentage_fee":"Percentage Fee",
+        "fixed_fee":"Fixed Fee",
+        "payment_provider_sorting":"Payment Provider Sorting",
+        "payment_provider_sorting_desc":"Custom Sort Payment Service Provider",
+        "arrange_providers":"Arrange Providers",
+        "provider_sorting_list":"Provider Sorting List",
+        "active_providers":"Active Providers",
+        "select_providers_desc":"Select the PSP you’d like to organize",
+        "organize_providers_desc":"Set the display order for customers",
+        "activate_provider_desc":" Please activate your provider from Configuration",
+        "add_provider_desc":"Please add your provider to continue",
+        "position":"Position",
+        "hide_payment_provider":"Hide Payment Provider",
+        "select_payment_service_provider":"Select Payment Service Provider",
+        "select_country_code":" Select Country Code"
       },
       "snackbar":{
         "contact_saved_successfully":"Contact details saved successfully",
         "contact_data_loaded_successfully":"Contact details loaded successfully",
         "reconciliation_data_loaded_successfully":"Reconciliation data loaded successfully",
-        "reconciliation_settings_saved_successfully":"Reconciliation settings saved successfully"
+        "reconciliation_settings_saved_successfully":"Reconciliation settings saved successfully",
+        "advance_settings_loaded_successfully":"Advance settings loaded successfully",
+        "advance_settings_save_successfully":"Advance settings saved successfully"
       }
   },
   "$vuetify": {
     "open": "Open",
     "close": "Close",
+    "cancel":" Cancel",
+    "save_order":" Save Order",
+    "clear_all":" Clear all",
     "doneBtn": "Done",
     "search": "Search",
     "active": "Active",
@@ -598,7 +633,8 @@
     "only_english_allowed": "Only English characters are allowed",
     "noDataText": "No record found",
     "input": {
-      "appendAction": "Append action"
+      "appendAction": "Append action",
+      "clear":" Clear"
     },
     "dataFooter": {
       "itemsPerPageText": "Items per page:",

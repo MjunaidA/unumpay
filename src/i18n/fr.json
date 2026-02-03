@@ -575,18 +575,53 @@
       "job_title":"Intitulé du poste",
       "email_address":"Adresse électronique",
       "contact_method":"Méthode de contact préférée",
-      "download_guide":"Télécharger le guide de configuration"
+      "download_guide":"Télécharger le guide de configuration",
+      "advance_settings":"Paramètres avancés",
+      "msg":"Afficher le message sur l'écran de paiement",
+      "tool_tip_text":"Ajoutez un message personnalisé que les clients verront sur l'écran de paiement après le passage en caisse.",
+      "textarea_placeholder":"Écrivez quelque chose.....",
+      "round_off_amount":"Montant d'arrondi",
+      "round_off_tooltip1":"Si vous souhaitez arrondir le montant sur la page de la carte.",
+      "round_off_tooltip2":"Exemple : 1,50 deviendra 1,00 et 1,51 deviendra 2,00.",
+      "round_off_tooltip3":"Si vous souhaitez arrondir le montant sur la page de paiement.",
+      "round_off_tooltip4":"Applique un pourcentage du total de la commande. Par ex. 2,5 % sur 1 000 $ = 1 025 $",
+      "round_off_tooltip5":"Ajoute un montant fixe à chaque commande. Par ex. 50 $ sur 1 000 $ = 1 050 $",
+      "extra_amount":"Montant supplémentaire",
+      "charge_type":"Type de frais",
+      "fixed_percentage":"Pourcentage fixe",
+      "charge_value_required":"La valeur des frais est requise",
+      "fixed_amount":"Montant fixe",
+      "percentage_fee":"Frais en pourcentage",
+      "fixed_fee":"Frais fixes",
+      "payment_provider_sorting":"Tri des fournisseurs de paiement",
+      "payment_provider_sorting_desc":"Tri personnalisé des fournisseurs de services de paiement",
+      "arrange_providers":"Organiser les fournisseurs",
+      "provider_sorting_list":"Liste de tri des fournisseurs",
+      "active_providers":"Fournisseurs actifs",
+      "select_providers_desc":"Sélectionnez le PSP que vous souhaitez organiser",
+      "organize_providers_desc":"Définissez l'ordre d'affichage pour les clients",
+      "activate_provider_desc":"Veuillez activer votre fournisseur depuis la configuration",
+      "add_provider_desc":"Veuillez ajouter votre fournisseur pour continuer",
+      "position":"Position",
+      "hide_payment_provider":"Masquer le fournisseur de paiement",
+      "select_payment_service_provider":"Sélectionnez le fournisseur de services de paiement",
+      "select_country_code":"Sélectionnez le code du pays"
     },
     "snackbar": {
       "contact_saved_successfully":"Détails du contact enregistrés avec succès",
       "contact_data_loaded_successfully":"Détails du contact chargés avec succès",
       "reconciliation_data_loaded_successfully":"Données de réconciliation chargées avec succès",
-      "reconciliation_settings_saved_successfully":"Paramètres de réconciliation enregistrés avec succès"
+      "reconciliation_settings_saved_successfully":"Paramètres de réconciliation enregistrés avec succès",
+      "advance_settings_loaded_successfully":"Paramètres avancés chargés avec succès",
+      "advance_settings_save_successfully":"Paramètres avancés enregistrés avec succès"
     }
   },
   "$vuetify": {
     "open": "Ouvrir",
     "close": "Fermer",
+    "cancel":" Annuler",
+    "save_order":" Enregistrer l'ordre",
+    "clear_all":" Tout effacer",
     "doneBtn": "Terminé",
     "search": "Rechercher",
     "active": "Actif",
@@ -598,7 +633,8 @@
     "only_english_allowed": "Seuls les caractères anglais sont autorisés",
     "noDataText": "Aucun enregistrement trouvé",
     "input": {
-      "appendAction": "Ajouter une action"
+      "appendAction": "Ajouter une action",
+      "clear":"Effacer"
     },
     "dataFooter": {
       "itemsPerPageText": "Articles par page:",

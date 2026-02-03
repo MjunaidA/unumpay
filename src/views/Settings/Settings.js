@@ -1,9 +1,10 @@
 import ContactForm from "../../components/ContactForm.vue";
 import ReportSettings from "../../components/ReportSettings.vue";
+import AdvanceSettings from "../../components/AdvanceSettings.vue";
 
 export default {
   name: "Settings",
-  components: { ContactForm, ReportSettings },
+  components: { ContactForm, ReportSettings, AdvanceSettings },
   data() {
     return {
       shop_obj: {},
@@ -124,12 +125,15 @@ export default {
             headers: {
               Authorization: "Bearer " + this.$shopify_jwt_token,
               "Custom-Authorization": this.$API_TOKEN.replace("%20", " "),
-              "Content-Type": "application/json",  
+              "Content-Type": "application/json",
             },
           },
         )
         .then(() => {
-          this.triggerSnackbar({ text: "contact_saved_successfully", status: "success" });
+          this.triggerSnackbar({
+            text: "contact_saved_successfully",
+            status: "success",
+          });
           setTimeout(() => {
             this.getContactForm();
           }, 1000);
@@ -141,7 +145,10 @@ export default {
           ) {
             this.$router.push("/error");
           }
-          this.triggerSnackbar({ text: error.response.data.detail, status: "error" });
+          this.triggerSnackbar({
+            text: error.response.data.detail,
+            status: "error",
+          });
         });
     },
     getContactForm() {
@@ -167,13 +174,19 @@ export default {
           this.jobTitle = response.data.data.merchant_job_title;
           this.field_loading = false;
           this.contactLoading = false;
-          this.triggerSnackbar({ text: "contact_data_loaded_successfully", status: "success" });
+          this.triggerSnackbar({
+            text: "contact_data_loaded_successfully",
+            status: "success",
+          });
         })
         .catch((error) => {
           this.snackbar = true;
           this.field_loading = false;
           this.contactLoading = false;
-          this.triggerSnackbar({ text: error.response.data.detail, status: "error" });
+          this.triggerSnackbar({
+            text: error.response.data.detail,
+            status: "error",
+          });
           if (
             error.response.data.detail ==
             "Session expired, Reopen the application!"
@@ -200,10 +213,16 @@ export default {
           (response) => {
             this.recReportSettings = response.data;
             this.recReportSettingsLoading = false;
-             this.triggerSnackbar({ text: "reconciliation_data_loaded_successfully", status: "success" });
+            this.triggerSnackbar({
+              text: "reconciliation_data_loaded_successfully",
+              status: "success",
+            });
           },
           (error) => {
-            this.triggerSnackbar({ text: error.response.data.detail, status: "error" });
+            this.triggerSnackbar({
+              text: error.response.data.detail,
+              status: "error",
+            });
             if (
               error.response.data.detail ==
               "Session expired, Reopen the application!"
@@ -240,13 +259,19 @@ export default {
         )
         .then((response) => {
           console.log("Data saved:", response.data);
-          this.triggerSnackbar({ text: "reconciliation_settings_saved_successfully", status: "success" });
+          this.triggerSnackbar({
+            text: "reconciliation_settings_saved_successfully",
+            status: "success",
+          });
           setTimeout(() => {
             this.getRecoReportSettings();
           }, 500);
         })
         .catch((error) => {
-          this.triggerSnackbar({ text: error.response.data.detail, status: "error" });
+          this.triggerSnackbar({
+            text: error.response.data.detail,
+            status: "error",
+          });
           if (
             error.response.data.detail ==
             "Session expired, Reopen the application!"
@@ -271,14 +296,16 @@ export default {
           (response) => {
             this.advanceSettings = response.data;
             this.advanceSettingsLoading = false;
-            this.snackbar = true;
-            this.snackbar_status = "green";
-            this.snackbar_text = "Advance settings data loaded successfully";
+            this.triggerSnackbar({
+              text: "advance_settings_loaded_successfully",
+              status: "success",
+            });
           },
           (error) => {
-            this.snackbar = true;
-            this.snackbar_status = "red";
-            this.snackbar_text = error.response.data.detail;
+            this.triggerSnackbar({
+              text: error.response.data.detail,
+              status: "error",
+            });
             this.shop_obj = {};
             this.advanceSettingsLoading = false;
 
@@ -315,17 +342,19 @@ export default {
         )
         .then((response) => {
           console.log("Data saved:", response.data);
-          this.snackbar_text = "Advance Settings details added successfully";
-          this.snackbar = true;
-          this.snackbar_status = "success";
+           this.triggerSnackbar({
+              text: "advance_settings_save_successfully",
+              status: "success",
+            });
           setTimeout(() => {
             this.getAdvanceSetting();
           }, 500);
         })
         .catch((error) => {
-          this.snackbar_text = error.response.data.detail;
-          this.snackbar = true;
-          this.snackbar_status = "red";
+           this.triggerSnackbar({
+              text: error.response.data.detail,
+              status: "error",
+            });
           if (
             error.response.data.detail ==
             "Session expired, Reopen the application!"

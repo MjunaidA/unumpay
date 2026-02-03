@@ -24,7 +24,7 @@
           </v-btn>
         </v-col>
       </v-row>
-      <div class="content-container pageWidth border-radius bgWhite mt-4 pa-4">
+      <div class="content-container pageWidth border-radius bgWhite mt-4 pa-4 pb-15">
         <div class="content-wrapper">
           <div v-if="activeTab === 'contact'">
             <ContactForm :save-contact-form="saveContactForm" :get-contact-form="getContactForm" :NameField="fullName"
@@ -37,10 +37,16 @@
                 <v-skeleton-loader type="text" class="inline-skeleton" width="100%" height="120px" />
               </div>
             </div>
-            <ReportSettings :isRtl="isRtl" :recReportSettings="recReportSettings" :recReportSettingsLoading="recReportSettingsLoading"
-              @show-snackbar="triggerSnackbar" :downloadGuide="downloadGuide" :saveReconcilationForm="saveReconcilationForm" />
+            <ReportSettings :isRtl="isRtl" :recReportSettings="recReportSettings"
+              :recReportSettingsLoading="recReportSettingsLoading" @show-snackbar="triggerSnackbar"
+              :downloadGuide="downloadGuide" :saveReconcilationForm="saveReconcilationForm" />
           </div>
-          <div v-else-if="activeTab === 'other'"></div>
+          <div v-else-if="activeTab === 'other'">
+            <AdvanceSettings :isRtl="isRtl" :advanceSettings="advanceSettings" :advanceSettingsLoading="advanceSettingsLoading"
+              :charge_type_list="charge_type_list" :providers_list="providers_list"
+              :providerListLoading="providerListLoading" :country_codes="country_codes"
+              :hideProviderToggle="hideProviderToggle" :saveAdvanceSettingForm="saveAdvanceSettingForm" />
+          </div>
         </div>
       </div>
     </div>

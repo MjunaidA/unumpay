@@ -109,7 +109,7 @@
                     src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Email.svg?v=1758200855"
                     alt="Email" style="width: 20px; height: 20px;" />
             </template>
-            <v-list-item-title class="fontWeight500 fontSize12 capatilize">unum.pay@devsinc.com</v-list-item-title>
+            <v-list-item-title class="fontWeight500 fontSize12">unum.pay@devsinc.com</v-list-item-title>
         </v-list-item>
     </v-list>
 

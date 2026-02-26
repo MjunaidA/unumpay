@@ -32,6 +32,9 @@
     "sass": "^1.92.1",
     "sass-loader": "^16.0.5"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "eslintConfig": {
     "root": true,
     "env": {

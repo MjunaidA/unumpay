@@ -20,7 +20,7 @@
           </div>
         </template>
       </div>
-      <div class="stats-container">
+      <div class="stats-container mb-4">
         <v-container class="pa-0 pageWidth">
           <v-row cols="12" md="4" class="stats-row">
             <v-col class="pa-0">

@@ -2,7 +2,7 @@
   <div class="provider-filter">
     <div>
       <v-row
-        class="provider-filter-wrapper border cstm-filter-bar filter-bar d-flex flex-wrap align-center pageWidth bgWhite border-radius mt-4">
+        class="provider-filter-wrapper border cstm-filter-bar filter-bar d-flex flex-wrap align-center pageWidth bgWhite border-radius margin-top-16">
         <v-col class="search" v-if="activeTab == 'overview'">
           <v-text-field height="37px" :label="$t('$vuetify.search')" class="border-radius" variant="outlined"
             density="compact" v-model="search" hide-details>

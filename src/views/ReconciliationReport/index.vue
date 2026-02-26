@@ -1,6 +1,6 @@
 <template>
   <div class="reconciliation-page-container cstm-filter-bar" v-if="!loading_data && reportStatus == true">
-    <div class="alert-container pageWidth border-radius mt-4">
+    <div class="alert-container pageWidth border-radius margin-top-16">
       <v-alert color="#FFD2D2" dark style="color:#D60000;" class="align-center pa-2 border-radius">
         <img :class="isRtl ? 'ml-2' : 'mr-2'"
           src="https://cdn.shopify.com/s/files/1/0612/1662/0768/files/Group_5_6d82280d-c27a-4a50-8955-2ce8dbfedd66.svg?v=1755585970"
@@ -10,7 +10,7 @@
 
     </div>
     <v-row
-      class="reconciliation-filter-wrapper align-center d-flex flex-wrap pageWidth bgWhite border-radius border mt-4 filter-bar">
+      class="reconciliation-filter-wrapper align-center d-flex flex-wrap pageWidth bgWhite border-radius border margin-top-16 filter-bar">
       <v-col cols="12" class="search pa-3 filter-col">
         <v-text-field height="37px" :label="$t('$vuetify.search')" class="border-radius" variant="outlined"
           density="compact" v-model="search" hide-details>
@@ -72,7 +72,7 @@
 
     <div class="data-table">
       <div class="data-table-container">
-        <v-container class="pageWidth bgWhite border-radius border mt-4">
+        <v-container class="pageWidth bgWhite border-radius border margin-top-16">
           <div class="table-header">
             <h3 class="mb-4 fontWeight600 fontSize16">{{ $t('reconciliationReportPage.table.title') }}</h3>
             <template v-if="table_loading">

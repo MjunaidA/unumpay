@@ -219,7 +219,7 @@
         </div>
         <LineChart :chart-data="datacollection" :chart-options="chartOptions" :key="shop_currency" />
       </div>
-      <div class="transaction-container mt-4 pageWidth d-flex">
+      <div class="transaction-container margin-top-16 pageWidth d-flex">
         <div class="recent-transaction border border-radius">
           <div class="recent-transaction-wrapper">
             <h2 class="fontSize18 fontWeight600">{{ $t('recent_transactions.title') }}</h2>

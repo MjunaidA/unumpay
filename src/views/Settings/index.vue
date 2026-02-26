@@ -1,7 +1,7 @@
 <template>
   <div class="tab-container">
     <div class="tab-wrapper">
-      <v-row class="d-flex mb-4 tab-parent pageWidth bgWhite border-radius border mt-4">
+      <v-row class="d-flex mb-4 tab-parent pageWidth bgWhite border-radius border margin-top-16 ">
         <v-col>
           <v-btn class="border-radius capatilize fontSize12 fontWeight500"
             :class="activeTab === 'contact' ? 'tab-active' : 'tab-inactive'" :disabled="contactLoading"
@@ -24,7 +24,7 @@
           </v-btn>
         </v-col>
       </v-row>
-      <div class="content-container pageWidth border-radius bgWhite mt-4 pa-4 pb-15">
+      <div class="content-container pageWidth border-radius bgWhite margin-top-16 pa-4 pb-15">
         <div class="content-wrapper">
           <div v-if="activeTab === 'contact'">
             <ContactForm :save-contact-form="saveContactForm" :get-contact-form="getContactForm" :NameField="fullName"

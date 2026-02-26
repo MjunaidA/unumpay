@@ -201,7 +201,7 @@
           </v-row>
         </v-container>
       </div>
-      <div class="graph-container border pa-4 pageWidth bgWhite border-radius mt-4">
+      <div class="graph-container border pa-4 pageWidth bgWhite border-radius mb-4 mt-4">
         <div class="graph-headings-container mb-4 d-flex align-center justify-space-between flex-wrap">
           <div class="heading-left">
             <h2 class="fontWeight600 fontSize18 mb-1 fontSize18 fontWeight600">{{ $t('payment_trend_title') }}</h2>

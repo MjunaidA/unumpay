@@ -38,9 +38,9 @@ app.config.globalProperties.$backendURL = "https://unumpay.alche.cloud";
 // app.config.globalProperties.$host = url_params.host;
 /////////////////////// Session Token Working ///////////////////////
 
-app.config.globalProperties.$API_TOKEN = "Token%20fe0a03b8cc50a8c99425ed24b218cc469c8095c9";
+app.config.globalProperties.$API_TOKEN = "Token%206b554db75401c8be835467f5603d596ac6b3471d";
 app.config.globalProperties.$shop = "junaid-jamshed-new-testing.myshopify.com";
-app.config.globalProperties.$shopify_jwt_token = "Token%20fe0a03b8cc50a8c99425ed24b218cc469c8095c9";
+app.config.globalProperties.$shopify_jwt_token = "Token%206b554db75401c8be835467f5603d596ac6b3471d";
 // app.config.globalProperties.$plan_name = "Bronze";
 // app.config.globalProperties.$plan_name = "Silver";
 // app.config.globalProperties.$plan_name = "Gold";
